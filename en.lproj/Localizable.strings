@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Vodka
+
+  Created by dinglin on 2017/3/4.
+  Copyright © 2017年 dinglin. All rights reserved.
+*/
+"Goods" = "Tea";
+"Discover" = "Discover";
+"Me" = "Me";
+"Search" = "Search";
+"Login" = "Login";
+"Feedback" = "Feedback";
+"Recommend to friends" = "Recommend to friends";
+"Not logged in" = "Not logged in";
+"Click portrait to login" = "Click portrait to login";
+"Night mode" = "Night mode";
+"Thirdpart account login" = "Thirdpart account login";
+
+

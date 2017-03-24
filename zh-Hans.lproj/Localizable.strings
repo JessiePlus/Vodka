@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Vodka
+
+  Created by dinglin on 2017/3/4.
+  Copyright © 2017年 dinglin. All rights reserved.
+*/
+"Goods" = "茶";
+"Discover" = "探索";
+"Me" = "我";
+"Search" = "搜索";
+"Login" = "登录";
+"Feedback" = "反馈建议";
+"Recommend to friends" = "推荐给好友";
+"Not logged in" = "未登录";
+"Click portrait to login" = "点击头像登录";
+"Night mode" = "夜间模式";
+"Thirdpart account login" = "第三方账户登录";

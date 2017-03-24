@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		D63612781E6BA8C600C2322D /* VodkaDocument */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D636127B1E6BA8C600C2322D /* Build configuration list for PBXAggregateTarget "VodkaDocument" */;
+			buildPhases = (
+				D636127C1E6BA8D900C2322D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = VodkaDocument;
+			productName = VodkaDocument;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */; };
+		D6188BCF1E84B5BE0020EA7F /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BCE1E84B5BE0020EA7F /* DiscoverViewController.m */; };
+		D6188BD21E84B9FF0020EA7F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD11E84B9FF0020EA7F /* LoginViewController.m */; };
+		D6188BD51E84C04D0020EA7F /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD41E84C04D0020EA7F /* UserInfoCell.m */; };
+		D6188BD81E84EFBF0020EA7F /* UserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD71E84EFBF0020EA7F /* UserInfoHeaderCell.m */; };
+		D6188BDB1E84FA340020EA7F /* UserInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDA1E84FA340020EA7F /* UserInfoSwitchCell.m */; };
+		D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDD1E8508000020EA7F /* GoodsCategoriesViewController.m */; };
+		D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */; };
+		D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE31E8572170020EA7F /* DLGoodsCategories.m */; };
+		D6188BE61E85900B0020EA7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6188BE51E85900B0020EA7F /* MapKit.framework */; };
+		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
+		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
+		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
+		D636125D1E6A89DC00C2322D /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D636125C1E6A89DC00C2322D /* UserCenterViewController.m */; };
+		D63612621E6ABBA900C2322D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D63612641E6ABBA900C2322D /* Localizable.strings */; };
+		D636126F1E6B9BE900C2322D /* VodkaService.m in Sources */ = {isa = PBXBuildFile; fileRef = D636126E1E6B9BE900C2322D /* VodkaService.m */; };
+		D63612721E6B9C3300C2322D /* VodkaService+User.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612711E6B9C3300C2322D /* VodkaService+User.m */; };
+		D63612751E6BA44000C2322D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612741E6BA44000C2322D /* User.m */; };
+		D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */; };
+		D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */; };
+		D6FDD1CA1E6D57F3000EC55B /* VodkaService+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */; };
+		D6FDD1CE1E6EB2F0000EC55B /* DLGoodsCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1CD1E6EB2F0000EC55B /* DLGoodsCellModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.release.xcconfig"; sourceTree = "<group>"; };
+		C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodka.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6188BCD1E84B5BE0020EA7F /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		D6188BCE1E84B5BE0020EA7F /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		D6188BD01E84B9FF0020EA7F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D6188BD11E84B9FF0020EA7F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D6188BD31E84C04D0020EA7F /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
+		D6188BD41E84C04D0020EA7F /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
+		D6188BD61E84EFBF0020EA7F /* UserInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoHeaderCell.h; sourceTree = "<group>"; };
+		D6188BD71E84EFBF0020EA7F /* UserInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoHeaderCell.m; sourceTree = "<group>"; };
+		D6188BD91E84FA340020EA7F /* UserInfoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoSwitchCell.h; sourceTree = "<group>"; };
+		D6188BDA1E84FA340020EA7F /* UserInfoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoSwitchCell.m; sourceTree = "<group>"; };
+		D6188BDC1E8508000020EA7F /* GoodsCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCategoriesViewController.h; sourceTree = "<group>"; };
+		D6188BDD1E8508000020EA7F /* GoodsCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCategoriesViewController.m; sourceTree = "<group>"; };
+		D6188BDF1E8561CB0020EA7F /* GoodsCateroriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCateroriesCell.h; sourceTree = "<group>"; };
+		D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCateroriesCell.m; sourceTree = "<group>"; };
+		D6188BE21E8572170020EA7F /* DLGoodsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategories.h; sourceTree = "<group>"; };
+		D6188BE31E8572170020EA7F /* DLGoodsCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategories.m; sourceTree = "<group>"; };
+		D6188BE51E85900B0020EA7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D63612431E6A659200C2322D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D636124B1E6A659200C2322D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D63612501E6A659200C2322D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D636125B1E6A89DC00C2322D /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		D636125C1E6A89DC00C2322D /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		D63612631E6ABBA900C2322D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D63612651E6ABBBE00C2322D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D636126D1E6B9BE900C2322D /* VodkaService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VodkaService.h; sourceTree = "<group>"; };
+		D636126E1E6B9BE900C2322D /* VodkaService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodkaService.m; sourceTree = "<group>"; };
+		D63612701E6B9C3300C2322D /* VodkaService+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VodkaService+User.h"; sourceTree = "<group>"; };
+		D63612711E6B9C3300C2322D /* VodkaService+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VodkaService+User.m"; sourceTree = "<group>"; };
+		D63612731E6BA44000C2322D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D63612741E6BA44000C2322D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePhone.h; sourceTree = "<group>"; };
+		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
+		D6FDD1BE1E6CF9B2000EC55B /* DLGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoods.h; sourceTree = "<group>"; };
+		D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoods.m; sourceTree = "<group>"; };
+		D6FDD1C81E6D57F3000EC55B /* VodkaService+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VodkaService+Goods.h"; sourceTree = "<group>"; };
+		D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VodkaService+Goods.m"; sourceTree = "<group>"; };
+		D6FDD1CB1E6E9EE1000EC55B /* DLPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPersistence.h; sourceTree = "<group>"; };
+		D6FDD1CC1E6EB2F0000EC55B /* DLGoodsCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCellModel.h; sourceTree = "<group>"; };
+		D6FDD1CD1E6EB2F0000EC55B /* DLGoodsCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCellModel.m; sourceTree = "<group>"; };
+		E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D63612391E6A659100C2322D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6188BE61E85900B0020EA7F /* MapKit.framework in Frameworks */,
+				624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A45B26C180D3807D3FFF80C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6188BE51E85900B0020EA7F /* MapKit.framework */,
+				C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C822821975F8418AFB15657E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */,
+				81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D63612331E6A659100C2322D = {
+			isa = PBXGroup;
+			children = (
+				D636123E1E6A659200C2322D /* Vodka */,
+				D636123D1E6A659200C2322D /* Products */,
+				C822821975F8418AFB15657E /* Pods */,
+				3A45B26C180D3807D3FFF80C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D636123D1E6A659200C2322D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D636123C1E6A659200C2322D /* Vodka.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D636123E1E6A659200C2322D /* Vodka */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDD1BD1E6CF8E0000EC55B /* Model */,
+				D6FDD1C41E6D2F6C000EC55B /* ViewModel */,
+				D6A3E2E51E6BBEEA008CF763 /* Extensions */,
+				D63612771E6BA4D000C2322D /* UserDefaults */,
+				D63612761E6BA4A500C2322D /* Persistence */,
+				D636126C1E6B99BC00C2322D /* Services */,
+				D63612571E6A860800C2322D /* Views */,
+				D63612561E6A85DA00C2322D /* ViewControllers */,
+				D63612421E6A659200C2322D /* AppDelegate.h */,
+				D63612431E6A659200C2322D /* AppDelegate.m */,
+				D636124B1E6A659200C2322D /* Images.xcassets */,
+				D63612501E6A659200C2322D /* Info.plist */,
+				D63612641E6ABBA900C2322D /* Localizable.strings */,
+				D636123F1E6A659200C2322D /* Supporting Files */,
+			);
+			path = Vodka;
+			sourceTree = "<group>";
+		};
+		D636123F1E6A659200C2322D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D63612401E6A659200C2322D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D63612561E6A85DA00C2322D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D636125B1E6A89DC00C2322D /* UserCenterViewController.h */,
+				D636125C1E6A89DC00C2322D /* UserCenterViewController.m */,
+				D6188BCD1E84B5BE0020EA7F /* DiscoverViewController.h */,
+				D6188BCE1E84B5BE0020EA7F /* DiscoverViewController.m */,
+				D6188BD01E84B9FF0020EA7F /* LoginViewController.h */,
+				D6188BD11E84B9FF0020EA7F /* LoginViewController.m */,
+				D6188BDC1E8508000020EA7F /* GoodsCategoriesViewController.h */,
+				D6188BDD1E8508000020EA7F /* GoodsCategoriesViewController.m */,
+			);
+			name = ViewControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D63612571E6A860800C2322D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6188BD31E84C04D0020EA7F /* UserInfoCell.h */,
+				D6188BD41E84C04D0020EA7F /* UserInfoCell.m */,
+				D6188BD91E84FA340020EA7F /* UserInfoSwitchCell.h */,
+				D6188BDA1E84FA340020EA7F /* UserInfoSwitchCell.m */,
+				D6188BD61E84EFBF0020EA7F /* UserInfoHeaderCell.h */,
+				D6188BD71E84EFBF0020EA7F /* UserInfoHeaderCell.m */,
+				D6188BDF1E8561CB0020EA7F /* GoodsCateroriesCell.h */,
+				D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D636126C1E6B99BC00C2322D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D636126D1E6B9BE900C2322D /* VodkaService.h */,
+				D636126E1E6B9BE900C2322D /* VodkaService.m */,
+				D63612701E6B9C3300C2322D /* VodkaService+User.h */,
+				D63612711E6B9C3300C2322D /* VodkaService+User.m */,
+				D63612731E6BA44000C2322D /* User.h */,
+				D63612741E6BA44000C2322D /* User.m */,
+				D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */,
+				D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */,
+				D6FDD1C81E6D57F3000EC55B /* VodkaService+Goods.h */,
+				D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		D63612761E6BA4A500C2322D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDD1CB1E6E9EE1000EC55B /* DLPersistence.h */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		D63612771E6BA4D000C2322D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		D6A3E2E51E6BBEEA008CF763 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D6FDD1BD1E6CF8E0000EC55B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDD1BE1E6CF9B2000EC55B /* DLGoods.h */,
+				D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */,
+				D6188BE21E8572170020EA7F /* DLGoodsCategories.h */,
+				D6188BE31E8572170020EA7F /* DLGoodsCategories.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D6FDD1C41E6D2F6C000EC55B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDD1CC1E6EB2F0000EC55B /* DLGoodsCellModel.h */,
+				D6FDD1CD1E6EB2F0000EC55B /* DLGoodsCellModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D636123B1E6A659100C2322D /* Vodka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D63612531E6A659200C2322D /* Build configuration list for PBXNativeTarget "Vodka" */;
+			buildPhases = (
+				4B58EE564AD667C21F2CADA5 /* [CP] Check Pods Manifest.lock */,
+				D63612381E6A659100C2322D /* Sources */,
+				D63612391E6A659100C2322D /* Frameworks */,
+				D636123A1E6A659100C2322D /* Resources */,
+				20961A8CDDA57817D2766643 /* [CP] Embed Pods Frameworks */,
+				33C69BC0DC5C963C4822FC91 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vodka;
+			productName = Vodka;
+			productReference = D636123C1E6A659200C2322D /* Vodka.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D63612341E6A659100C2322D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = dinglin;
+				TargetAttributes = {
+					D636123B1E6A659100C2322D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SFZX37BH94;
+						ProvisioningStyle = Automatic;
+					};
+					D63612781E6BA8C600C2322D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U3ANN6J6MB;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D63612371E6A659100C2322D /* Build configuration list for PBXProject "Vodka" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = D63612331E6A659100C2322D;
+			productRefGroup = D636123D1E6A659200C2322D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D636123B1E6A659100C2322D /* Vodka */,
+				D63612781E6BA8C600C2322D /* VodkaDocument */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D636123A1E6A659100C2322D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D636124C1E6A659200C2322D /* Images.xcassets in Resources */,
+				D63612621E6ABBA900C2322D /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20961A8CDDA57817D2766643 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vodka/Pods-Vodka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33C69BC0DC5C963C4822FC91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vodka/Pods-Vodka-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B58EE564AD667C21F2CADA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D636127C1E6BA8D900C2322D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"DingLin\";\ncompanyID=\"com.DingLin\";\ncompanyURL=\"http://DingLin.com\";\ntarget=\"iphoneos\";\noutputPath=\"~/help\";\n# End constants\n\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D63612381E6A659100C2322D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D63612751E6BA44000C2322D /* User.m in Sources */,
+				D636125D1E6A89DC00C2322D /* UserCenterViewController.m in Sources */,
+				D63612721E6B9C3300C2322D /* VodkaService+User.m in Sources */,
+				D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */,
+				D6188BD51E84C04D0020EA7F /* UserInfoCell.m in Sources */,
+				D6188BDB1E84FA340020EA7F /* UserInfoSwitchCell.m in Sources */,
+				D6FDD1CE1E6EB2F0000EC55B /* DLGoodsCellModel.m in Sources */,
+				D6188BD21E84B9FF0020EA7F /* LoginViewController.m in Sources */,
+				D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */,
+				D6188BCF1E84B5BE0020EA7F /* DiscoverViewController.m in Sources */,
+				D636126F1E6B9BE900C2322D /* VodkaService.m in Sources */,
+				D6FDD1CA1E6D57F3000EC55B /* VodkaService+Goods.m in Sources */,
+				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,
+				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
+				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
+				D6188BD81E84EFBF0020EA7F /* UserInfoHeaderCell.m in Sources */,
+				D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */,
+				D63612411E6A659200C2322D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D63612641E6ABBA900C2322D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D63612631E6ABBA900C2322D /* en */,
+				D63612651E6ABBBE00C2322D /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D63612511E6A659200C2322D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D63612521E6A659200C2322D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D63612541E6A659200C2322D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SFZX37BH94;
+				INFOPLIST_FILE = Vodka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D63612551E6A659200C2322D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SFZX37BH94;
+				INFOPLIST_FILE = Vodka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D63612791E6BA8C600C2322D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = U3ANN6J6MB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D636127A1E6BA8C600C2322D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = U3ANN6J6MB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D63612371E6A659100C2322D /* Build configuration list for PBXProject "Vodka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D63612511E6A659200C2322D /* Debug */,
+				D63612521E6A659200C2322D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D63612531E6A659200C2322D /* Build configuration list for PBXNativeTarget "Vodka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D63612541E6A659200C2322D /* Debug */,
+				D63612551E6A659200C2322D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D636127B1E6BA8C600C2322D /* Build configuration list for PBXAggregateTarget "VodkaDocument" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D63612791E6BA8C600C2322D /* Debug */,
+				D636127A1E6BA8C600C2322D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D63612341E6A659100C2322D /* Project object */;
+}
