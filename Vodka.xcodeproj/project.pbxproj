@@ -35,6 +35,7 @@
 		D6188BEC1E8624080020EA7F /* GoodsInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */; };
 		D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */; };
 		D6188BF21E8637F70020EA7F /* GoodsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */; };
+		D6188BF51E864DBF0020EA7F /* TableSectionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF41E864DBF0020EA7F /* TableSectionTitleView.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -77,6 +78,8 @@
 		D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfo.m; sourceTree = "<group>"; };
 		D6188BF01E8637F70020EA7F /* GoodsInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsInfoCell.h; sourceTree = "<group>"; };
 		D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoCell.m; sourceTree = "<group>"; };
+		D6188BF31E864DBF0020EA7F /* TableSectionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableSectionTitleView.h; sourceTree = "<group>"; };
+		D6188BF41E864DBF0020EA7F /* TableSectionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableSectionTitleView.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */,
 				D6188BF01E8637F70020EA7F /* GoodsInfoCell.h */,
 				D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */,
+				D6188BF31E864DBF0020EA7F /* TableSectionTitleView.h */,
+				D6188BF41E864DBF0020EA7F /* TableSectionTitleView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63612751E6BA44000C2322D /* User.m in Sources */,
+				D6188BF51E864DBF0020EA7F /* TableSectionTitleView.m in Sources */,
 				D636125D1E6A89DC00C2322D /* UserCenterViewController.m in Sources */,
 				D63612721E6B9C3300C2322D /* VodkaService+User.m in Sources */,
 				D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */,

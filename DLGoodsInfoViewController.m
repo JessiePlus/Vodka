@@ -14,9 +14,13 @@
 #import "VodkaService+Goods.h"
 #import "DLGoodsInfo.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "TableSectionTitleView.h"
 
 static NSString *const kGoodsInfoCell = @"GoodsInfoCell";
 static NSString *const kGoodsInfoHeaderCell = @"kGoodsInfoHeaderCell";
+
+
+static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
 
 @interface DLGoodsInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -162,6 +166,7 @@ static NSString *const kGoodsInfoHeaderCell = @"kGoodsInfoHeaderCell";
         [_userInfoListView registerClass:[GoodsInfoCell class] forCellReuseIdentifier:kGoodsInfoCell];
         [_userInfoListView registerClass:[GoodsInfoHeaderCell class] forCellReuseIdentifier:kGoodsInfoHeaderCell];
         
+        [_userInfoListView registerClass:[TableSectionTitleView class] forHeaderFooterViewReuseIdentifier:kTableSectionTitleView];
     }
     
     
@@ -325,25 +330,47 @@ static NSString *const kGoodsInfoHeaderCell = @"kGoodsInfoHeaderCell";
     
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        {
+            TableSectionTitleView *sectionTitleView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTableSectionTitleView];
+            
+            
+            if (section == 1) {
+                sectionTitleView.titleLab.text = NSLocalizedString(@"Producing area", comment: "");
+            }
+            if (section == 2) {
+                sectionTitleView.titleLab.text = NSLocalizedString(@"Brands", comment: "");
+                
+            }
+            if (section == 3) {
+                sectionTitleView.titleLab.text = NSLocalizedString(@"Production process", comment: "");
+                
+            }
+            if (section == 4) {
+                sectionTitleView.titleLab.text = NSLocalizedString(@"Nutrition", comment: "");
+                
+            }
+        
+            return sectionTitleView;
 
-    if (section == 1) {
-        return NSLocalizedString(@"Producing area", comment: "");
+        }
+ 
+            break;
+            
+        default:
+        {
+        
+            return nil;
+        
+        }
+            break;
     }
-    if (section == 2) {
-        return NSLocalizedString(@"Brands", comment: "");
 
-    }
-    if (section == 3) {
-        return NSLocalizedString(@"Production process", comment: "");
-
-    }
-    if (section == 4) {
-        return NSLocalizedString(@"Nutrition", comment: "");
-
-    }
-    
-    return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
