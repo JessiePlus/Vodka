@@ -219,7 +219,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             case 1:
             {
                 UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_share"]];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_shareAPP"]];
                 [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
                 
                 return cell;

@@ -45,10 +45,16 @@
     [WXLog setLogLevel: WXLogLevelAll];
     
     
-    GoodsCategoriesViewController *goodsViewController = [[GoodsCategoriesViewController alloc] init];
-    goodsViewController.tabBarItem.title = NSLocalizedString(@"Goods", comment: "");
-    goodsViewController.tabBarItem.image = [UIImage imageNamed:@"icon_drinks"];
-    goodsViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_drinks_active"];
+    GoodsCategoriesViewController *goodsCategoriesViewController = [[GoodsCategoriesViewController alloc] init];
+    goodsCategoriesViewController.tabBarItem.title = NSLocalizedString(@"Goods", comment: "");
+    goodsCategoriesViewController.tabBarItem.image = [UIImage imageNamed:@"icon_drinks"];
+    goodsCategoriesViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_drinks_active"];
+    
+    UINavigationController *navGoodsCategoriesController = [[UINavigationController alloc] initWithRootViewController:goodsCategoriesViewController];
+    
+    
+    
+    
 
     DiscoverViewController *discoverViewController = [[DiscoverViewController alloc] init];
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
@@ -61,12 +67,11 @@
     userCenterViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_me_active"];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:goodsViewController, discoverViewController, userCenterViewController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, discoverViewController, userCenterViewController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
-    
     
     
     

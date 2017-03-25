@@ -96,4 +96,53 @@
 
 }
 
+-(void)requestGoodsInfoSuccess:(void (^)(DLGoodsInfo *))success
+                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
+
+    NSString *path = @"/1.1/classes/GoodsInfo/58d5f8a461ff4b006cc527fe";
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiBaseUrl];
+    
+    [manager.requestSerializer setValue:@"x6XqOXajuBXl7KAPgkDGVm2v-gzGzoHsz" forHTTPHeaderField:@"X-LC-Id"];
+    [manager.requestSerializer setValue:@"HlGlENGF6ki2CL32REOskquL" forHTTPHeaderField:@"X-LC-Key"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [manager GET:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *goodsDic = responseObject;
+
+            
+        NSString *objectId = goodsDic[@"objectId"];
+        NSString *title = goodsDic[@"title"];
+        NSString *discrip = goodsDic[@"description"];
+        NSString *imageUrl = goodsDic[@"image"];
+        
+        NSString *producingArea = goodsDic[@"producingArea"];
+        NSString *brands = goodsDic[@"brands"];
+        NSString *productionProcess = goodsDic[@"productionProcess"];
+        NSString *nutrition = goodsDic[@"nutrition"];
+
+        
+        
+        
+        DLGoodsInfo *goodsInfo = [[DLGoodsInfo alloc] init];
+        goodsInfo.objectId = objectId;
+        goodsInfo.title = title;
+        goodsInfo.descripText = discrip;
+        goodsInfo.imageUrl = [NSURL URLWithString:imageUrl];
+
+        goodsInfo.producingArea = producingArea;
+        goodsInfo.brands = brands;
+        goodsInfo.productionProcess = productionProcess;
+        goodsInfo.nutrition = nutrition;
+
+        
+        success(goodsInfo);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
+}
+
 @end

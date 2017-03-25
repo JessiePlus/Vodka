@@ -9,6 +9,7 @@
 #import "VodkaService.h"
 #import "DLGoods.h"
 #import "DLGoodsCategories.h"
+#import "DLGoodsInfo.h"
 
 
 @interface VodkaService (Goods)
@@ -18,4 +19,8 @@
 
 -(void)requestAllGoodsCategoriesSuccess:(void (^)(NSArray <DLGoodsCategories *>*))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+-(void)requestGoodsInfoSuccess:(void (^)(DLGoodsInfo *))success
+                                failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 @end

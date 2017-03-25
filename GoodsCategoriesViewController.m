@@ -12,6 +12,7 @@
 #import "VodkaService+Goods.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
+#import "DLGoodsInfoViewController.h"
 
 static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 
@@ -168,6 +169,21 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     return self.goodsCategoriesList.count;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSInteger section = indexPath.section;
+    NSInteger item = indexPath.item;
+    
+    
+    DLGoodsInfoViewController *goodsInfoViewController = [[DLGoodsInfoViewController alloc] init];
+    
+    goodsInfoViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:goodsInfoViewController animated:YES];
+
+
+
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

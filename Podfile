@@ -1,5 +1,3 @@
-source 'git@github.com:CocoaPods/Specs.git' 
-
 platform :ios, '9.0'
 
 def pods
@@ -9,7 +7,7 @@ def pods
     pod 'FMDB'
     pod 'WeexSDK'
     pod 'SDWebImage'
-
+    pod search UITableView+FDTemplateLayoutCell
 end
 
 target ‘Vodka’ do

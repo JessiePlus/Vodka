@@ -31,6 +31,10 @@
 		D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */; };
 		D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE31E8572170020EA7F /* DLGoodsCategories.m */; };
 		D6188BE61E85900B0020EA7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6188BE51E85900B0020EA7F /* MapKit.framework */; };
+		D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */; };
+		D6188BEC1E8624080020EA7F /* GoodsInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */; };
+		D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */; };
+		D6188BF21E8637F70020EA7F /* GoodsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -65,6 +69,14 @@
 		D6188BE21E8572170020EA7F /* DLGoodsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategories.h; sourceTree = "<group>"; };
 		D6188BE31E8572170020EA7F /* DLGoodsCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategories.m; sourceTree = "<group>"; };
 		D6188BE51E85900B0020EA7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D6188BE71E861E5C0020EA7F /* DLGoodsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsInfoViewController.h; sourceTree = "<group>"; };
+		D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfoViewController.m; sourceTree = "<group>"; };
+		D6188BEA1E8624080020EA7F /* GoodsInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsInfoHeaderCell.h; sourceTree = "<group>"; };
+		D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoHeaderCell.m; sourceTree = "<group>"; };
+		D6188BED1E862AFE0020EA7F /* DLGoodsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsInfo.h; sourceTree = "<group>"; };
+		D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfo.m; sourceTree = "<group>"; };
+		D6188BF01E8637F70020EA7F /* GoodsInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsInfoCell.h; sourceTree = "<group>"; };
+		D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsInfoCell.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -182,6 +194,8 @@
 				D6188BD11E84B9FF0020EA7F /* LoginViewController.m */,
 				D6188BDC1E8508000020EA7F /* GoodsCategoriesViewController.h */,
 				D6188BDD1E8508000020EA7F /* GoodsCategoriesViewController.m */,
+				D6188BE71E861E5C0020EA7F /* DLGoodsInfoViewController.h */,
+				D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -198,6 +212,10 @@
 				D6188BD71E84EFBF0020EA7F /* UserInfoHeaderCell.m */,
 				D6188BDF1E8561CB0020EA7F /* GoodsCateroriesCell.h */,
 				D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */,
+				D6188BEA1E8624080020EA7F /* GoodsInfoHeaderCell.h */,
+				D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */,
+				D6188BF01E8637F70020EA7F /* GoodsInfoCell.h */,
+				D6188BF11E8637F70020EA7F /* GoodsInfoCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -248,6 +266,8 @@
 				D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */,
 				D6188BE21E8572170020EA7F /* DLGoodsCategories.h */,
 				D6188BE31E8572170020EA7F /* DLGoodsCategories.m */,
+				D6188BED1E862AFE0020EA7F /* DLGoodsInfo.h */,
+				D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -406,6 +426,8 @@
 				D63612751E6BA44000C2322D /* User.m in Sources */,
 				D636125D1E6A89DC00C2322D /* UserCenterViewController.m in Sources */,
 				D63612721E6B9C3300C2322D /* VodkaService+User.m in Sources */,
+				D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */,
+				D6188BF21E8637F70020EA7F /* GoodsInfoCell.m in Sources */,
 				D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* UserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* UserInfoSwitchCell.m in Sources */,
@@ -413,12 +435,14 @@
 				D6188BD21E84B9FF0020EA7F /* LoginViewController.m in Sources */,
 				D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DiscoverViewController.m in Sources */,
+				D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */,
 				D636126F1E6B9BE900C2322D /* VodkaService.m in Sources */,
 				D6FDD1CA1E6D57F3000EC55B /* VodkaService+Goods.m in Sources */,
 				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* UserInfoHeaderCell.m in Sources */,
+				D6188BEC1E8624080020EA7F /* GoodsInfoHeaderCell.m in Sources */,
 				D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
 			);
