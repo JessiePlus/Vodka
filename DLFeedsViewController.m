@@ -13,6 +13,7 @@
 #import "DLFeed.h"
 #import "DLFeedInfoCell.h"
 #import "VodkaService+Feeds.h"
+#import "DLFeedEditViewController.h"
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
@@ -125,7 +126,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         
         UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         rightBtn.frame = CGRectMake(0, 0, 24, 24);
-        [rightBtn setBackgroundImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
+        [rightBtn setImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
         [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         
         UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -208,6 +209,11 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 -(void)rightBtnClicked {
 
+    DLFeedEditViewController *feedEditViewController = [[DLFeedEditViewController alloc] init];
+    
+    [self presentViewController:feedEditViewController animated:YES completion:nil];
+    
+    
 }
 
 

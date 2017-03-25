@@ -104,7 +104,7 @@
         
         UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         leftBtn.frame = CGRectMake(0, 0, 24, 24);
-        [leftBtn setBackgroundImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
+        [leftBtn setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
         [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
         

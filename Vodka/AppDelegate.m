@@ -70,8 +70,11 @@
     userCenterViewController.tabBarItem.image = [UIImage imageNamed:@"icon_me"];
     userCenterViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_me_active"];
     
+    UINavigationController *navUserCenterController = [[UINavigationController alloc] initWithRootViewController:userCenterViewController];
+
+    
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, discoverViewController, userCenterViewController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, discoverViewController, navUserCenterController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;

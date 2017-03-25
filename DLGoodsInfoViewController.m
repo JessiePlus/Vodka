@@ -122,7 +122,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
 
         UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         leftBtn.frame = CGRectMake(0, 0, 24, 24);
-        [leftBtn setBackgroundImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+        [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
         UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
@@ -132,7 +132,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         
         UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         rightBtn.frame = CGRectMake(0, 0, 24, 24);
-        [rightBtn setBackgroundImage:[UIImage imageNamed:@"icon_shareArticle"] forState:UIControlStateNormal];
+        [rightBtn setImage:[UIImage imageNamed:@"icon_shareArticle"] forState:UIControlStateNormal];
         [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
         UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -388,7 +388,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
 }
 
 -(void)rightBtnClicked {
-    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

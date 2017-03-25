@@ -40,6 +40,8 @@
 		D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFA1E865D4E0020EA7F /* DLFeed.m */; };
 		D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */; };
 		D6188C011E8663100020EA7F /* VodkaService+Feeds.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C001E8663100020EA7F /* VodkaService+Feeds.m */; };
+		D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */; };
+		D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -92,6 +94,10 @@
 		D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfoCell.m; sourceTree = "<group>"; };
 		D6188BFF1E8663100020EA7F /* VodkaService+Feeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VodkaService+Feeds.h"; sourceTree = "<group>"; };
 		D6188C001E8663100020EA7F /* VodkaService+Feeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VodkaService+Feeds.m"; sourceTree = "<group>"; };
+		D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingsViewController.h; sourceTree = "<group>"; };
+		D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingsViewController.m; sourceTree = "<group>"; };
+		D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedEditViewController.h; sourceTree = "<group>"; };
+		D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedEditViewController.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -213,6 +219,10 @@
 				D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */,
 				D6188BF61E8658240020EA7F /* DLFeedsViewController.h */,
 				D6188BF71E8658240020EA7F /* DLFeedsViewController.m */,
+				D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */,
+				D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */,
+				D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */,
+				D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -469,8 +479,10 @@
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
+				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
 				D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */,
+				D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* UserInfoHeaderCell.m in Sources */,
 				D6188BEC1E8624080020EA7F /* GoodsInfoHeaderCell.m in Sources */,
 				D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */,
@@ -591,6 +603,7 @@
 			baseConfigurationReference = E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -604,6 +617,7 @@
 			baseConfigurationReference = 81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

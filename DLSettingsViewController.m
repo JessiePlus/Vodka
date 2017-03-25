@@ -1,26 +1,21 @@
 //
-//  UserCenterViewController.m
+//  DLSettingsViewController.m
 //  Vodka
 //
-//  Created by dinglin on 2017/3/4.
+//  Created by dinglin on 2017/3/26.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "UserCenterViewController.h"
-#import "VodkaService+User.h"
+#import "DLSettingsViewController.h"
 #import <Masonry.h>
 #import "UserInfoCell.h"
-#import "UserInfoHeaderCell.h"
 #import "UserInfoSwitchCell.h"
-#import "LoginViewController.h"
-#import "DLSettingsViewController.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
-static NSString *const kUserInfoHeaderCell = @"kUserInfoHeaderCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 
-@interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DLSettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
@@ -30,10 +25,9 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 @property (nonatomic) UITableView *userInfoListView;
 
 
-
 @end
 
-@implementation UserCenterViewController
+@implementation DLSettingsViewController
 
 -(instancetype)init {
     self = [super init];
@@ -67,7 +61,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.customNavigationBar];
     [self.view addSubview:self.userInfoListView];
-
+    
     //导航栏布局
     [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
@@ -96,17 +90,17 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(UINavigationItem *)customNavigationItem {
     if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Not logged in", comment: "")];
+        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Settings", comment: "")];
         
-        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        rightBtn.frame = CGRectMake(0, 0, 24, 24);
-        [rightBtn setImage:[UIImage imageNamed:@"icon_settings"] forState:UIControlStateNormal];
-        [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-
+        UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        leftBtn.frame = CGRectMake(0, 0, 24, 24);
+        [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+        [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
         
-        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
         
-        _customNavigationItem.rightBarButtonItems = @[rightBarBtn];
+        UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+        
+        _customNavigationItem.leftBarButtonItems = @[leftBarBtn];
         
     }
     
@@ -132,7 +126,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
         _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         [_userInfoListView registerClass:[UserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
-        [_userInfoListView registerClass:[UserInfoHeaderCell class] forCellReuseIdentifier:kUserInfoHeaderCell];
         [_userInfoListView registerClass:[UserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
         
     }
@@ -142,20 +135,16 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        return 1;
+        return 4;
     }
     if (section == 1) {
         return 2;
-    }
-    
-    if (section == 2) {
-        return 1;
     }
     
     return 0;
@@ -166,43 +155,53 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    if (section == 0) {
-        return 100;
-    }
-    
     return 60;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
     if (section == 0) {
+        
         switch (row) {
             case 0:
             {
-                UserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"default_avatar"]];
-                [cell.titleLab setText:NSLocalizedString(@"Click portrait to login", comment: "")];
-                
-                cell.iconImageViewTapAction = ^() {
-                
-                    LoginViewController *loginViewController = [[LoginViewController alloc] init];
-                    UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-                    
-                    [self presentViewController:navLoginController animated:YES completion:nil];
-                
-                
-                };
-                
-                
-                
+                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_comment"]];
+                [cell.titleLab setText:NSLocalizedString(@"Push comments", comment: "")];
+
+                return cell;
+            }
+                break;
+            case 1:
+            {
+                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_message"]];
+                [cell.titleLab setText:NSLocalizedString(@"Push messages", comment: "")];
                 
                 return cell;
             }
                 break;
-
+            case 2:
+            {
+                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_cleanCache"]];
+                [cell.titleLab setText:NSLocalizedString(@"Clean cache", comment: "")];
+                
+                return cell;
+            }
+                break;
+            case 3:
+            {
+                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_evaluate"]];
+                [cell.titleLab setText:NSLocalizedString(@"Evaluate", comment: "")];
+                
+                return cell;
+            }
+                break;
             default:
                 break;
         }
@@ -214,8 +213,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             case 0:
             {
                 UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_feedback"]];
-                [cell.titleLab setText:NSLocalizedString(@"Feedback", comment: "")];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_userAgreement"]];
+                [cell.titleLab setText:NSLocalizedString(@"User Agreement", comment: "")];
                 
                 return cell;
             }
@@ -223,30 +222,12 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             case 1:
             {
                 UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_shareAPP"]];
-                [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_privacyPolicy"]];
+                [cell.titleLab setText:NSLocalizedString(@"Privacy Policy", comment: "")];
                 
                 return cell;
             }
                 break;
-            default:
-                break;
-        }
-    }
-    
-    if (section == 2) {
-        
-        switch (row) {
-            case 0:
-            {
-                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_nightMode"]];
-                [cell.titleLab setText:NSLocalizedString(@"Night mode", comment: "")];
-                
-                return cell;
-            }
-                break;
-
             default:
                 break;
         }
@@ -258,27 +239,25 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+
     if (section == 0) {
         return 0;
     }
     
     return 20;
-
+    
 }
 
 
--(void)rightBtnClicked {
-    
-    DLSettingsViewController *settingsViewController = [[DLSettingsViewController alloc] init];
-    
-    [self.navigationController pushViewController:settingsViewController animated:YES];
+-(void)leftBtnClicked {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end
