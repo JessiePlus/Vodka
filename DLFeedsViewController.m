@@ -1,25 +1,22 @@
 //
-//  DiscoverViewController.m
+//  DLFeedsViewController.m
 //  Vodka
 //
-//  Created by dinglin on 2017/3/24.
+//  Created by dinglin on 2017/3/25.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
-#import <WeexSDK/WXSDKInstance.h>
+
+#import "DLFeedsViewController.h"
 #import <Masonry/Masonry.h>
 
-#import "DiscoverViewController.h"
-
-@interface DiscoverViewController ()
-
+@interface DLFeedsViewController ()
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
 @property (nonatomic) UINavigationItem *customNavigationItem;
 
 @end
 
-@implementation DiscoverViewController
-
+@implementation DLFeedsViewController
 -(instancetype)init {
     self = [super init];
     if (self) {
@@ -54,8 +51,6 @@
     
     [self.view addSubview:self.customNavigationBar];
 
-
-    
     //导航栏布局
     [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
@@ -63,6 +58,7 @@
         make.top.equalTo(@0);
         make.left.equalTo(@0);
     }];
+
     
 }
 
@@ -73,8 +69,17 @@
 
 -(UINavigationItem *)customNavigationItem {
     if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Discover", comment: "")];
+        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Feeds", comment: "")];
         
+        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        rightBtn.frame = CGRectMake(0, 0, 24, 24);
+        [rightBtn setBackgroundImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
+        [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+        
+        
+        _customNavigationItem.rightBarButtonItems = @[rightBarBtn];
     }
     
     return _customNavigationItem;
@@ -92,6 +97,10 @@
     }
     
     return _customNavigationBar;
+}
+
+-(void)rightBtnClicked {
+
 }
 
 

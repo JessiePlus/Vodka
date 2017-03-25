@@ -12,7 +12,7 @@
 #import "GoodsCategoriesViewController.h"
 #import "UserCenterViewController.h"
 #import "DiscoverViewController.h"
-
+#import "DLFeedsViewController.h"
 
 
 @interface AppDelegate ()
@@ -51,10 +51,14 @@
     goodsCategoriesViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_drinks_active"];
     
     UINavigationController *navGoodsCategoriesController = [[UINavigationController alloc] initWithRootViewController:goodsCategoriesViewController];
+
+    DLFeedsViewController *feedsViewController = [[DLFeedsViewController alloc] init];
+    feedsViewController.tabBarItem.title = NSLocalizedString(@"Feeds", comment: "");
+    feedsViewController.tabBarItem.image = [UIImage imageNamed:@"icon_feeds"];
+    feedsViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_feeds_active"];
     
-    
-    
-    
+    UINavigationController *navFeedsController = [[UINavigationController alloc] initWithRootViewController:feedsViewController];
+
 
     DiscoverViewController *discoverViewController = [[DiscoverViewController alloc] init];
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
@@ -67,7 +71,7 @@
     userCenterViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_me_active"];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, discoverViewController, userCenterViewController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, discoverViewController, userCenterViewController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;

@@ -6,6 +6,7 @@
   Copyright © 2017年 dinglin. All rights reserved.
 */
 "Goods" = "茶";
+"Feeds" = "话题";
 "Discover" = "探索";
 "Me" = "我";
 "Search" = "搜索";
@@ -15,7 +16,7 @@
 "Not logged in" = "未登录";
 "Click portrait to login" = "点击头像登录";
 "Night mode" = "夜间模式";
-"Thirdpart account login" = "第三方账户登录";
+"Thirdpart account login" = "仅支持使用微信或微博账户登录";
 "Producing area" = "主要产地";
 "Brands" = "主要品牌";
 "Production process" = "制作工艺";
