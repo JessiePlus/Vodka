@@ -13,13 +13,18 @@
 
 @property (nonatomic, copy) NSString *objectId;
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *descripText;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic) NSURL *imageUrl;
 
-@property (nonatomic, copy) NSString *producingArea;
-@property (nonatomic, copy) NSString *brands;
-@property (nonatomic, copy) NSString *productionProcess;
-@property (nonatomic, copy) NSString *nutrition;
+
+@property (nonatomic, copy) NSString *infoTitle1;
+@property (nonatomic, copy) NSString *infoTitle2;
+@property (nonatomic, copy) NSString *infoTitle3;
+@property (nonatomic, copy) NSString *infoTitle4;
+
+@property (nonatomic, copy) NSString *infoContent1;
+@property (nonatomic, copy) NSString *infoContent2;
+@property (nonatomic, copy) NSString *infoContent3;
+@property (nonatomic, copy) NSString *infoContent4;
 
 @end

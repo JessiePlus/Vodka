@@ -106,7 +106,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         
         _goodsInfo = goodsInfo;
         
-        [self.customNavigationItem setTitle:self.goodsInfo.title];
+        [self.customNavigationItem setTitle:self.goodsInfo.name];
 
         [self.userInfoListView reloadData];
         
@@ -196,7 +196,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     if (section == 1) {
         GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
         
-        cell.titleLab.text = self.goodsInfo.producingArea;
+        cell.titleLab.text = self.goodsInfo.infoContent1;
        CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
         
         return cellHeight;
@@ -204,7 +204,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     if (section == 2) {
         GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
         
-        cell.titleLab.text = self.goodsInfo.brands;
+        cell.titleLab.text = self.goodsInfo.infoContent2;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
         
         return cellHeight;
@@ -212,7 +212,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     if (section == 3) {
         GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
         
-        cell.titleLab.text = self.goodsInfo.productionProcess;
+        cell.titleLab.text = self.goodsInfo.infoContent3;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
         
         return cellHeight;
@@ -220,7 +220,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     if (section == 4) {
         GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
         
-        cell.titleLab.text = self.goodsInfo.nutrition;
+        cell.titleLab.text = self.goodsInfo.infoContent4;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
         
         return cellHeight;
@@ -245,7 +245,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
                 GoodsInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoHeaderCell forIndexPath:indexPath];
 
                 [cell.iconImageView sd_setImageWithURL:self.goodsInfo.imageUrl placeholderImage:[UIImage imageNamed:@""]];
-                [cell.titleLab setText:self.goodsInfo.title];
+                [cell.titleLab setText:self.goodsInfo.name];
                 
                 
                 
@@ -264,7 +264,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
             case 0:
             {
                 GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:self.goodsInfo.producingArea];
+                [cell.titleLab setText:self.goodsInfo.infoContent1];
                 
                 return cell;
             }
@@ -280,7 +280,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
             case 0:
             {
                 GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:self.goodsInfo.brands];
+                [cell.titleLab setText:self.goodsInfo.infoContent2];
                 
                 return cell;
             }
@@ -297,7 +297,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
             case 0:
             {
                 GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:self.goodsInfo.productionProcess];
+                [cell.titleLab setText:self.goodsInfo.infoContent3];
                 
                 return cell;
             }
@@ -313,7 +313,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
             case 0:
             {
                 GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:self.goodsInfo.nutrition];
+                [cell.titleLab setText:self.goodsInfo.infoContent4];
                 
                 return cell;
             }
@@ -341,18 +341,18 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
             
             
             if (section == 1) {
-                sectionTitleView.titleLab.text = NSLocalizedString(@"Producing area", comment: "");
+                sectionTitleView.titleLab.text = self.goodsInfo.infoTitle1;
             }
             if (section == 2) {
-                sectionTitleView.titleLab.text = NSLocalizedString(@"Brands", comment: "");
+                sectionTitleView.titleLab.text = self.goodsInfo.infoTitle2;
                 
             }
             if (section == 3) {
-                sectionTitleView.titleLab.text = NSLocalizedString(@"Production process", comment: "");
+                sectionTitleView.titleLab.text = self.goodsInfo.infoTitle3;
                 
             }
             if (section == 4) {
-                sectionTitleView.titleLab.text = NSLocalizedString(@"Nutrition", comment: "");
+                sectionTitleView.titleLab.text = self.goodsInfo.infoTitle4;
                 
             }
         

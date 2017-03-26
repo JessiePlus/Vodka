@@ -99,7 +99,7 @@
 -(void)requestGoodsInfoSuccess:(void (^)(DLGoodsInfo *))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
 
-    NSString *path = @"/1.1/classes/GoodsInfo/58d5f8a461ff4b006cc527fe";
+    NSString *path = @"/1.1/classes/GoodsInfo/58d7da705c497d0057fe237f";
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:self.apiBaseUrl];
     
@@ -113,29 +113,34 @@
 
             
         NSString *objectId = goodsDic[@"objectId"];
-        NSString *title = goodsDic[@"title"];
-        NSString *discrip = goodsDic[@"description"];
+        NSString *name = goodsDic[@"name"];
         NSString *imageUrl = goodsDic[@"image"];
         
-        NSString *producingArea = goodsDic[@"producingArea"];
-        NSString *brands = goodsDic[@"brands"];
-        NSString *productionProcess = goodsDic[@"productionProcess"];
-        NSString *nutrition = goodsDic[@"nutrition"];
+        NSString *infoTitle1 = goodsDic[@"title1"];
+        NSString *infoTitle2 = goodsDic[@"title2"];
+        NSString *infoTitle3 = goodsDic[@"title3"];
+        NSString *infoTitle4 = goodsDic[@"title4"];
 
-        
+        NSString *infoContent1 = goodsDic[@"content1"];
+        NSString *infoContent2 = goodsDic[@"content2"];
+        NSString *infoContent3 = goodsDic[@"content3"];
+        NSString *infoContent4 = goodsDic[@"content4"];
         
         
         DLGoodsInfo *goodsInfo = [[DLGoodsInfo alloc] init];
         goodsInfo.objectId = objectId;
-        goodsInfo.title = title;
-        goodsInfo.descripText = discrip;
+        goodsInfo.name = name;
         goodsInfo.imageUrl = [NSURL URLWithString:imageUrl];
 
-        goodsInfo.producingArea = producingArea;
-        goodsInfo.brands = brands;
-        goodsInfo.productionProcess = productionProcess;
-        goodsInfo.nutrition = nutrition;
+        goodsInfo.infoTitle1 = infoTitle1;
+        goodsInfo.infoTitle2 = infoTitle2;
+        goodsInfo.infoTitle3 = infoTitle3;
+        goodsInfo.infoTitle4 = infoTitle4;
 
+        goodsInfo.infoContent1 = infoContent1;
+        goodsInfo.infoContent2 = infoContent2;
+        goodsInfo.infoContent3 = infoContent3;
+        goodsInfo.infoContent4 = infoContent4;
         
         success(goodsInfo);
         
