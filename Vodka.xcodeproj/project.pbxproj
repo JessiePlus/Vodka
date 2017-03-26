@@ -43,6 +43,8 @@
 		D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */; };
 		D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */; };
 		D6188C0A1E86EBFB0020EA7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */; };
+		D6188C121E8818780020EA7F /* SettingInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C0F1E8818780020EA7F /* SettingInfoCell.m */; };
+		D6188C131E8818780020EA7F /* SettingInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C111E8818780020EA7F /* SettingInfoSwitchCell.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -101,6 +103,10 @@
 		D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedEditViewController.m; sourceTree = "<group>"; };
 		D6188C0B1E86EBFB0020EA7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D6188C0D1E86EBFD0020EA7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6188C0E1E8818780020EA7F /* SettingInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfoCell.h; sourceTree = "<group>"; };
+		D6188C0F1E8818780020EA7F /* SettingInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingInfoCell.m; sourceTree = "<group>"; };
+		D6188C101E8818780020EA7F /* SettingInfoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfoSwitchCell.h; sourceTree = "<group>"; };
+		D6188C111E8818780020EA7F /* SettingInfoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingInfoSwitchCell.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 		D63612571E6A860800C2322D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6188C0E1E8818780020EA7F /* SettingInfoCell.h */,
+				D6188C0F1E8818780020EA7F /* SettingInfoCell.m */,
+				D6188C101E8818780020EA7F /* SettingInfoSwitchCell.h */,
+				D6188C111E8818780020EA7F /* SettingInfoSwitchCell.m */,
 				D6188BD31E84C04D0020EA7F /* UserInfoCell.h */,
 				D6188BD41E84C04D0020EA7F /* UserInfoCell.m */,
 				D6188BD91E84FA340020EA7F /* UserInfoSwitchCell.h */,
@@ -465,9 +475,11 @@
 			files = (
 				D63612751E6BA44000C2322D /* User.m in Sources */,
 				D6188BF51E864DBF0020EA7F /* TableSectionTitleView.m in Sources */,
+				D6188C121E8818780020EA7F /* SettingInfoCell.m in Sources */,
 				D636125D1E6A89DC00C2322D /* UserCenterViewController.m in Sources */,
 				D63612721E6B9C3300C2322D /* VodkaService+User.m in Sources */,
 				D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */,
+				D6188C131E8818780020EA7F /* SettingInfoSwitchCell.m in Sources */,
 				D6188BF21E8637F70020EA7F /* GoodsInfoCell.m in Sources */,
 				D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* UserInfoCell.m in Sources */,

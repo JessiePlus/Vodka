@@ -8,11 +8,11 @@
 
 #import "DLSettingsViewController.h"
 #import <Masonry.h>
-#import "UserInfoCell.h"
-#import "UserInfoSwitchCell.h"
+#import "SettingInfoCell.h"
+#import "SettingInfoSwitchCell.h"
 
-static NSString *const kUserInfoCell = @"kUserInfoCell";
-static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
+static NSString *const kSettingInfoCell = @"kSettingInfoCell";
+static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
 
 
 @interface DLSettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -125,8 +125,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     if (!_userInfoListView) {
         _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
         _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_userInfoListView registerClass:[UserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
-        [_userInfoListView registerClass:[UserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
+        [_userInfoListView registerClass:[SettingInfoCell class] forCellReuseIdentifier:kSettingInfoCell];
+        [_userInfoListView registerClass:[SettingInfoSwitchCell class] forCellReuseIdentifier:kSettingInfoSwitchCell];
         
     }
     
@@ -168,8 +168,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_comment"]];
+                SettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Push comments", comment: "")];
 
                 return cell;
@@ -177,8 +176,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 1:
             {
-                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_message"]];
+                SettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Push messages", comment: "")];
                 
                 return cell;
@@ -186,8 +184,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 2:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_cleanCache"]];
+                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Clean cache", comment: "")];
                 
                 return cell;
@@ -195,8 +192,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 3:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_evaluate"]];
+                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Evaluate", comment: "")];
                 
                 return cell;
@@ -212,8 +208,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_userAgreement"]];
+                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"User Agreement", comment: "")];
                 
                 return cell;
@@ -221,8 +216,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 1:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_privacyPolicy"]];
+                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Privacy Policy", comment: "")];
                 
                 return cell;
