@@ -1,45 +1,45 @@
 //
-//  GoodsCateroriesCell.m
+//  GoodsInfoHeaderCell.m
 //  Vodka
 //
-//  Created by dinglin on 2017/3/24.
+//  Created by dinglin on 2017/3/25.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "GoodsCateroriesCell.h"
+#import "DLGoodsInfoHeaderCell.h"
 #import <Masonry.h>
 
-@implementation GoodsCateroriesCell
+@implementation DLGoodsInfoHeaderCell
 
--(instancetype)initWithFrame:(CGRect)frame {
 
-    self = [super initWithFrame:frame];
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self makeUI];
     }
     
     return self;
-
 }
 
 -(void)makeUI {
     
     self.contentView.backgroundColor = [UIColor whiteColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self.contentView addSubview:self.iconImageView];
     [self.contentView addSubview:self.titleLab];
     
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@24);
-        make.height.equalTo(@24);
-        make.top.equalTo(self.contentView).offset(20);
+        make.width.equalTo(@40);
+        make.height.equalTo(@40);
+        make.top.equalTo(self.contentView).offset(10);
         make.centerX.equalTo(self.contentView);
     }];
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@60);
+        make.width.equalTo(@180);
         make.height.equalTo(@24);
-        make.top.equalTo(self.iconImageView.mas_bottom).offset(15);
+        make.top.equalTo(self.iconImageView.mas_bottom).offset(10);
         make.centerX.equalTo(self.iconImageView);
     }];
     
@@ -63,6 +63,7 @@
     
     return _titleLab;
 }
+
 
 
 @end

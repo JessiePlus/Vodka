@@ -6,12 +6,11 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "VodkaService+User.h"
+#import "DLLoginViewController.h"
 #import <Masonry.h>
 
 
-@interface LoginViewController ()
+@interface DLLoginViewController ()
 
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
@@ -24,7 +23,7 @@
 
 @end
 
-@implementation LoginViewController
+@implementation DLLoginViewController
 
 -(instancetype)init {
     self = [super init];

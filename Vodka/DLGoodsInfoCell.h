@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodsInfoCell : UITableViewCell
+@interface DLGoodsInfoCell : UITableViewCell
 @property (nonatomic) UILabel *titleLab;
 
 

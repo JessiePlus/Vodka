@@ -1,16 +1,15 @@
 //
-//  UserInfoSliderCell.m
+//  GoodsInfoCell.m
 //  Vodka
 //
-//  Created by dinglin on 2017/3/24.
+//  Created by dinglin on 2017/3/25.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "SettingInfoSwitchCell.h"
+#import "DLGoodsInfoCell.h"
 #import <Masonry.h>
 
-@implementation SettingInfoSwitchCell
-
+@implementation DLGoodsInfoCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -21,39 +20,35 @@
 }
 
 -(void)makeUI {
-    
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.accessoryView = self.titleSwitch;
     [self.contentView addSubview:self.titleLab];
-    
+
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@180);
-        make.height.equalTo(@24);
-        make.left.equalTo(self.contentView).offset(15);
-        make.centerY.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).with.offset(4);
+        make.left.equalTo(self.contentView).with.offset(4);
+        make.right.equalTo(self.contentView).with.offset(-4);
+        make.bottom.equalTo(self.contentView).with.offset(-4);
     }];
     
+    [self.titleLab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
 }
 
--(UISwitch *)titleSwitch {
-    if (!_titleSwitch) {
-        _titleSwitch = [[UISwitch alloc] init];
-    }
-    
-    return _titleSwitch;
-}
 
 -(UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
         _titleLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+        _titleLab.numberOfLines = 0;
+        _titleLab.preferredMaxLayoutWidth = CGRectGetWidth([UIScreen mainScreen].bounds); // 多行时必须设置
+
     }
     
     return _titleLab;
 }
+
 
 
 @end

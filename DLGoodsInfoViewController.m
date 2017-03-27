@@ -8,12 +8,12 @@
 
 #import "DLGoodsInfoViewController.h"
 #import <Masonry.h>
-#import "GoodsInfoCell.h"
-#import "GoodsInfoHeaderCell.h"
-#import "LoginViewController.h"
+#import "DLGoodsInfoCell.h"
+#import "DLGoodsInfoHeaderCell.h"
+#import "DLLoginViewController.h"
 #import "DLGoodsInfo.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "TableSectionTitleView.h"
+#import "DLGoodsInfoSectionTitleView.h"
 #import <XMNetworking/XMNetworking.h>
 
 static NSString *const kGoodsInfoCell = @"GoodsInfoCell";
@@ -29,7 +29,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
 @property (nonatomic) UINavigationItem *customNavigationItem;
 
 //用户信息列表
-@property (nonatomic) UITableView *userInfoListView;
+@property (nonatomic) UITableView *goodsInfoListView;
 
 @property (nonatomic) DLGoodsInfo *goodsInfo;
 
@@ -72,7 +72,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.customNavigationBar];
-    [self.view addSubview:self.userInfoListView];
+    [self.view addSubview:self.goodsInfoListView];
     
     
     //导航栏布局
@@ -83,7 +83,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         make.left.equalTo(@0);
     }];
     
-    [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.goodsInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
         make.top.equalTo(self.customNavigationBar.mas_bottom);
@@ -91,13 +91,13 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     }];
     
     
-    self.userInfoListView.backgroundColor = [UIColor whiteColor];
+    self.goodsInfoListView.backgroundColor = [UIColor whiteColor];
     
-    self.userInfoListView.dataSource = self;
-    self.userInfoListView.delegate = self;
+    self.goodsInfoListView.dataSource = self;
+    self.goodsInfoListView.delegate = self;
     
     
-    self.templateCell = [self.userInfoListView dequeueReusableCellWithIdentifier:kGoodsInfoCell];
+    self.templateCell = [self.goodsInfoListView dequeueReusableCellWithIdentifier:kGoodsInfoCell];
     
     //请求商品的信息
     [XMCenter sendRequest:^(XMRequest *request) {
@@ -107,7 +107,46 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         request.httpMethod = kXMHTTPMethodGET;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
-        NSLog(@"onSuccess: %@", responseObject);
+
+        NSDictionary *goodsDic = responseObject;
+        
+        
+        NSString *objectId = goodsDic[@"objectId"];
+        NSString *name = goodsDic[@"name"];
+        NSString *imageUrl = goodsDic[@"image"];
+        
+        NSString *infoTitle1 = goodsDic[@"title1"];
+        NSString *infoTitle2 = goodsDic[@"title2"];
+        NSString *infoTitle3 = goodsDic[@"title3"];
+        NSString *infoTitle4 = goodsDic[@"title4"];
+        
+        NSString *infoContent1 = goodsDic[@"content1"];
+        NSString *infoContent2 = goodsDic[@"content2"];
+        NSString *infoContent3 = goodsDic[@"content3"];
+        NSString *infoContent4 = goodsDic[@"content4"];
+        
+        
+        DLGoodsInfo *goodsInfo = [[DLGoodsInfo alloc] init];
+        goodsInfo.objectId = objectId;
+        goodsInfo.name = name;
+        goodsInfo.imageUrl = [NSURL URLWithString:imageUrl];
+        
+        goodsInfo.infoTitle1 = infoTitle1;
+        goodsInfo.infoTitle2 = infoTitle2;
+        goodsInfo.infoTitle3 = infoTitle3;
+        goodsInfo.infoTitle4 = infoTitle4;
+        
+        goodsInfo.infoContent1 = infoContent1;
+        goodsInfo.infoContent2 = infoContent2;
+        goodsInfo.infoContent3 = infoContent3;
+        goodsInfo.infoContent4 = infoContent4;
+        
+        self.goodsInfo = goodsInfo;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.goodsInfoListView reloadData];
+        });
+    
     } onFailure:^(NSError *error) {
         NSLog(@"onFailure: %@", error);
     } onFinished:^(id responseObject, NSError *error) {
@@ -160,18 +199,18 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     return _customNavigationBar;
 }
 
--(UITableView *)userInfoListView {
-    if (!_userInfoListView) {
-        _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
-        _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_userInfoListView registerClass:[GoodsInfoCell class] forCellReuseIdentifier:kGoodsInfoCell];
-        [_userInfoListView registerClass:[GoodsInfoHeaderCell class] forCellReuseIdentifier:kGoodsInfoHeaderCell];
+-(UITableView *)goodsInfoListView {
+    if (!_goodsInfoListView) {
+        _goodsInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
+        _goodsInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        [_goodsInfoListView registerClass:[DLGoodsInfoCell class] forCellReuseIdentifier:kGoodsInfoCell];
+        [_goodsInfoListView registerClass:[DLGoodsInfoHeaderCell class] forCellReuseIdentifier:kGoodsInfoHeaderCell];
         
-        [_userInfoListView registerClass:[TableSectionTitleView class] forHeaderFooterViewReuseIdentifier:kTableSectionTitleView];
+        [_goodsInfoListView registerClass:[DLGoodsInfoSectionTitleView class] forHeaderFooterViewReuseIdentifier:kTableSectionTitleView];
     }
     
     
-    return _userInfoListView;
+    return _goodsInfoListView;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -195,7 +234,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     
     
     if (section == 1) {
-        GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
+        DLGoodsInfoCell *cell = (DLGoodsInfoCell *)self.templateCell;
         
         cell.titleLab.text = self.goodsInfo.infoContent1;
        CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
@@ -203,7 +242,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         return cellHeight;
     }
     if (section == 2) {
-        GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
+        DLGoodsInfoCell *cell = (DLGoodsInfoCell *)self.templateCell;
         
         cell.titleLab.text = self.goodsInfo.infoContent2;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
@@ -211,7 +250,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         return cellHeight;
     }
     if (section == 3) {
-        GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
+        DLGoodsInfoCell *cell = (DLGoodsInfoCell *)self.templateCell;
         
         cell.titleLab.text = self.goodsInfo.infoContent3;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
@@ -219,7 +258,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         return cellHeight;
     }
     if (section == 4) {
-        GoodsInfoCell *cell = (GoodsInfoCell *)self.templateCell;
+        DLGoodsInfoCell *cell = (DLGoodsInfoCell *)self.templateCell;
         
         cell.titleLab.text = self.goodsInfo.infoContent4;
         CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
@@ -243,7 +282,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         switch (row) {
             case 0:
             {
-                GoodsInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoHeaderCell forIndexPath:indexPath];
+                DLGoodsInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoHeaderCell forIndexPath:indexPath];
 
                 [cell.iconImageView sd_setImageWithURL:self.goodsInfo.imageUrl placeholderImage:[UIImage imageNamed:@""]];
                 [cell.titleLab setText:self.goodsInfo.name];
@@ -264,7 +303,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         switch (row) {
             case 0:
             {
-                GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
+                DLGoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:self.goodsInfo.infoContent1];
                 
                 return cell;
@@ -280,7 +319,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         switch (row) {
             case 0:
             {
-                GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
+                DLGoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:self.goodsInfo.infoContent2];
                 
                 return cell;
@@ -297,7 +336,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         switch (row) {
             case 0:
             {
-                GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
+                DLGoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:self.goodsInfo.infoContent3];
                 
                 return cell;
@@ -313,7 +352,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         switch (row) {
             case 0:
             {
-                GoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
+                DLGoodsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kGoodsInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:self.goodsInfo.infoContent4];
                 
                 return cell;
@@ -338,7 +377,7 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
         case 3:
         case 4:
         {
-            TableSectionTitleView *sectionTitleView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTableSectionTitleView];
+            DLGoodsInfoSectionTitleView *sectionTitleView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kTableSectionTitleView];
             
             
             if (section == 1) {

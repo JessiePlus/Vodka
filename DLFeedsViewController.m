@@ -97,6 +97,11 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
 
+    if (!_feedsList) {
+        _feedsList = [[NSMutableArray alloc] init];
+    }
+    
+    
     //请求商品的种类
     [XMCenter sendRequest:^(XMRequest *request) {
         request.api = @"classes/Feeds";
@@ -105,7 +110,33 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         request.httpMethod = kXMHTTPMethodGET;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
-        NSLog(@"onSuccess: %@", responseObject);
+
+        NSArray *feedsDicList = responseObject[@"results"];
+        
+        for (NSInteger i = 0; i < feedsDicList.count; i ++) {
+            NSDictionary *feedDic = feedsDicList[i];
+            
+            NSString *objectId = feedDic[@"objectId"];
+            NSString *nickName = feedDic[@"nickName"];
+            NSString *msgContent = feedDic[@"msgContent"];
+            NSString *avatarImageUrl = feedDic[@"avatarImageUrl"];
+            
+            DLFeed *feed = [[DLFeed alloc] init];
+            feed.objectId = objectId;
+            feed.nickName = nickName;
+            feed.msgContent = msgContent;
+            feed.avatarImageUrl = [NSURL URLWithString:avatarImageUrl];
+            
+            [self.feedsList addObject:feed];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.feedsListView reloadData];
+            });
+        
+        }
+    
+    
+    
     } onFailure:^(NSError *error) {
         NSLog(@"onFailure: %@", error);
     } onFinished:^(id responseObject, NSError *error) {

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodsCategoriesViewController : UIViewController
+@interface DLGoodsCategoriesViewController : UIViewController
 
 @end

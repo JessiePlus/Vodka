@@ -1,5 +1,5 @@
 //
-//  UserInfoCell.h
+//  LoginViewController.h
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingInfoCell : UITableViewCell
-
-@property (nonatomic) UILabel *titleLab;
+@interface DLLoginViewController : UIViewController
 
 @end

@@ -1,5 +1,5 @@
 //
-//  UserInfoSliderCell.h
+//  GoodsCateroriesCell.h
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingInfoSwitchCell : UITableViewCell
+@interface DLGoodsCateroriesCell : UICollectionViewCell
 
+@property (nonatomic) UIImageView *iconImageView;
 @property (nonatomic) UILabel *titleLab;
-@property (nonatomic) UISwitch *titleSwitch;
 
 @end

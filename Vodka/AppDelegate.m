@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "GoodsCategoriesViewController.h"
-#import "UserCenterViewController.h"
-#import "DiscoverViewController.h"
+#import "DLGoodsCategoriesViewController.h"
+#import "DLUserCenterViewController.h"
+#import "DLDiscoverViewController.h"
 #import "DLFeedsViewController.h"
 
 #import <XMNetworking/XMNetworking.h>
@@ -41,7 +41,7 @@
 #endif
     }];
 
-    GoodsCategoriesViewController *goodsCategoriesViewController = [[GoodsCategoriesViewController alloc] init];
+    DLGoodsCategoriesViewController *goodsCategoriesViewController = [[DLGoodsCategoriesViewController alloc] init];
     goodsCategoriesViewController.tabBarItem.title = NSLocalizedString(@"Goods", comment: "");
     goodsCategoriesViewController.tabBarItem.image = [UIImage imageNamed:@"icon_drinks"];
     goodsCategoriesViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_drinks_active"];
@@ -56,12 +56,12 @@
     UINavigationController *navFeedsController = [[UINavigationController alloc] initWithRootViewController:feedsViewController];
 
 
-    DiscoverViewController *discoverViewController = [[DiscoverViewController alloc] init];
+    DLDiscoverViewController *discoverViewController = [[DLDiscoverViewController alloc] init];
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
     discoverViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
     discoverViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];
     
-    UserCenterViewController *userCenterViewController = [[UserCenterViewController alloc] init];
+    DLUserCenterViewController *userCenterViewController = [[DLUserCenterViewController alloc] init];
     userCenterViewController.tabBarItem.title = NSLocalizedString(@"Me", comment: "");
     userCenterViewController.tabBarItem.image = [UIImage imageNamed:@"icon_me"];
     userCenterViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_me_active"];

@@ -1,5 +1,5 @@
 //
-//  GoodsCateroriesCell.h
+//  UserInfoHeaderView.h
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodsCateroriesCell : UICollectionViewCell
+@interface DLUserInfoHeaderCell : UITableViewCell
 
 @property (nonatomic) UIImageView *iconImageView;
 @property (nonatomic) UILabel *titleLab;
+
+@property (nonatomic, copy) void (^iconImageViewTapAction)(void);
 
 @end

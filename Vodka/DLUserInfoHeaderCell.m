@@ -1,16 +1,15 @@
 //
-//  GoodsInfoHeaderCell.m
+//  UserInfoHeaderView.m
 //  Vodka
 //
-//  Created by dinglin on 2017/3/25.
+//  Created by dinglin on 2017/3/24.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "GoodsInfoHeaderCell.h"
+#import "DLUserInfoHeaderCell.h"
 #import <Masonry.h>
 
-@implementation GoodsInfoHeaderCell
-
+@implementation DLUserInfoHeaderCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -25,7 +24,7 @@
     
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     [self.contentView addSubview:self.iconImageView];
     [self.contentView addSubview:self.titleLab];
     
@@ -43,6 +42,9 @@
         make.centerX.equalTo(self.iconImageView);
     }];
     
+    self.iconImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapiconImageView)];
+    [self.iconImageView addGestureRecognizer:tap];
     
 }
 
@@ -64,6 +66,10 @@
     return _titleLab;
 }
 
-
+-(void)tapiconImageView {
+    if (self.iconImageViewTapAction) {
+        self.iconImageViewTapAction();
+    }
+}
 
 @end

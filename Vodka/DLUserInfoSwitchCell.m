@@ -6,10 +6,10 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "UserInfoSwitchCell.h"
+#import "DLUserInfoSwitchCell.h"
 #import <Masonry.h>
 
-@implementation UserInfoSwitchCell
+@implementation DLUserInfoSwitchCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

@@ -6,13 +6,12 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "UserCenterViewController.h"
-#import "VodkaService+User.h"
+#import "DLUserCenterViewController.h"
 #import <Masonry.h>
-#import "UserInfoCell.h"
-#import "UserInfoHeaderCell.h"
-#import "UserInfoSwitchCell.h"
-#import "LoginViewController.h"
+#import "DLUserInfoCell.h"
+#import "DLUserInfoHeaderCell.h"
+#import "DLUserInfoSwitchCell.h"
+#import "DLLoginViewController.h"
 #import "DLSettingsViewController.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
@@ -20,7 +19,7 @@ static NSString *const kUserInfoHeaderCell = @"kUserInfoHeaderCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 
-@interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DLUserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
 
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
@@ -33,7 +32,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 @end
 
-@implementation UserCenterViewController
+@implementation DLUserCenterViewController
 
 -(instancetype)init {
     self = [super init];
@@ -131,9 +130,9 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     if (!_userInfoListView) {
         _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
         _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_userInfoListView registerClass:[UserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
-        [_userInfoListView registerClass:[UserInfoHeaderCell class] forCellReuseIdentifier:kUserInfoHeaderCell];
-        [_userInfoListView registerClass:[UserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
+        [_userInfoListView registerClass:[DLUserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
+        [_userInfoListView registerClass:[DLUserInfoHeaderCell class] forCellReuseIdentifier:kUserInfoHeaderCell];
+        [_userInfoListView registerClass:[DLUserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
         
     }
     
@@ -182,13 +181,13 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                UserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
+                DLUserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"default_avatar"]];
                 [cell.titleLab setText:NSLocalizedString(@"Click portrait to login", comment: "")];
                 
                 cell.iconImageViewTapAction = ^() {
                 
-                    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+                    DLLoginViewController *loginViewController = [[DLLoginViewController alloc] init];
                     UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
                     
                     [self presentViewController:navLoginController animated:YES completion:nil];
@@ -213,7 +212,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
+                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"icon_feedback"]];
                 [cell.titleLab setText:NSLocalizedString(@"Feedback", comment: "")];
                 
@@ -222,7 +221,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 1:
             {
-                UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
+                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"icon_shareAPP"]];
                 [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
                 
@@ -239,7 +238,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                UserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
+                DLUserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"icon_nightMode"]];
                 [cell.titleLab setText:NSLocalizedString(@"Night mode", comment: "")];
                 

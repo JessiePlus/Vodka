@@ -8,8 +8,8 @@
 
 #import "DLSettingsViewController.h"
 #import <Masonry.h>
-#import "SettingInfoCell.h"
-#import "SettingInfoSwitchCell.h"
+#import "DLSettingInfoCell.h"
+#import "DLSettingInfoSwitchCell.h"
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -120,8 +120,8 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
     if (!_userInfoListView) {
         _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
         _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_userInfoListView registerClass:[SettingInfoCell class] forCellReuseIdentifier:kSettingInfoCell];
-        [_userInfoListView registerClass:[SettingInfoSwitchCell class] forCellReuseIdentifier:kSettingInfoSwitchCell];
+        [_userInfoListView registerClass:[DLSettingInfoCell class] forCellReuseIdentifier:kSettingInfoCell];
+        [_userInfoListView registerClass:[DLSettingInfoSwitchCell class] forCellReuseIdentifier:kSettingInfoSwitchCell];
         
     }
     
@@ -163,7 +163,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                SettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
+                DLSettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Push comments", comment: "")];
 
                 return cell;
@@ -171,7 +171,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
                 break;
             case 1:
             {
-                SettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
+                DLSettingInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoSwitchCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Push messages", comment: "")];
                 
                 return cell;
@@ -179,7 +179,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
                 break;
             case 2:
             {
-                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Clean cache", comment: "")];
                 
                 return cell;
@@ -187,7 +187,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
                 break;
             case 3:
             {
-                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Evaluate", comment: "")];
                 
                 return cell;
@@ -203,7 +203,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"User Agreement", comment: "")];
                 
                 return cell;
@@ -211,7 +211,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
                 break;
             case 1:
             {
-                SettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Privacy Policy", comment: "")];
                 
                 return cell;

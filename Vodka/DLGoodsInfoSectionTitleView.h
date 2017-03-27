@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableSectionTitleView : UITableViewHeaderFooterView
+@interface DLGoodsInfoSectionTitleView : UITableViewHeaderFooterView
 @property (nonatomic) UILabel *titleLab;
 
 @end

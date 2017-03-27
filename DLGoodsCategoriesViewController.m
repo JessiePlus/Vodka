@@ -6,9 +6,9 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "GoodsCategoriesViewController.h"
+#import "DLGoodsCategoriesViewController.h"
 #import <Masonry/Masonry.h>
-#import "GoodsCateroriesCell.h"
+#import "DLGoodsCateroriesCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "DLGoodsInfoViewController.h"
@@ -20,12 +20,10 @@
 static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 
 
-@interface GoodsCategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface DLGoodsCategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic) UICollectionView *goodsCollectionView;
-
-
-@property (nonatomic, copy) NSMutableArray *goodsCategoriesList;
+@property (nonatomic) UICollectionView *goodsCategoriesListView;
+@property (nonatomic, copy) NSMutableArray <DLGoodsCategories *>*goodsCategoriesList;
 
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
@@ -33,7 +31,7 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 
 @end
 
-@implementation GoodsCategoriesViewController
+@implementation DLGoodsCategoriesViewController
 
 -(instancetype)init {
     self = [super init];
@@ -67,12 +65,12 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.customNavigationBar];
-    [self.view addSubview:self.goodsCollectionView];
+    [self.view addSubview:self.goodsCategoriesListView];
     
     
-    self.goodsCollectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.goodsCategoriesListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
 
-        [self.goodsCollectionView.mj_header endRefreshing];
+        [self.goodsCategoriesListView.mj_header endRefreshing];
         
     }];
     //导航栏布局
@@ -83,7 +81,7 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
         make.left.equalTo(@0);
     }];
     
-    [self.goodsCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.goodsCategoriesListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
         make.top.equalTo(self.customNavigationBar.mas_bottom);
@@ -91,6 +89,10 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     }];
     
 
+    if (!_goodsCategoriesList) {
+        _goodsCategoriesList = [[NSMutableArray alloc] init];
+    }
+    
     //请求商品的种类
     [XMCenter sendRequest:^(XMRequest *request) {
         request.api = @"classes/GoodsCategories";
@@ -99,7 +101,34 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
         request.httpMethod = kXMHTTPMethodGET;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
-        NSLog(@"onSuccess: %@", responseObject);
+
+        NSArray *goodsCategoriesDicList = responseObject[@"results"];
+        
+        for (NSInteger i = 0; i < goodsCategoriesDicList.count; i ++) {
+            NSDictionary *goodsDic = goodsCategoriesDicList[i];
+            
+            NSString *objectId = goodsDic[@"objectId"];
+            NSString *title = goodsDic[@"title"];
+            NSString *discrip = goodsDic[@"description"];
+            NSString *imageUrl = goodsDic[@"image"];
+            
+            DLGoodsCategories *goodsCategories = [[DLGoodsCategories alloc] init];
+            goodsCategories.objectId = objectId;
+            goodsCategories.title = title;
+            goodsCategories.descripText = discrip;
+            goodsCategories.imageUrl = [NSURL URLWithString:imageUrl];
+            
+            [self.goodsCategoriesList addObject:goodsCategories];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.goodsCategoriesListView reloadData];
+            });
+        }
+    
+    
+    
+    
+    
     } onFailure:^(NSError *error) {
         NSLog(@"onFailure: %@", error);
     } onFinished:^(id responseObject, NSError *error) {
@@ -135,24 +164,24 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 }
 
 
--(UICollectionView *)goodsCollectionView {
-    if (!_goodsCollectionView) {
+-(UICollectionView *)goodsCategoriesListView {
+    if (!_goodsCategoriesListView) {
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(90, 90);
         
-        _goodsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _goodsCategoriesListView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         
-        _goodsCollectionView.backgroundColor = [UIColor whiteColor];
+        _goodsCategoriesListView.backgroundColor = [UIColor whiteColor];
         
-        _goodsCollectionView.delegate = self;
-        _goodsCollectionView.dataSource = self;
+        _goodsCategoriesListView.delegate = self;
+        _goodsCategoriesListView.dataSource = self;
         
-        [_goodsCollectionView registerClass:[GoodsCateroriesCell class] forCellWithReuseIdentifier:kGoodsCateroriesCell];
+        [_goodsCategoriesListView registerClass:[DLGoodsCateroriesCell class] forCellWithReuseIdentifier:kGoodsCateroriesCell];
     }
     
     
-    return _goodsCollectionView;
+    return _goodsCategoriesListView;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,7 +190,7 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     NSInteger index = indexPath.item;
     
     
-    GoodsCateroriesCell *goodsCateroriesCell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsCateroriesCell forIndexPath:indexPath];
+    DLGoodsCateroriesCell *goodsCateroriesCell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsCateroriesCell forIndexPath:indexPath];
 
     DLGoodsCategories *goodsCategories = self.goodsCategoriesList[index];
 

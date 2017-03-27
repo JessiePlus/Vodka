@@ -7,9 +7,9 @@
 //
 #import <Masonry/Masonry.h>
 
-#import "DiscoverViewController.h"
+#import "DLDiscoverViewController.h"
 
-@interface DiscoverViewController ()
+@interface DLDiscoverViewController ()
 
 //自定义导航栏
 @property (nonatomic) UINavigationBar *customNavigationBar;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation DiscoverViewController
+@implementation DLDiscoverViewController
 
 -(instancetype)init {
     self = [super init];

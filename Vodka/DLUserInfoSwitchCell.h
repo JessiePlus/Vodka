@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserInfoSwitchCell : UITableViewCell
+@interface DLUserInfoSwitchCell : UITableViewCell
 
 @property (nonatomic) UIImageView *iconImageView;
 @property (nonatomic) UILabel *titleLab;

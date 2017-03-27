@@ -6,10 +6,10 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "TableSectionTitleView.h"
+#import "DLGoodsInfoSectionTitleView.h"
 #import <Masonry.h>
 
-@implementation TableSectionTitleView
+@implementation DLGoodsInfoSectionTitleView
 
 
 -(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {

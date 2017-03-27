@@ -1,35 +1,30 @@
 //
-//  UserInfoCell.m
+//  GoodsCateroriesCell.m
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "UserInfoCell.h"
+#import "DLGoodsCateroriesCell.h"
 #import <Masonry.h>
 
-@interface UserInfoCell ()
+@implementation DLGoodsCateroriesCell
 
+-(instancetype)initWithFrame:(CGRect)frame {
 
-
-@end
-
-@implementation UserInfoCell
-
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithFrame:frame];
     if (self) {
         [self makeUI];
     }
     
     return self;
+
 }
 
 -(void)makeUI {
+    
     self.contentView.backgroundColor = [UIColor whiteColor];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [self.contentView addSubview:self.iconImageView];
     [self.contentView addSubview:self.titleLab];
@@ -37,15 +32,15 @@
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@24);
         make.height.equalTo(@24);
-        make.left.equalTo(self.contentView).offset(20);
-        make.centerY.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(20);
+        make.centerX.equalTo(self.contentView);
     }];
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@180);
+        make.width.equalTo(@60);
         make.height.equalTo(@24);
-        make.left.equalTo(self.iconImageView.mas_right).offset(15);
-        make.centerY.equalTo(self.contentView);
+        make.top.equalTo(self.iconImageView.mas_bottom).offset(15);
+        make.centerX.equalTo(self.iconImageView);
     }];
     
     
@@ -62,16 +57,12 @@
 -(UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
-        _titleLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
     }
     
     return _titleLab;
 }
-
-
-
-
-
 
 
 @end

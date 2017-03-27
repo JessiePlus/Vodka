@@ -1,21 +1,15 @@
 //
-//  UserInfoCell.m
+//  UserInfoSliderCell.m
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "SettingInfoCell.h"
+#import "DLSettingInfoSwitchCell.h"
 #import <Masonry.h>
 
-@interface SettingInfoCell ()
-
-
-
-@end
-
-@implementation SettingInfoCell
+@implementation DLSettingInfoSwitchCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -27,12 +21,12 @@
 }
 
 -(void)makeUI {
+    
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    self.accessoryView = self.titleSwitch;
     [self.contentView addSubview:self.titleLab];
-    
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@180);
@@ -44,6 +38,14 @@
     
 }
 
+-(UISwitch *)titleSwitch {
+    if (!_titleSwitch) {
+        _titleSwitch = [[UISwitch alloc] init];
+    }
+    
+    return _titleSwitch;
+}
+
 -(UILabel *)titleLab {
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
@@ -52,11 +54,6 @@
     
     return _titleLab;
 }
-
-
-
-
-
 
 
 @end
