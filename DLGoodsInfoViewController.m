@@ -11,10 +11,10 @@
 #import "GoodsInfoCell.h"
 #import "GoodsInfoHeaderCell.h"
 #import "LoginViewController.h"
-#import "VodkaService+Goods.h"
 #import "DLGoodsInfo.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "TableSectionTitleView.h"
+#import <XMNetworking/XMNetworking.h>
 
 static NSString *const kGoodsInfoCell = @"GoodsInfoCell";
 static NSString *const kGoodsInfoHeaderCell = @"kGoodsInfoHeaderCell";
@@ -99,20 +99,21 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     
     self.templateCell = [self.userInfoListView dequeueReusableCellWithIdentifier:kGoodsInfoCell];
     
-    
-    //请求茶信息
-    
-    [[VodkaService sharedManager] requestGoodsInfoSuccess:^(DLGoodsInfo *goodsInfo) {
-        
-        _goodsInfo = goodsInfo;
-        
-        [self.customNavigationItem setTitle:self.goodsInfo.name];
-
-        [self.userInfoListView reloadData];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+    //请求商品的信息
+    [XMCenter sendRequest:^(XMRequest *request) {
+        request.api = @"classes/GoodsInfo/58d7da705c497d0057fe237f";
+        request.parameters = @{};
+        request.headers = @{};
+        request.httpMethod = kXMHTTPMethodGET;
+        request.requestSerializerType = kXMRequestSerializerJSON;
+    } onSuccess:^(id responseObject) {
+        NSLog(@"onSuccess: %@", responseObject);
+    } onFailure:^(NSError *error) {
+        NSLog(@"onFailure: %@", error);
+    } onFinished:^(id responseObject, NSError *error) {
+        NSLog(@"onFinished");
     }];
+
     
 }
 

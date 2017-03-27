@@ -6,13 +6,15 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import <WeexSDK/WeexSDK.h>
-
 #import "AppDelegate.h"
 #import "GoodsCategoriesViewController.h"
 #import "UserCenterViewController.h"
 #import "DiscoverViewController.h"
 #import "DLFeedsViewController.h"
+
+#import <XMNetworking/XMNetworking.h>
+
+
 
 
 @interface AppDelegate ()
@@ -25,26 +27,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //business configuration
-    [WXAppConfiguration setAppGroup:@"AliApp"];
-    [WXAppConfiguration setAppName:@"WeexDemo"];
-    [WXAppConfiguration setAppVersion:@"1.0.0"];
-    //init sdk enviroment
-    [WXSDKEngine initSDKEnviroment];
     
     
-    
-    //register custom module and component，optional
-    //[WXSDKEngine registerComponent:@"MyView" withClass:[MyViewComponent class]];
-    //[WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
-    //register the implementation of protocol, optional
-    //[WXSDKEngine registerHandler:[WXNavigationDefaultImpl new] withProtocol:@protocol(WXNavigationProtocol)];
-    
-    
-    //set the log level
-    [WXLog setLogLevel: WXLogLevelAll];
-    
-    
+    [XMCenter setupConfig:^(XMConfig *config) {
+        config.generalServer = @"https://api.leancloud.cn/1.1/";
+        config.generalHeaders = @{@"X-LC-Id": @"x6XqOXajuBXl7KAPgkDGVm2v-gzGzoHsz", @"X-LC-Key": @"HlGlENGF6ki2CL32REOskquL"};
+        config.generalParameters = @{};
+        config.generalUserInfo = nil;
+        config.callbackQueue = dispatch_get_main_queue();
+        config.engine = [XMEngine sharedEngine];
+#ifdef DEBUG
+        config.consoleLog = YES;
+#endif
+    }];
+
     GoodsCategoriesViewController *goodsCategoriesViewController = [[GoodsCategoriesViewController alloc] init];
     goodsCategoriesViewController.tabBarItem.title = NSLocalizedString(@"Goods", comment: "");
     goodsCategoriesViewController.tabBarItem.image = [UIImage imageNamed:@"icon_drinks"];

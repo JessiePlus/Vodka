@@ -9,10 +9,13 @@
 #import "GoodsCategoriesViewController.h"
 #import <Masonry/Masonry.h>
 #import "GoodsCateroriesCell.h"
-#import "VodkaService+Goods.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "DLGoodsInfoViewController.h"
+#import <XMNetworking/XMNetworking.h>
+
+#import "DLGoodsCategories.h"
+
 
 static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 
@@ -88,23 +91,21 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     }];
     
 
-    //请求茶种类
-    
-    [[VodkaService sharedManager] requestAllGoodsCategoriesSuccess:^(NSArray<DLGoodsCategories *> *goodsCategoriesList) {
-        
-        if (!_goodsCategoriesList) {
-            _goodsCategoriesList = [[NSMutableArray alloc] init];
-        } else {
-            [_goodsCategoriesList removeAllObjects];
-        }
-        
-        _goodsCategoriesList = [goodsCategoriesList mutableCopy];
-        
-        [self.goodsCollectionView reloadData];
-   
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+    //请求商品的种类
+    [XMCenter sendRequest:^(XMRequest *request) {
+        request.api = @"classes/GoodsCategories";
+        request.parameters = @{};
+        request.headers = @{};
+        request.httpMethod = kXMHTTPMethodGET;
+        request.requestSerializerType = kXMRequestSerializerJSON;
+    } onSuccess:^(id responseObject) {
+        NSLog(@"onSuccess: %@", responseObject);
+    } onFailure:^(NSError *error) {
+        NSLog(@"onFailure: %@", error);
+    } onFinished:^(id responseObject, NSError *error) {
+        NSLog(@"onFinished");
     }];
+
     
     
 }

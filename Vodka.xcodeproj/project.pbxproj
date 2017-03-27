@@ -30,7 +30,6 @@
 		D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDD1E8508000020EA7F /* GoodsCategoriesViewController.m */; };
 		D6188BE11E8561CB0020EA7F /* GoodsCateroriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* GoodsCateroriesCell.m */; };
 		D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE31E8572170020EA7F /* DLGoodsCategories.m */; };
-		D6188BE61E85900B0020EA7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6188BE51E85900B0020EA7F /* MapKit.framework */; };
 		D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */; };
 		D6188BEC1E8624080020EA7F /* GoodsInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEB1E8624080020EA7F /* GoodsInfoHeaderCell.m */; };
 		D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */; };
@@ -39,7 +38,6 @@
 		D6188BF81E8658240020EA7F /* DLFeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF71E8658240020EA7F /* DLFeedsViewController.m */; };
 		D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFA1E865D4E0020EA7F /* DLFeed.m */; };
 		D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */; };
-		D6188C011E8663100020EA7F /* VodkaService+Feeds.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C001E8663100020EA7F /* VodkaService+Feeds.m */; };
 		D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */; };
 		D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */; };
 		D6188C0A1E86EBFB0020EA7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */; };
@@ -55,7 +53,6 @@
 		D63612751E6BA44000C2322D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612741E6BA44000C2322D /* User.m */; };
 		D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */; };
 		D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */; };
-		D6FDD1CA1E6D57F3000EC55B /* VodkaService+Goods.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */; };
 		D6FDD1CE1E6EB2F0000EC55B /* DLGoodsCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDD1CD1E6EB2F0000EC55B /* DLGoodsCellModel.m */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +92,6 @@
 		D6188BFA1E865D4E0020EA7F /* DLFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeed.m; sourceTree = "<group>"; };
 		D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfoCell.h; sourceTree = "<group>"; };
 		D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfoCell.m; sourceTree = "<group>"; };
-		D6188BFF1E8663100020EA7F /* VodkaService+Feeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VodkaService+Feeds.h"; sourceTree = "<group>"; };
-		D6188C001E8663100020EA7F /* VodkaService+Feeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VodkaService+Feeds.m"; sourceTree = "<group>"; };
 		D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingsViewController.h; sourceTree = "<group>"; };
 		D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingsViewController.m; sourceTree = "<group>"; };
 		D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedEditViewController.h; sourceTree = "<group>"; };
@@ -127,8 +122,6 @@
 		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
 		D6FDD1BE1E6CF9B2000EC55B /* DLGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoods.h; sourceTree = "<group>"; };
 		D6FDD1BF1E6CF9B2000EC55B /* DLGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoods.m; sourceTree = "<group>"; };
-		D6FDD1C81E6D57F3000EC55B /* VodkaService+Goods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VodkaService+Goods.h"; sourceTree = "<group>"; };
-		D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VodkaService+Goods.m"; sourceTree = "<group>"; };
 		D6FDD1CB1E6E9EE1000EC55B /* DLPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPersistence.h; sourceTree = "<group>"; };
 		D6FDD1CC1E6EB2F0000EC55B /* DLGoodsCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCellModel.h; sourceTree = "<group>"; };
 		D6FDD1CD1E6EB2F0000EC55B /* DLGoodsCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCellModel.m; sourceTree = "<group>"; };
@@ -140,7 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6188BE61E85900B0020EA7F /* MapKit.framework in Frameworks */,
 				624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,10 +268,6 @@
 				D63612741E6BA44000C2322D /* User.m */,
 				D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */,
 				D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */,
-				D6FDD1C81E6D57F3000EC55B /* VodkaService+Goods.h */,
-				D6FDD1C91E6D57F3000EC55B /* VodkaService+Goods.m */,
-				D6188BFF1E8663100020EA7F /* VodkaService+Feeds.h */,
-				D6188C001E8663100020EA7F /* VodkaService+Feeds.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -484,14 +472,12 @@
 				D6188BDE1E8508000020EA7F /* GoodsCategoriesViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* UserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* UserInfoSwitchCell.m in Sources */,
-				D6188C011E8663100020EA7F /* VodkaService+Feeds.m in Sources */,
 				D6FDD1CE1E6EB2F0000EC55B /* DLGoodsCellModel.m in Sources */,
 				D6188BD21E84B9FF0020EA7F /* LoginViewController.m in Sources */,
 				D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DiscoverViewController.m in Sources */,
 				D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */,
 				D636126F1E6B9BE900C2322D /* VodkaService.m in Sources */,
-				D6FDD1CA1E6D57F3000EC55B /* VodkaService+Goods.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedsViewController.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,

@@ -32,19 +32,14 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        
-        
-        NSLog(@"UserCenterViewController init");
-        
+        NSLog(@"DLSettingsViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"UserCenterViewController dealloc");
-    
-    
+    NSLog(@"DLSettingsViewController dealloc");
 }
 
 -(void)viewWillAppear:(BOOL)animated {

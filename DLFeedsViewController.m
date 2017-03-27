@@ -12,8 +12,8 @@
 #import <MJRefresh.h>
 #import "DLFeed.h"
 #import "DLFeedInfoCell.h"
-#import "VodkaService+Feeds.h"
 #import "DLFeedEditViewController.h"
+#import <XMNetworking/XMNetworking.h>
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
@@ -97,21 +97,22 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
 
-    //请求茶种类
-    [[VodkaService sharedManager] requestAllFeedsSuccess:^(NSArray<DLFeed *> *feedList) {
-        if (!_feedsList) {
-            _feedsList = [[NSMutableArray alloc] init];
-        } else {
-            [_feedsList removeAllObjects];
-        }
-        
-        _feedsList = [feedList mutableCopy];
-        
-        [self.feedsListView reloadData];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+    //请求商品的种类
+    [XMCenter sendRequest:^(XMRequest *request) {
+        request.api = @"classes/Feeds";
+        request.parameters = @{};
+        request.headers = @{};
+        request.httpMethod = kXMHTTPMethodGET;
+        request.requestSerializerType = kXMRequestSerializerJSON;
+    } onSuccess:^(id responseObject) {
+        NSLog(@"onSuccess: %@", responseObject);
+    } onFailure:^(NSError *error) {
+        NSLog(@"onFailure: %@", error);
+    } onFinished:^(id responseObject, NSError *error) {
+        NSLog(@"onFinished");
     }];
-
+    
+    
     
 }
 
