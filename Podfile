@@ -5,6 +5,7 @@ def pods
     pod 'MJRefresh'
     pod 'SDWebImage'
     pod 'XMNetworking'
+    pod 'CocoaLumberjack'
 end
 
 target ‘Vodka’ do

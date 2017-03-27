@@ -11,6 +11,7 @@
 #import "DLUserCenterViewController.h"
 #import "DLDiscoverViewController.h"
 #import "DLFeedsViewController.h"
+#import "AppDelegate+Logging.h"
 
 #import <XMNetworking/XMNetworking.h>
 
@@ -23,6 +24,12 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self setupLogging];
+    
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

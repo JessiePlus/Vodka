@@ -10,7 +10,7 @@
 #import <Masonry.h>
 #import "DLGoodsInfoCell.h"
 #import "DLGoodsInfoHeaderCell.h"
-#import "DLLoginViewController.h"
+#import "DLSignInViewController.h"
 #import "DLGoodsInfo.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "DLGoodsInfoSectionTitleView.h"

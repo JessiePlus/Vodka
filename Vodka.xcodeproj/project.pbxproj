@@ -23,7 +23,7 @@
 /* Begin PBXBuildFile section */
 		624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */; };
 		D6188BCF1E84B5BE0020EA7F /* DLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BCE1E84B5BE0020EA7F /* DLDiscoverViewController.m */; };
-		D6188BD21E84B9FF0020EA7F /* DLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD11E84B9FF0020EA7F /* DLLoginViewController.m */; };
+		D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */; };
 		D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */; };
 		D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */; };
 		D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */; };
@@ -43,6 +43,7 @@
 		D6188C0A1E86EBFB0020EA7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */; };
 		D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C0F1E8818780020EA7F /* DLSettingInfoCell.m */; };
 		D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */; };
+		D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -58,8 +59,8 @@
 		C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodka.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6188BCD1E84B5BE0020EA7F /* DLDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDiscoverViewController.h; sourceTree = "<group>"; };
 		D6188BCE1E84B5BE0020EA7F /* DLDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDiscoverViewController.m; sourceTree = "<group>"; };
-		D6188BD01E84B9FF0020EA7F /* DLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginViewController.h; sourceTree = "<group>"; };
-		D6188BD11E84B9FF0020EA7F /* DLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginViewController.m; sourceTree = "<group>"; };
+		D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSignInViewController.h; sourceTree = "<group>"; };
+		D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSignInViewController.m; sourceTree = "<group>"; };
 		D6188BD31E84C04D0020EA7F /* DLUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserInfoCell.h; sourceTree = "<group>"; };
 		D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserInfoCell.m; sourceTree = "<group>"; };
 		D6188BD61E84EFBF0020EA7F /* DLUserInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserInfoHeaderCell.h; sourceTree = "<group>"; };
@@ -99,6 +100,10 @@
 		D6188C0F1E8818780020EA7F /* DLSettingInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingInfoCell.m; sourceTree = "<group>"; };
 		D6188C101E8818780020EA7F /* DLSettingInfoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingInfoSwitchCell.h; sourceTree = "<group>"; };
 		D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingInfoSwitchCell.m; sourceTree = "<group>"; };
+		D6188C1C1E896D9E0020EA7F /* AppDelegate+Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Logging.h"; sourceTree = "<group>"; };
+		D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Logging.m"; sourceTree = "<group>"; };
+		D6188C1F1E896FF40020EA7F /* Vodka-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Vodka-Prefix.pch"; sourceTree = "<group>"; };
+		D6188C201E8970920020EA7F /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,11 +191,14 @@
 				D63612561E6A85DA00C2322D /* ViewControllers */,
 				D63612421E6A659200C2322D /* AppDelegate.h */,
 				D63612431E6A659200C2322D /* AppDelegate.m */,
+				D6188C1C1E896D9E0020EA7F /* AppDelegate+Logging.h */,
+				D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */,
 				D636124B1E6A659200C2322D /* Images.xcassets */,
 				D63612501E6A659200C2322D /* Info.plist */,
 				D63612641E6ABBA900C2322D /* Localizable.strings */,
 				D636123F1E6A659200C2322D /* Supporting Files */,
 				D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */,
+				D6188C201E8970920020EA7F /* Logging.h */,
 			);
 			path = Vodka;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 		D636123F1E6A659200C2322D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6188C1F1E896FF40020EA7F /* Vodka-Prefix.pch */,
 				D63612401E6A659200C2322D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -210,8 +219,8 @@
 				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
 				D6188BCD1E84B5BE0020EA7F /* DLDiscoverViewController.h */,
 				D6188BCE1E84B5BE0020EA7F /* DLDiscoverViewController.m */,
-				D6188BD01E84B9FF0020EA7F /* DLLoginViewController.h */,
-				D6188BD11E84B9FF0020EA7F /* DLLoginViewController.m */,
+				D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */,
+				D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */,
 				D6188BDC1E8508000020EA7F /* DLGoodsCategoriesViewController.h */,
 				D6188BDD1E8508000020EA7F /* DLGoodsCategoriesViewController.m */,
 				D6188BE71E861E5C0020EA7F /* DLGoodsInfoViewController.h */,
@@ -454,13 +463,14 @@
 				D6188BDE1E8508000020EA7F /* DLGoodsCategoriesViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
-				D6188BD21E84B9FF0020EA7F /* DLLoginViewController.m in Sources */,
+				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
 				D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DLDiscoverViewController.m in Sources */,
 				D6188BEF1E862AFE0020EA7F /* DLGoodsInfo.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedsViewController.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,
+				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
 				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
@@ -597,6 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
+				GCC_PREFIX_HEADER = "Vodka/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
@@ -611,6 +622,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
+				GCC_PREFIX_HEADER = "Vodka/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;

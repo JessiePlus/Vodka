@@ -11,7 +11,7 @@
 #import "DLUserInfoCell.h"
 #import "DLUserInfoHeaderCell.h"
 #import "DLUserInfoSwitchCell.h"
-#import "DLLoginViewController.h"
+#import "DLSignInViewController.h"
 #import "DLSettingsViewController.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
@@ -187,7 +187,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 
                 cell.iconImageViewTapAction = ^() {
                 
-                    DLLoginViewController *loginViewController = [[DLLoginViewController alloc] init];
+                    DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
                     UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
                     
                     [self presentViewController:navLoginController animated:YES completion:nil];
