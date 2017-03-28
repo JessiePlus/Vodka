@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBaseViewController.h"
 
-@interface DLSignInViewController : UIViewController
+@interface DLSignInViewController : DLBaseViewController
 
 @end

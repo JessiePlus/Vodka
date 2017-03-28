@@ -25,10 +25,6 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 @property (nonatomic) UICollectionView *goodsCategoriesListView;
 @property (nonatomic, copy) NSMutableArray <DLGoodsCategories *>*goodsCategoriesList;
 
-//自定义导航栏
-@property (nonatomic) UINavigationBar *customNavigationBar;
-@property (nonatomic) UINavigationItem *customNavigationItem;
-
 @end
 
 @implementation DLGoodsCategoriesViewController
@@ -51,20 +47,10 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.customNavigationBar];
+        
     [self.view addSubview:self.goodsCategoriesListView];
     
     
@@ -73,18 +59,15 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
         [self.goodsCategoriesListView.mj_header endRefreshing];
         
     }];
-    //导航栏布局
-    [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(@64);
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-    }];
+    
+    //导航栏
+    self.navigationItem.title = NSLocalizedString(@"Goods", comment: "");
+
     
     [self.goodsCategoriesListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.customNavigationBar.mas_bottom);
+        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];
     
@@ -137,30 +120,6 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
 
     
     
-}
-
-
--(UINavigationItem *)customNavigationItem {
-    if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Goods", comment: "")];
-        
-    }
-    
-    return _customNavigationItem;
-}
-
--(UINavigationBar *)customNavigationBar {
-    if (!_customNavigationBar) {
-        _customNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
-        [_customNavigationBar setItems:@[self.customNavigationItem] animated:false];
-        _customNavigationBar.barTintColor = [UIColor whiteColor];
-        _customNavigationBar.titleTextAttributes = @{
-                                                     NSForegroundColorAttributeName:[UIColor blackColor]
-                                                     
-                                                     };
-    }
-    
-    return _customNavigationBar;
 }
 
 

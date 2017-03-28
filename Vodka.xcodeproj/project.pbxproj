@@ -44,6 +44,7 @@
 		D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C0F1E8818780020EA7F /* DLSettingInfoCell.m */; };
 		D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */; };
 		D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */; };
+		D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C221E89F9E90020EA7F /* DLBaseViewController.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -104,6 +105,8 @@
 		D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Logging.m"; sourceTree = "<group>"; };
 		D6188C1F1E896FF40020EA7F /* Vodka-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Vodka-Prefix.pch"; sourceTree = "<group>"; };
 		D6188C201E8970920020EA7F /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		D6188C211E89F9E90020EA7F /* DLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseViewController.h; sourceTree = "<group>"; };
+		D6188C221E89F9E90020EA7F /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */,
 				D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */,
 				D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */,
+				D6188C211E89F9E90020EA7F /* DLBaseViewController.h */,
+				D6188C221E89F9E90020EA7F /* DLBaseViewController.m */,
 			);
 			name = ViewControllers;
 			path = ..;
@@ -456,6 +461,7 @@
 				D63612751E6BA44000C2322D /* User.m in Sources */,
 				D6188BF51E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m in Sources */,
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
+				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,

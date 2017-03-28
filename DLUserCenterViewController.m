@@ -21,10 +21,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 @interface DLUserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
 
-//自定义导航栏
-@property (nonatomic) UINavigationBar *customNavigationBar;
-@property (nonatomic) UINavigationItem *customNavigationItem;
-
 //用户信息列表
 @property (nonatomic) UITableView *userInfoListView;
 
@@ -52,39 +48,33 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.customNavigationBar];
     [self.view addSubview:self.userInfoListView];
 
-    //导航栏布局
-    [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(@64);
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-    }];
+    //导航栏
+    self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 24, 24);
+    [rightBtn setImage:[UIImage imageNamed:@"icon_settings"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    
+    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
+    
     
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.customNavigationBar.mas_bottom);
+        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];
     
     
     self.userInfoListView.backgroundColor = [UIColor whiteColor];
-    
     self.userInfoListView.dataSource = self;
     self.userInfoListView.delegate = self;
     
@@ -93,38 +83,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
 }
 
--(UINavigationItem *)customNavigationItem {
-    if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Not logged in", comment: "")];
-        
-        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        rightBtn.frame = CGRectMake(0, 0, 24, 24);
-        [rightBtn setImage:[UIImage imageNamed:@"icon_settings"] forState:UIControlStateNormal];
-        [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-
-        
-        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-        
-        _customNavigationItem.rightBarButtonItems = @[rightBarBtn];
-        
-    }
-    
-    return _customNavigationItem;
-}
-
--(UINavigationBar *)customNavigationBar {
-    if (!_customNavigationBar) {
-        _customNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
-        [_customNavigationBar setItems:@[self.customNavigationItem] animated:false];
-        _customNavigationBar.barTintColor = [UIColor whiteColor];
-        _customNavigationBar.titleTextAttributes = @{
-                                                     NSForegroundColorAttributeName:[UIColor blackColor]
-                                                     
-                                                     };
-    }
-    
-    return _customNavigationBar;
-}
 
 -(UITableView *)userInfoListView {
     if (!_userInfoListView) {
@@ -183,7 +141,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             {
                 DLUserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"default_avatar"]];
-                [cell.titleLab setText:NSLocalizedString(@"Click portrait to login", comment: "")];
+                [cell.titleLab setText:NSLocalizedString(@"Click portrait to sign in", comment: "")];
                 
                 cell.iconImageViewTapAction = ^() {
                 

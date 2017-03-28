@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBaseViewController.h"
 
-@interface DLDiscoverViewController : UIViewController
+@interface DLDiscoverViewController : DLBaseViewController
 
 @end

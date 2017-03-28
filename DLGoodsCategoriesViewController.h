@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBaseViewController.h"
 
-@interface DLGoodsCategoriesViewController : UIViewController
+@interface DLGoodsCategoriesViewController : DLBaseViewController
 
 @end

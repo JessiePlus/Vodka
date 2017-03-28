@@ -24,10 +24,6 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
 
 @interface DLGoodsInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
-//自定义导航栏
-@property (nonatomic) UINavigationBar *customNavigationBar;
-@property (nonatomic) UINavigationItem *customNavigationItem;
-
 //用户信息列表
 @property (nonatomic) UITableView *goodsInfoListView;
 
@@ -59,34 +55,36 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.customNavigationBar];
     [self.view addSubview:self.goodsInfoListView];
     
     
-    //导航栏布局
-    [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(@64);
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-    }];
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0, 0, 24, 24);
+    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    
+    self.navigationItem.leftBarButtonItems = @[leftBarBtn];
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 24, 24);
+    [rightBtn setImage:[UIImage imageNamed:@"icon_shareArticle"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    
+    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
+    
     
     [self.goodsInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.customNavigationBar.mas_bottom);
+        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];
     
@@ -154,49 +152,6 @@ static NSString *const kTableSectionTitleView = @"TableSectionTitleView";
     }];
 
     
-}
-
--(UINavigationItem *)customNavigationItem {
-    if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] init];
-
-        UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        leftBtn.frame = CGRectMake(0, 0, 24, 24);
-        [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-        [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-
-        UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-        
-        
-        _customNavigationItem.leftBarButtonItems = @[leftBarBtn];
-        
-        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        rightBtn.frame = CGRectMake(0, 0, 24, 24);
-        [rightBtn setImage:[UIImage imageNamed:@"icon_shareArticle"] forState:UIControlStateNormal];
-        [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-
-        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-        
-        
-        _customNavigationItem.rightBarButtonItems = @[rightBarBtn];
-        
-    }
-    
-    return _customNavigationItem;
-}
-
--(UINavigationBar *)customNavigationBar {
-    if (!_customNavigationBar) {
-        _customNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
-        [_customNavigationBar setItems:@[self.customNavigationItem] animated:false];
-        _customNavigationBar.barTintColor = [UIColor whiteColor];
-        _customNavigationBar.titleTextAttributes = @{
-                                                     NSForegroundColorAttributeName:[UIColor blackColor]
-                                                     
-                                                     };
-    }
-    
-    return _customNavigationBar;
 }
 
 -(UITableView *)goodsInfoListView {

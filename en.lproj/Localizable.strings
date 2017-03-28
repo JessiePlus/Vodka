@@ -10,13 +10,13 @@
 "Discover" = "Discover";
 "Me" = "Me";
 "Search" = "Search";
-"Login" = "Login";
+"Sign in" = "Sign in";
 "Feedback" = "Feedback";
 "Recommend to friends" = "Recommend to friends";
-"Not logged in" = "Not logged in";
-"Click portrait to login" = "Click portrait to login";
+"Not signed in" = "Not signed in";
+"Click portrait to sign in" = "Click portrait to sign in";
 "Night mode" = "Night mode";
-"Thirdpart account login" = "Thirdpart account login";
+"Thirdpart account sign in" = "Thirdpart account sign in";
 "Producing area" = "Producing area";
 "Brands" = "Brands";
 "Production process" = "Production process";

@@ -17,10 +17,6 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
 
 @interface DLSettingsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-//自定义导航栏
-@property (nonatomic) UINavigationBar *customNavigationBar;
-@property (nonatomic) UINavigationItem *customNavigationItem;
-
 //用户信息列表
 @property (nonatomic) UITableView *userInfoListView;
 
@@ -42,33 +38,27 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
     NSLog(@"DLSettingsViewController dealloc");
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.customNavigationBar];
     [self.view addSubview:self.userInfoListView];
     
-    //导航栏布局
-    [self.customNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(@64);
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-    }];
+    //导航栏
+    self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0, 0, 24, 24);
+    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     
+    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    
+    self.navigationItem.leftBarButtonItems = @[leftBarBtn];
+        
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.customNavigationBar.mas_bottom);
+        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
     }];
     
@@ -81,39 +71,6 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
     
     
     
-}
-
--(UINavigationItem *)customNavigationItem {
-    if (!_customNavigationItem) {
-        _customNavigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Settings", comment: "")];
-        
-        UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        leftBtn.frame = CGRectMake(0, 0, 24, 24);
-        [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-        [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-        
-        _customNavigationItem.leftBarButtonItems = @[leftBarBtn];
-        
-    }
-    
-    return _customNavigationItem;
-}
-
--(UINavigationBar *)customNavigationBar {
-    if (!_customNavigationBar) {
-        _customNavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
-        [_customNavigationBar setItems:@[self.customNavigationItem] animated:false];
-        _customNavigationBar.barTintColor = [UIColor whiteColor];
-        _customNavigationBar.titleTextAttributes = @{
-                                                     NSForegroundColorAttributeName:[UIColor blackColor]
-                                                     
-                                                     };
-    }
-    
-    return _customNavigationBar;
 }
 
 -(UITableView *)userInfoListView {

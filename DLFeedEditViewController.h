@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBaseViewController.h"
 
-@interface DLFeedEditViewController : UIViewController
+@interface DLFeedEditViewController : DLBaseViewController
 
 @end

@@ -10,13 +10,13 @@
 "Discover" = "探索";
 "Me" = "我";
 "Search" = "搜索";
-"Login" = "登录";
+"Sign in" = "登录";
 "Feedback" = "反馈建议";
 "Recommend to friends" = "推荐给好友";
-"Not logged in" = "未登录";
-"Click portrait to login" = "点击头像登录";
+"Not signed in" = "未登录";
+"Click portrait to sign in" = "点击头像登录";
 "Night mode" = "夜间模式";
-"Thirdpart account login" = "仅支持使用微信或微博账户登录";
+"Thirdpart account sign in" = "仅支持使用微信或微博账户登录";
 "Producing area" = "主要产地";
 "Brands" = "主要品牌";
 "Production process" = "制作工艺";

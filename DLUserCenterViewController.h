@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBaseViewController.h"
 
-@interface DLUserCenterViewController : UIViewController
+@interface DLUserCenterViewController : DLBaseViewController
 
 @end
