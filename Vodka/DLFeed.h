@@ -18,4 +18,7 @@
 @property (nonatomic, copy) NSString *nickName;//昵称
 @property (nonatomic, copy) NSString *msgContent;//消息正文
 
+@property (nonatomic, assign) int likeNum;//评论数
+@property (nonatomic, assign) int commentNum;//点赞数
+
 @end

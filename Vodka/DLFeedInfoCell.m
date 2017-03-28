@@ -63,7 +63,7 @@
     
     [self.likeNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@12);
-        make.width.equalTo(@20);
+        make.width.equalTo(@60);
         make.left.equalTo(self.likeBtn.mas_right).with.offset(4);
         make.centerY.equalTo(self.likeBtn);
     }];
@@ -76,7 +76,7 @@
     
     [self.commentNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@12);
-        make.width.equalTo(@20);
+        make.width.equalTo(@60);
         make.left.equalTo(self.commentBtn.mas_right).with.offset(4);
         make.centerY.equalTo(self.likeBtn);
     }];

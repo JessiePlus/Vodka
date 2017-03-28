@@ -104,12 +104,16 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
             NSString *nickName = feedDic[@"nickName"];
             NSString *msgContent = feedDic[@"msgContent"];
             NSString *avatarImageUrl = feedDic[@"avatarImageUrl"];
-            
+            NSNumber *likeNum = feedDic[@"likeNum"];
+            NSNumber *commentNum = feedDic[@"commentNum"];
+
             DLFeed *feed = [[DLFeed alloc] init];
             feed.objectId = objectId;
             feed.nickName = nickName;
             feed.msgContent = msgContent;
             feed.avatarImageUrl = [NSURL URLWithString:avatarImageUrl];
+            feed.likeNum = [likeNum intValue];
+            feed.commentNum = [commentNum intValue];
             
             [self.feedsList addObject:feed];
             
@@ -164,8 +168,13 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [cell.nickNameLab setText:feedInfo.nickName];
     [cell.msgContentLab setText:feedInfo.msgContent];
     
-    [cell.likeNumLab setText:@"12"];
-    [cell.commentNumLab setText:@"99"];
+    if (feedInfo.likeNum > 0) {
+        [cell.likeNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.likeNum]];
+    }
+    
+    if (feedInfo.commentNum > 0) {
+        [cell.commentNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.commentNum]];
+    }
 
     CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
     
@@ -187,8 +196,13 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [cell.nickNameLab setText:feedInfo.nickName];
     [cell.msgContentLab setText:feedInfo.msgContent];
     
-    [cell.likeNumLab setText:@"12"];
-    [cell.commentNumLab setText:@"99"];
+    if (feedInfo.likeNum > 0) {
+        [cell.likeNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.likeNum]];
+    }
+    
+    if (feedInfo.commentNum > 0) {
+        [cell.commentNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.commentNum]];
+    }
     
     
     return cell;
