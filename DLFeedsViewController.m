@@ -163,6 +163,9 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
     [cell.nickNameLab setText:feedInfo.nickName];
     [cell.msgContentLab setText:feedInfo.msgContent];
+    
+    [cell.likeNumLab setText:@"12"];
+    [cell.commentNumLab setText:@"99"];
 
     CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
     
@@ -184,6 +187,8 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [cell.nickNameLab setText:feedInfo.nickName];
     [cell.msgContentLab setText:feedInfo.msgContent];
     
+    [cell.likeNumLab setText:@"12"];
+    [cell.commentNumLab setText:@"99"];
     
     
     return cell;
