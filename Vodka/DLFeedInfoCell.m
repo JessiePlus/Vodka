@@ -124,7 +124,7 @@
 -(UILabel *)likeNumLab {
     if (!_likeNumLab) {
         _likeNumLab = [[UILabel alloc] init];
-        _likeNumLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+        _likeNumLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
     }
     
     return _likeNumLab;
@@ -143,7 +143,7 @@
 -(UILabel *)commentNumLab {
     if (!_commentNumLab) {
         _commentNumLab = [[UILabel alloc] init];
-        _commentNumLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+        _commentNumLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
     }
     
     return _commentNumLab;

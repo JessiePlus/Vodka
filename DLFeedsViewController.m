@@ -18,9 +18,6 @@
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @interface DLFeedsViewController ()<UITableViewDelegate, UITableViewDataSource>
-//自定义导航栏
-@property (nonatomic) UINavigationBar *customNavigationBar;
-@property (nonatomic) UINavigationItem *customNavigationItem;
 
 //用户信息列表
 @property (nonatomic) UITableView *feedsListView;
