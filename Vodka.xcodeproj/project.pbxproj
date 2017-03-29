@@ -28,7 +28,7 @@
 		D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */; };
 		D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */; };
 		D6188BDE1E8508000020EA7F /* DLGoodsCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDD1E8508000020EA7F /* DLGoodsCategoriesViewController.m */; };
-		D6188BE11E8561CB0020EA7F /* DLGoodsCateroriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* DLGoodsCateroriesCell.m */; };
+		D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */; };
 		D6188BE41E8572170020EA7F /* DLGoodsCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE31E8572170020EA7F /* DLGoodsCategories.m */; };
 		D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE81E861E5C0020EA7F /* DLGoodsInfoViewController.m */; };
 		D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */; };
@@ -45,6 +45,9 @@
 		D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */; };
 		D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */; };
 		D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C221E89F9E90020EA7F /* DLBaseViewController.m */; };
+		D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */; };
+		D62C2D7D1E8B5ED300C065A3 /* DLRSSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */; };
+		D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -70,8 +73,8 @@
 		D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserInfoSwitchCell.m; sourceTree = "<group>"; };
 		D6188BDC1E8508000020EA7F /* DLGoodsCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategoriesViewController.h; sourceTree = "<group>"; };
 		D6188BDD1E8508000020EA7F /* DLGoodsCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategoriesViewController.m; sourceTree = "<group>"; };
-		D6188BDF1E8561CB0020EA7F /* DLGoodsCateroriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCateroriesCell.h; sourceTree = "<group>"; };
-		D6188BE01E8561CB0020EA7F /* DLGoodsCateroriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCateroriesCell.m; sourceTree = "<group>"; };
+		D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategoriesCell.h; sourceTree = "<group>"; };
+		D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategoriesCell.m; sourceTree = "<group>"; };
 		D6188BE21E8572170020EA7F /* DLGoodsCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategories.h; sourceTree = "<group>"; };
 		D6188BE31E8572170020EA7F /* DLGoodsCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategories.m; sourceTree = "<group>"; };
 		D6188BE51E85900B0020EA7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +110,12 @@
 		D6188C201E8970920020EA7F /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		D6188C211E89F9E90020EA7F /* DLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseViewController.h; sourceTree = "<group>"; };
 		D6188C221E89F9E90020EA7F /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
+		D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCategoryInfoCell.h; sourceTree = "<group>"; };
+		D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCategoryInfoCell.m; sourceTree = "<group>"; };
+		D62C2D7B1E8B5ED300C065A3 /* DLRSSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSCategory.h; sourceTree = "<group>"; };
+		D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSCategory.m; sourceTree = "<group>"; };
+		D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSS.h; sourceTree = "<group>"; };
+		D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSS.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -254,8 +263,8 @@
 				D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */,
 				D6188BD61E84EFBF0020EA7F /* DLUserInfoHeaderCell.h */,
 				D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */,
-				D6188BDF1E8561CB0020EA7F /* DLGoodsCateroriesCell.h */,
-				D6188BE01E8561CB0020EA7F /* DLGoodsCateroriesCell.m */,
+				D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */,
+				D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */,
 				D6188BEA1E8624080020EA7F /* DLGoodsInfoHeaderCell.h */,
 				D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */,
 				D6188BF01E8637F70020EA7F /* DLGoodsInfoCell.h */,
@@ -264,6 +273,8 @@
 				D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */,
 				D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */,
 				D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */,
+				D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */,
+				D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -311,6 +322,10 @@
 				D6188BEE1E862AFE0020EA7F /* DLGoodsInfo.m */,
 				D6188BF91E865D4E0020EA7F /* DLFeed.h */,
 				D6188BFA1E865D4E0020EA7F /* DLFeed.m */,
+				D62C2D7B1E8B5ED300C065A3 /* DLRSSCategory.h */,
+				D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */,
+				D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */,
+				D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -462,6 +477,8 @@
 				D6188BF51E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m in Sources */,
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
 				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
+				D62C2D7D1E8B5ED300C065A3 /* DLRSSCategory.m in Sources */,
+				D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D6188BE91E861E5C0020EA7F /* DLGoodsInfoViewController.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
@@ -476,6 +493,7 @@
 				D6188BF81E8658240020EA7F /* DLFeedsViewController.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D6FDD1C01E6CF9B2000EC55B /* DLGoods.m in Sources */,
+				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,
 				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
 				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
@@ -484,7 +502,7 @@
 				D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */,
 				D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */,
-				D6188BE11E8561CB0020EA7F /* DLGoodsCateroriesCell.m in Sources */,
+				D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

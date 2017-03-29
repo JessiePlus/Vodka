@@ -6,6 +6,8 @@ def pods
     pod 'SDWebImage'
     pod 'XMNetworking'
     pod 'CocoaLumberjack'
+    pod 'JSONModel'
+    pod 'libextobjc'
 end
 
 target ‘Vodka’ do

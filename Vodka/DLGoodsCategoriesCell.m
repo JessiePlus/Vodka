@@ -6,10 +6,10 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "DLGoodsCateroriesCell.h"
+#import "DLGoodsCategoriesCell.h"
 #import <Masonry.h>
 
-@implementation DLGoodsCateroriesCell
+@implementation DLGoodsCategoriesCell
 
 -(instancetype)initWithFrame:(CGRect)frame {
 

@@ -52,8 +52,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view addSubview:self.userInfoListView];
-
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -65,7 +63,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
     self.navigationItem.rightBarButtonItems = @[rightBarBtn];
     
-    
+    [self.view addSubview:self.userInfoListView];
+
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);

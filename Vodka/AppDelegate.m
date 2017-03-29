@@ -68,6 +68,9 @@
     discoverViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
     discoverViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];
     
+    UINavigationController *navDiscoverController = [[UINavigationController alloc] initWithRootViewController:discoverViewController];
+
+    
     DLUserCenterViewController *userCenterViewController = [[DLUserCenterViewController alloc] init];
     userCenterViewController.tabBarItem.title = NSLocalizedString(@"Me", comment: "");
     userCenterViewController.tabBarItem.image = [UIImage imageNamed:@"icon_me"];
@@ -77,7 +80,7 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, discoverViewController, navUserCenterController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, navDiscoverController, navUserCenterController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;

@@ -8,7 +8,7 @@
 
 #import "DLGoodsCategoriesViewController.h"
 #import <Masonry/Masonry.h>
-#import "DLGoodsCateroriesCell.h"
+#import "DLGoodsCategoriesCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "DLGoodsInfoViewController.h"
@@ -136,7 +136,7 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
         _goodsCategoriesListView.delegate = self;
         _goodsCategoriesListView.dataSource = self;
         
-        [_goodsCategoriesListView registerClass:[DLGoodsCateroriesCell class] forCellWithReuseIdentifier:kGoodsCateroriesCell];
+        [_goodsCategoriesListView registerClass:[DLGoodsCategoriesCell class] forCellWithReuseIdentifier:kGoodsCateroriesCell];
     }
     
     
@@ -149,7 +149,7 @@ static NSString *const kGoodsCateroriesCell = @"GoodsCateroriesCell";
     NSInteger index = indexPath.item;
     
     
-    DLGoodsCateroriesCell *goodsCateroriesCell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsCateroriesCell forIndexPath:indexPath];
+    DLGoodsCategoriesCell *goodsCateroriesCell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsCateroriesCell forIndexPath:indexPath];
 
     DLGoodsCategories *goodsCategories = self.goodsCategoriesList[index];
 
