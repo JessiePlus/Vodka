@@ -56,8 +56,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.feedsListView];
 
@@ -66,9 +65,9 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
     [self.feedsListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
-        make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
     
@@ -99,7 +98,15 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         
     }];
     
+    self.feedsListView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        [self.feedsListView.mj_footer endRefreshing];
+
+        
+    }];
+    
     [self.feedsListView.mj_header beginRefreshing];
+
   
 }
 
