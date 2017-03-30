@@ -14,7 +14,7 @@
 #import <MJRefresh.h>
 
 #import "DLRSSSubscribeViewController.h"
-#import "DLFeedEditViewController.h"
+#import "DLFeedAddGroupViewController.h"
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
@@ -166,7 +166,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 -(void)rightBtnClicked {
     
-    DLFeedEditViewController *feedEditViewController = [[DLFeedEditViewController alloc] init];
+    DLFeedAddGroupViewController *feedEditViewController = [[DLFeedAddGroupViewController alloc] init];
     
     [self.navigationController pushViewController:feedEditViewController animated:YES];
     

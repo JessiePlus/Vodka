@@ -11,7 +11,7 @@
 #import "DLUserInfoCell.h"
 #import "DLUserInfoHeaderCell.h"
 #import "DLUserInfoSwitchCell.h"
-#import "DLFeedEditViewController.h"
+#import "DLFeedAddRSSViewController.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -138,7 +138,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(void)rightBtnClicked {
     
-    DLFeedEditViewController *feedEditViewController = [[DLFeedEditViewController alloc] init];
+    DLFeedAddRSSViewController *feedEditViewController = [[DLFeedAddRSSViewController alloc] init];
     
     [self.navigationController pushViewController:feedEditViewController animated:YES];
     
