@@ -45,7 +45,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     // Do any additional setup after loading the view.
     
     //导航栏
-    self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
+//    self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
+    
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 24, 24);
     [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];

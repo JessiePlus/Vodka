@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
 
-@interface DLFeedsViewController : DLBaseViewController
+@interface DLFeedListViewController : DLBaseViewController
 
 @end

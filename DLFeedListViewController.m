@@ -6,7 +6,7 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "DLFeedsViewController.h"
+#import "DLFeedListViewController.h"
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
@@ -15,10 +15,12 @@
 #import <XMNetworking/XMNetworking.h>
 #import <MWFeedParser.h>
 #import <NSString+HTML.h>
+#import "DLFeedViewController.h"
+#import "AppUtil.h"
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
-@interface DLFeedsViewController ()<UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
+@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
     MWFeedParser *feedParser;
 }
 
@@ -36,18 +38,18 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @end
 
-@implementation DLFeedsViewController
+@implementation DLFeedListViewController
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLFeedsViewController init");
+        NSLog(@"DLFeedListViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLFeedsViewController dealloc");
+    NSLog(@"DLFeedListViewController dealloc");
 }
 
 - (void)viewDidLoad {
@@ -155,13 +157,29 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     if (cell) {
         cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
         cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-        cell.itemDateLab.text = feedItem.date ? [_dateFormatter stringFromDate:feedItem.date] : @"[No Date]";
+        cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
         
         return cell;
     }
 
     return [[UITableViewCell alloc] initWithFrame:CGRectZero];
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    MWFeedInfo *feedInfo = self.feedInfo;
+    MWFeedItem *feedItem = self.feedItemList[row];
+    
+    DLFeedViewController *feedViewController = [[DLFeedViewController alloc] init];
+    feedViewController.feedItem = feedItem;
+
+    feedViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:feedViewController animated:YES];
+
+
 }
 
 #pragma mark MWFeedParserDelegate
@@ -210,6 +228,15 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
     [self.feedsListView reloadData];
 
+}
+#else
+
+- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
+    NSLog(@"Finished Parsing With Error: %@", error);
+
+    [self.feedsListView.mj_header endRefreshing];
+    
+    [self.feedsListView reloadData];
 }
 #endif
 

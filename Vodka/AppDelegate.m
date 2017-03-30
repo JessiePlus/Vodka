@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "DLUserCenterViewController.h"
 #import "DLRSSCategoriesViewController.h"
-#import "DLFeedsViewController.h"
+#import "DLFeedListViewController.h"
 #import "AppDelegate+Logging.h"
 
 #import <XMNetworking/XMNetworking.h>
@@ -47,7 +47,7 @@
 #endif
     }];
 
-    DLFeedsViewController *feedsViewController = [[DLFeedsViewController alloc] init];
+    DLFeedListViewController *feedsViewController = [[DLFeedListViewController alloc] init];
     feedsViewController.tabBarItem.title = NSLocalizedString(@"Feeds", comment: "");
     feedsViewController.tabBarItem.image = [UIImage imageNamed:@"icon_feeds"];
     feedsViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_feeds_active"];

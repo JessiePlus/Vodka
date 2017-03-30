@@ -158,6 +158,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     
     DLRSSSubscribeViewController *RSSSubscribeViewController = [[DLRSSSubscribeViewController alloc] init];
     
+    RSSSubscribeViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:RSSSubscribeViewController animated:YES];
     
 
