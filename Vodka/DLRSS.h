@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel.h>
 
-@interface DLRSS : NSObject
+@interface DLRSS : JSONModel
 
 @property (nonatomic, copy) NSString *objectId;
 @property (nonatomic) NSDate *createdAt;
@@ -16,6 +17,9 @@
 
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic) NSURL *imageUrl;
+@property (nonatomic) NSURL *iconUrl;
+@property (nonatomic) NSURL *feedUrl;
+@property (nonatomic) NSURL *url;
+
 
 @end

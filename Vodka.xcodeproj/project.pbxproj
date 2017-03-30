@@ -53,6 +53,7 @@
 		D62C2D921E8CC46500C065A3 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D911E8CC46500C065A3 /* AppUtil.m */; };
 		D62C2D971E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */; };
 		D62C2D981E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */; };
+		D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -126,6 +127,8 @@
 		D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedAddGroupViewController.m; sourceTree = "<group>"; };
 		D62C2D951E8CCA4A00C065A3 /* DLFeedAddRSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedAddRSSViewController.h; sourceTree = "<group>"; };
 		D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedAddRSSViewController.m; sourceTree = "<group>"; };
+		D62C2D9A1E8D4FBB00C065A3 /* DLFeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedFetcher.h; sourceTree = "<group>"; };
+		D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedFetcher.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,6 +196,15 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		D62C2D991E8D4F8200C065A3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D62C2D9A1E8D4FBB00C065A3 /* DLFeedFetcher.h */,
+				D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		D63612331E6A659100C2322D = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +226,7 @@
 		D636123E1E6A659200C2322D /* Vodka */ = {
 			isa = PBXGroup;
 			children = (
+				D62C2D991E8D4F8200C065A3 /* Manager */,
 				D62C2D871E8CC23800C065A3 /* Resource */,
 				D6188C141E8961070020EA7F /* Helpers */,
 				D6FDD1BD1E6CF8E0000EC55B /* Model */,
@@ -512,6 +525,7 @@
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
 				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m in Sources */,
+				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,

@@ -9,6 +9,7 @@ def pods
     pod 'JSONModel'
     pod 'libextobjc'
     pod 'MWFeedParser'
+    pod 'FMDB'
 end
 
 target ‘Vodka’ do

@@ -17,6 +17,7 @@
 #import <NSString+HTML.h>
 #import "DLFeedViewController.h"
 #import "AppUtil.h"
+#import "DLFeedFetcher.h"
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
@@ -30,11 +31,12 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 @property (nonatomic) MWFeedInfo *feedInfo;//feed的简介
 @property (nonatomic) NSMutableArray <MWFeedItem *>*feedItemList;//feed的item
 
-@property (nonatomic) NSDateFormatter *dateFormatter;
-
 
 //计算高度
 @property (nonatomic, strong) UITableViewCell *templateCell;
+
+
+@property (strong,nonatomic) DLFeedFetcher *feedFetcher;
 
 @end
 
@@ -56,6 +58,12 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    
+    
+    _feedFetcher = [[DLFeedFetcher alloc] init];
+    
+    
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.feedsListView];
@@ -84,8 +92,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         _feedItemList = [[NSMutableArray alloc] init];
     }
     
-    _dateFormatter = [[NSDateFormatter alloc]init];
-    [_dateFormatter setDateFormat:@"yyyy/MM/dd"];
     
     self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求feeds
@@ -143,7 +149,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
     cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
     cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-    cell.itemDateLab.text = feedItem.date ? [_dateFormatter stringFromDate:feedItem.date] : @"[No Date]";
+    cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
 
     CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
     

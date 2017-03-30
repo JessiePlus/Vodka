@@ -10,4 +10,12 @@
 
 @implementation DLRSS
 
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
+                                                                  @"iconUrl": @"icon",
+                                                                  @"feedUrl": @"feed_url",
+                                                                  }];
+}
+
 @end
