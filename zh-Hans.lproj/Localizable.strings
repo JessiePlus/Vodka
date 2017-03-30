@@ -5,9 +5,8 @@
   Created by dinglin on 2017/3/4.
   Copyright © 2017年 dinglin. All rights reserved.
 */
-"Goods" = "订阅";
-"Feeds" = "话题";
-"Discover" = "探索";
+"Feeds" = "文章";
+"Discover" = "订阅";
 "Me" = "我";
 "Search" = "搜索";
 "Sign in" = "登录";
@@ -28,5 +27,5 @@
 "Evaluate" = "给我评分";
 "User Agreement" = "用户协议";
 "Privacy Policy" = "隐私权声明";
-"Feed edit" = "发表文字";
+"Feed edit" = "编辑订阅";
 

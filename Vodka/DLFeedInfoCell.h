@@ -10,9 +10,9 @@
 
 @interface DLFeedInfoCell : UITableViewCell
 
-@property (nonatomic) UIImageView *avatarImageView;//头像
-@property (nonatomic) UILabel *nickNameLab;//昵称
-@property (nonatomic) UILabel *msgContentLab;//消息正文
+@property (nonatomic) UILabel *itemTitleLab;//文章名称
+@property (nonatomic) UILabel *itemDateLab;//文章时间
+@property (nonatomic) UILabel *infoTitleLab;//博客名称
 
 @property (nonatomic) UIButton *likeBtn;//点赞
 @property (nonatomic) UILabel *likeNumLab;//点赞个数

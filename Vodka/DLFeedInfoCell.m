@@ -24,93 +24,65 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    [self.contentView addSubview:self.avatarImageView];
-    [self.contentView addSubview:self.nickNameLab];
-    [self.contentView addSubview:self.msgContentLab];
+    [self.contentView addSubview:self.itemTitleLab];
+    [self.contentView addSubview:self.itemDateLab];
+    [self.contentView addSubview:self.infoTitleLab];
+
+
+    [self.itemTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(20);
+        make.right.equalTo(self.contentView).offset(-20);
+        make.top.equalTo(self.contentView).offset(10);
+    }];
     
-    [self.contentView addSubview:self.likeBtn];
-    [self.contentView addSubview:self.likeNumLab];
-    [self.contentView addSubview:self.commentBtn];
-    [self.contentView addSubview:self.commentNumLab];
+    [self.itemDateLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@100);
+        make.height.equalTo(@24);
+        make.top.equalTo(self.itemTitleLab.mas_bottom).offset(10);
+        make.left.equalTo(self.itemTitleLab);
+        make.bottom.equalTo(self.contentView).offset(-10);
+    }];
+    
+    [self.infoTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@100);
+        make.top.equalTo(self.itemDateLab);
+        make.bottom.equalTo(self.itemDateLab);
+        make.left.equalTo(self.itemDateLab.mas_right).offset(10);
+    }];
 
     
-
-    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.and.height.equalTo(@44);
-        make.left.and.top.equalTo(self.contentView).with.offset(4);
-    }];
-    
-    [self.nickNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@22);
-        make.top.equalTo(self.contentView).with.offset(4);
-        make.left.equalTo(self.avatarImageView.mas_right).with.offset(4);
-        make.right.equalTo(self.contentView).with.offset(-4);
-    }];
-    
-    [self.msgContentLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nickNameLab.mas_bottom).with.offset(4);
-        make.left.equalTo(self.avatarImageView.mas_right).with.offset(4);
-        make.right.equalTo(self.contentView).with.offset(-4);
-        make.bottom.equalTo(self.likeBtn.mas_top).offset(-4);
-    }];
-    [self.msgContentLab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-
-    [self.likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.and.height.equalTo(@15);
-        make.left.equalTo(self.avatarImageView.mas_right).with.offset(4);
-        make.bottom.equalTo(self.contentView).with.offset(-4);
-    }];
-    
-    [self.likeNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@12);
-        make.width.equalTo(@60);
-        make.left.equalTo(self.likeBtn.mas_right).with.offset(4);
-        make.centerY.equalTo(self.likeBtn);
-    }];
-    
-    [self.commentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.and.height.equalTo(@15);
-        make.left.equalTo(self.likeNumLab.mas_right).offset(4);
-        make.centerY.equalTo(self.likeBtn);
-    }];
-    
-    [self.commentNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@12);
-        make.width.equalTo(@60);
-        make.left.equalTo(self.commentBtn.mas_right).with.offset(4);
-        make.centerY.equalTo(self.likeBtn);
-    }];
+    [self.itemTitleLab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
 }
 
--(UIImageView *)avatarImageView {
-    if (!_avatarImageView) {
-        _avatarImageView = [[UIImageView alloc] init];
+-(UILabel *)itemTitleLab {
+    if (!_itemTitleLab) {
+        _itemTitleLab = [[UILabel alloc] init];
+        _itemTitleLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
+        _itemTitleLab.numberOfLines = 0;
+        _itemTitleLab.preferredMaxLayoutWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 40; // 多行时必须设置
     }
     
-    return _avatarImageView;
+    return _itemTitleLab;
 }
 
--(UILabel *)nickNameLab {
-    if (!_nickNameLab) {
-        _nickNameLab = [[UILabel alloc] init];
-        _nickNameLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+-(UILabel *)infoTitleLab {
+    if (!_infoTitleLab) {
+        _infoTitleLab = [[UILabel alloc] init];
+        _infoTitleLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
     }
     
-    return _nickNameLab;
+    return _infoTitleLab;
 }
 
--(UILabel *)msgContentLab {
-    if (!_msgContentLab) {
-        _msgContentLab = [[UILabel alloc] init];
-        _msgContentLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
-        _msgContentLab.numberOfLines = 0;
-        _msgContentLab.preferredMaxLayoutWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 44 - 4 * 3; // 多行时必须设置
+-(UILabel *)itemDateLab {
+    if (!_itemDateLab) {
+        _itemDateLab = [[UILabel alloc] init];
+        _itemDateLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightLight];
     }
     
-    return _msgContentLab;
+    return _itemDateLab;
 }
-
 
 -(UIButton *)likeBtn {
     if (!_likeBtn) {

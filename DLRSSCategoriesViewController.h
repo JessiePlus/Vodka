@@ -1,5 +1,5 @@
 //
-//  GoodsCategoriesViewController.h
+//  DiscoverViewController.h
 //  Vodka
 //
 //  Created by dinglin on 2017/3/24.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
 
-@interface DLGoodsCategoriesViewController : DLBaseViewController
+@interface DLRSSCategoriesViewController : DLBaseViewController
 
 @end

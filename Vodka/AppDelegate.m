@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "DLGoodsCategoriesViewController.h"
 #import "DLUserCenterViewController.h"
-#import "DLDiscoverViewController.h"
+#import "DLRSSCategoriesViewController.h"
 #import "DLFeedsViewController.h"
 #import "AppDelegate+Logging.h"
 
@@ -48,13 +47,6 @@
 #endif
     }];
 
-    DLGoodsCategoriesViewController *goodsCategoriesViewController = [[DLGoodsCategoriesViewController alloc] init];
-    goodsCategoriesViewController.tabBarItem.title = NSLocalizedString(@"Goods", comment: "");
-    goodsCategoriesViewController.tabBarItem.image = [UIImage imageNamed:@"icon_drinks"];
-    goodsCategoriesViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_drinks_active"];
-    
-    UINavigationController *navGoodsCategoriesController = [[UINavigationController alloc] initWithRootViewController:goodsCategoriesViewController];
-
     DLFeedsViewController *feedsViewController = [[DLFeedsViewController alloc] init];
     feedsViewController.tabBarItem.title = NSLocalizedString(@"Feeds", comment: "");
     feedsViewController.tabBarItem.image = [UIImage imageNamed:@"icon_feeds"];
@@ -63,7 +55,7 @@
     UINavigationController *navFeedsController = [[UINavigationController alloc] initWithRootViewController:feedsViewController];
 
 
-    DLDiscoverViewController *discoverViewController = [[DLDiscoverViewController alloc] init];
+    DLRSSCategoriesViewController *discoverViewController = [[DLRSSCategoriesViewController alloc] init];
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
     discoverViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
     discoverViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];
@@ -80,7 +72,7 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navGoodsCategoriesController, navFeedsController, navDiscoverController, navUserCenterController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navFeedsController, navDiscoverController, navUserCenterController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;

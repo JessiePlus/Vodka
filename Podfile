@@ -8,6 +8,7 @@ def pods
     pod 'CocoaLumberjack'
     pod 'JSONModel'
     pod 'libextobjc'
+    pod 'MWFeedParser'
 end
 
 target ‘Vodka’ do

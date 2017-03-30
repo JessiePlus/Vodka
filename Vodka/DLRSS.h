@@ -10,12 +10,12 @@
 
 @interface DLRSS : NSObject
 
-@property (nonatomic, assign) int mid;
-
 @property (nonatomic, copy) NSString *objectId;
+@property (nonatomic) NSDate *createdAt;
+@property (nonatomic) NSDate *updatedAt;
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *descripText;
+
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic) NSURL *imageUrl;
 
 @end

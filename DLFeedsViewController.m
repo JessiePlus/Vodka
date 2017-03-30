@@ -12,17 +12,24 @@
 #import <MJRefresh.h>
 #import "DLFeed.h"
 #import "DLFeedInfoCell.h"
-#import "DLFeedEditViewController.h"
 #import <XMNetworking/XMNetworking.h>
+#import <MWFeedParser.h>
+#import <NSString+HTML.h>
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
-@interface DLFeedsViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DLFeedsViewController ()<UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
+    MWFeedParser *feedParser;
+}
 
 //用户信息列表
 @property (nonatomic) UITableView *feedsListView;
 
-@property (nonatomic) NSMutableArray <DLFeed *>*feedsList;
+@property (nonatomic) MWFeedInfo *feedInfo;//feed的简介
+@property (nonatomic) NSMutableArray <MWFeedItem *>*feedItemList;//feed的item
+
+@property (nonatomic) NSDateFormatter *dateFormatter;
+
 
 //计算高度
 @property (nonatomic, strong) UITableViewCell *templateCell;
@@ -47,16 +54,13 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+
+    
+    
     [self.view addSubview:self.feedsListView];
 
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Feeds", comment: "");
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 24, 24);
-    [rightBtn setImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
 
     [self.feedsListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
@@ -70,66 +74,31 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     self.feedsListView.dataSource = self;
     self.feedsListView.delegate = self;
     
-    self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        [self.feedsListView.mj_header endRefreshing];
-        
-    }];
+
     
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
 
-    if (!_feedsList) {
-        _feedsList = [[NSMutableArray alloc] init];
+    
+    if (!_feedItemList) {
+        _feedItemList = [[NSMutableArray alloc] init];
     }
     
+    _dateFormatter = [[NSDateFormatter alloc]init];
+    [_dateFormatter setDateFormat:@"yyyy/MM/dd"];
     
-    //请求商品的种类
-    [XMCenter sendRequest:^(XMRequest *request) {
-        request.api = @"classes/Feeds";
-        request.parameters = @{};
-        request.headers = @{};
-        request.httpMethod = kXMHTTPMethodGET;
-        request.requestSerializerType = kXMRequestSerializerJSON;
-    } onSuccess:^(id responseObject) {
-
-        NSArray *feedsDicList = responseObject[@"results"];
+    self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //请求feeds
+        NSURL *feedURL = [NSURL URLWithString:@"http://blog.devtang.com/atom.xml"];
+        feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
+        feedParser.delegate = self;
+        feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
+        feedParser.connectionType = ConnectionTypeAsynchronously;
+        [feedParser parse];
         
-        for (NSInteger i = 0; i < feedsDicList.count; i ++) {
-            NSDictionary *feedDic = feedsDicList[i];
-            
-            NSString *objectId = feedDic[@"objectId"];
-            NSString *nickName = feedDic[@"nickName"];
-            NSString *msgContent = feedDic[@"msgContent"];
-            NSString *avatarImageUrl = feedDic[@"avatarImageUrl"];
-            NSNumber *likeNum = feedDic[@"likeNum"];
-            NSNumber *commentNum = feedDic[@"commentNum"];
-
-            DLFeed *feed = [[DLFeed alloc] init];
-            feed.objectId = objectId;
-            feed.nickName = nickName;
-            feed.msgContent = msgContent;
-            feed.avatarImageUrl = [NSURL URLWithString:avatarImageUrl];
-            feed.likeNum = [likeNum intValue];
-            feed.commentNum = [commentNum intValue];
-            
-            [self.feedsList addObject:feed];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.feedsListView reloadData];
-            });
-        
-        }
-    
-    
-    
-    } onFailure:^(NSError *error) {
-        NSLog(@"onFailure: %@", error);
-    } onFinished:^(id responseObject, NSError *error) {
-        NSLog(@"onFinished");
     }];
     
-    
-    
+    [self.feedsListView.mj_header beginRefreshing];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,7 +119,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.feedsList.count;
+    return self.feedItemList.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -158,20 +127,14 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
+    MWFeedInfo *feedInfo = self.feedInfo;
+    MWFeedItem *feedItem = self.feedItemList[row];
 
-    DLFeed *feedInfo = self.feedsList[row];
-    
     DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
-    [cell.nickNameLab setText:feedInfo.nickName];
-    [cell.msgContentLab setText:feedInfo.msgContent];
-    
-    if (feedInfo.likeNum > 0) {
-        [cell.likeNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.likeNum]];
-    }
-    
-    if (feedInfo.commentNum > 0) {
-        [cell.commentNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.commentNum]];
-    }
+
+    cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
+    cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
+    cell.itemDateLab.text = feedItem.date ? [_dateFormatter stringFromDate:feedItem.date] : @"[No Date]";
 
     CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
     
@@ -185,38 +148,69 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    DLFeed *feedInfo = self.feedsList[row];
+    MWFeedInfo *feedInfo = self.feedInfo;
+    MWFeedItem *feedItem = self.feedItemList[row];
     
     DLFeedInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLFeedInfoCell forIndexPath:indexPath];
-    
-    [cell.avatarImageView sd_setImageWithURL:feedInfo.avatarImageUrl placeholderImage:[UIImage imageNamed:@""]];
-    [cell.nickNameLab setText:feedInfo.nickName];
-    [cell.msgContentLab setText:feedInfo.msgContent];
-    
-    if (feedInfo.likeNum > 0) {
-        [cell.likeNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.likeNum]];
+    if (cell) {
+        cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
+        cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
+        cell.itemDateLab.text = feedItem.date ? [_dateFormatter stringFromDate:feedItem.date] : @"[No Date]";
+        
+        return cell;
     }
-    
-    if (feedInfo.commentNum > 0) {
-        [cell.commentNumLab setText:[NSString stringWithFormat:@"%d", feedInfo.commentNum]];
-    }
-    
-    
-    return cell;
-    
+
+    return [[UITableViewCell alloc] initWithFrame:CGRectZero];
     
 }
 
--(void)rightBtnClicked {
+#pragma mark MWFeedParserDelegate
 
-    DLFeedEditViewController *feedEditViewController = [[DLFeedEditViewController alloc] init];
-    
-    UINavigationController *navFeedEditController = [[UINavigationController alloc] initWithRootViewController:feedEditViewController];
-    
-    [self presentViewController:navFeedEditController animated:YES completion:nil];
-    
-    
+- (void)feedParserDidStart:(MWFeedParser *)parser {
+    NSLog(@"Started Parsing: %@", parser.url);
 }
 
+- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
+    NSLog(@"Parsed Feed Info: “%@”", info.title);
+    if (info) {
+        _feedInfo = info;
+    }
+}
+
+- (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
+    NSLog(@"Parsed Feed Item: “%@”", item.title);
+    if (item)
+        [_feedItemList addObject:item];
+}
+
+- (void)feedParserDidFinish:(MWFeedParser *)parser {
+    NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
+
+    [self.feedsListView.mj_header endRefreshing];
+    
+    [self.feedsListView reloadData];
+}
+
+#if 0
+- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
+    NSLog(@"Finished Parsing With Error: %@", error);
+    if (_feedItemList.count == 0) {
+        
+        self.title = @"Failed"; // Show failed message in title
+        
+    } else {
+        // Failed but some items parsed, so show and inform of error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing Incomplete"
+                                                        message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Dismiss"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+
+    [self.feedsListView reloadData];
+
+}
+#endif
 
 @end

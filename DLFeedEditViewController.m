@@ -37,24 +37,16 @@
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 24, 24);
-    [leftBtn setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
+    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItems = @[leftBarBtn];
-
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 24, 24);
-    [rightBtn setImage:[UIImage imageNamed:@"icon_send"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
     
 }
 
 -(void)leftBtnClicked {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)rightBtnClicked {

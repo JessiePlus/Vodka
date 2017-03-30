@@ -5,9 +5,8 @@
   Created by dinglin on 2017/3/4.
   Copyright © 2017年 dinglin. All rights reserved.
 */
-"Goods" = " Subscriptions";
 "Feeds" = "Feeds";
-"Discover" = "Discover";
+"Discover" = "Subscriptions";
 "Me" = "Me";
 "Search" = "Search";
 "Sign in" = "Sign in";

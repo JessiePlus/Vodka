@@ -42,8 +42,6 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view addSubview:self.userInfoListView];
-    
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -54,7 +52,10 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     
     self.navigationItem.leftBarButtonItems = @[leftBarBtn];
-        
+    
+    
+    [self.view addSubview:self.userInfoListView];
+ 
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view.mas_height).offset(-64);
