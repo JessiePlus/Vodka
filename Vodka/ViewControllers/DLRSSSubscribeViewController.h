@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
+#import "DLRSSGroup.h"
 
 @interface DLRSSSubscribeViewController : DLBaseViewController
+
+@property (nonatomic) DLRSSGroup *RSSGroup;
 
 @end

@@ -22,7 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */; };
-		D6188BCF1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BCE1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m */; };
+		D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BCE1E84B5BE0020EA7F /* DLRSSGroupViewController.m */; };
 		D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */; };
 		D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */; };
 		D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */; };
@@ -42,7 +42,7 @@
 		D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */; };
 		D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C221E89F9E90020EA7F /* DLBaseViewController.m */; };
 		D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */; };
-		D62C2D7D1E8B5ED300C065A3 /* DLRSSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */; };
+		D62C2D7D1E8B5ED300C065A3 /* DLRSSGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */; };
 		D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */; };
 		D62C2D831E8B79C800C065A3 /* DLRSSSubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D821E8B79C800C065A3 /* DLRSSSubscribeViewController.m */; };
 		D62C2D861E8CBEED00C065A3 /* DLFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D851E8CBEED00C065A3 /* DLFeedViewController.m */; };
@@ -54,6 +54,10 @@
 		D62C2D971E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */; };
 		D62C2D981E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */; };
 		D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */; };
+		D62C2DC41E8E218900C065A3 /* JYDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DB71E8E218900C065A3 /* JYDBService.m */; };
+		D62C2DCB1E8E538F00C065A3 /* DLRSSGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */; };
+		D62C2DCE1E8E5BE200C065A3 /* DLRSSDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */; };
+		D62C2DD11E8E5D9100C065A3 /* DLRSSTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
 		D636124C1E6A659200C2322D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D636124B1E6A659200C2322D /* Images.xcassets */; };
@@ -66,8 +70,8 @@
 /* Begin PBXFileReference section */
 		81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.release.xcconfig"; sourceTree = "<group>"; };
 		C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodka.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6188BCD1E84B5BE0020EA7F /* DLRSSCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSCategoriesViewController.h; sourceTree = "<group>"; };
-		D6188BCE1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSCategoriesViewController.m; sourceTree = "<group>"; };
+		D6188BCD1E84B5BE0020EA7F /* DLRSSGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroupViewController.h; sourceTree = "<group>"; };
+		D6188BCE1E84B5BE0020EA7F /* DLRSSGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSGroupViewController.m; sourceTree = "<group>"; };
 		D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSignInViewController.h; sourceTree = "<group>"; };
 		D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSignInViewController.m; sourceTree = "<group>"; };
 		D6188BD31E84C04D0020EA7F /* DLUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserInfoCell.h; sourceTree = "<group>"; };
@@ -109,10 +113,10 @@
 		D6188C221E89F9E90020EA7F /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
 		D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCategoryInfoCell.h; sourceTree = "<group>"; };
 		D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCategoryInfoCell.m; sourceTree = "<group>"; };
-		D62C2D7B1E8B5ED300C065A3 /* DLRSSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSCategory.h; sourceTree = "<group>"; };
-		D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSCategory.m; sourceTree = "<group>"; };
-		D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSS.h; sourceTree = "<group>"; };
-		D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSS.m; sourceTree = "<group>"; };
+		D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRSSGroup.h; path = DLRSSGroup.h; sourceTree = "<group>"; };
+		D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRSSGroup.m; path = DLRSSGroup.m; sourceTree = "<group>"; };
+		D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRSS.h; path = DLRSS.h; sourceTree = "<group>"; };
+		D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRSS.m; path = DLRSS.m; sourceTree = "<group>"; };
 		D62C2D811E8B79C800C065A3 /* DLRSSSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSSubscribeViewController.h; sourceTree = "<group>"; };
 		D62C2D821E8B79C800C065A3 /* DLRSSSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSSubscribeViewController.m; sourceTree = "<group>"; };
 		D62C2D841E8CBEED00C065A3 /* DLFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedViewController.h; sourceTree = "<group>"; };
@@ -129,6 +133,14 @@
 		D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedAddRSSViewController.m; sourceTree = "<group>"; };
 		D62C2D9A1E8D4FBB00C065A3 /* DLFeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedFetcher.h; sourceTree = "<group>"; };
 		D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedFetcher.m; sourceTree = "<group>"; };
+		D62C2DB61E8E218900C065A3 /* JYDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYDBService.h; sourceTree = "<group>"; };
+		D62C2DB71E8E218900C065A3 /* JYDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYDBService.m; sourceTree = "<group>"; };
+		D62C2DC91E8E538F00C065A3 /* DLRSSGroupTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroupTable.h; sourceTree = "<group>"; };
+		D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSGroupTable.m; sourceTree = "<group>"; };
+		D62C2DCC1E8E5BE200C065A3 /* DLRSSDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSDB.h; sourceTree = "<group>"; };
+		D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSDB.m; sourceTree = "<group>"; };
+		D62C2DCF1E8E5D9100C065A3 /* DLRSSTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSTable.h; sourceTree = "<group>"; };
+		D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSTable.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63612401E6A659200C2322D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D63612421E6A659200C2322D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +195,7 @@
 				D62C2D911E8CC46500C065A3 /* AppUtil.m */,
 			);
 			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D62C2D871E8CC23800C065A3 /* Resource */ = {
@@ -194,6 +207,7 @@
 				D62C2D8B1E8CC25A00C065A3 /* post.html */,
 			);
 			name = Resource;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		D62C2D991E8D4F8200C065A3 /* Manager */ = {
@@ -203,15 +217,59 @@
 				D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */,
 			);
 			name = Manager;
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D62C2DAD1E8E218900C065A3 /* DataSoure */ = {
+			isa = PBXGroup;
+			children = (
+				D62C2DAE1E8E218900C065A3 /* Content */,
+				D62C2DB51E8E218900C065A3 /* Service */,
+				D62C2DB81E8E218900C065A3 /* Storage */,
+			);
+			path = DataSoure;
+			sourceTree = "<group>";
+		};
+		D62C2DAE1E8E218900C065A3 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */,
+				D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */,
+				D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */,
+				D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		D62C2DB51E8E218900C065A3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D62C2DB61E8E218900C065A3 /* JYDBService.h */,
+				D62C2DB71E8E218900C065A3 /* JYDBService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D62C2DB81E8E218900C065A3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D62C2DCC1E8E5BE200C065A3 /* DLRSSDB.h */,
+				D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */,
+				D62C2DC91E8E538F00C065A3 /* DLRSSGroupTable.h */,
+				D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */,
+				D62C2DCF1E8E5D9100C065A3 /* DLRSSTable.h */,
+				D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		D63612331E6A659100C2322D = {
 			isa = PBXGroup;
 			children = (
-				D636123E1E6A659200C2322D /* Vodka */,
-				D636123D1E6A659200C2322D /* Products */,
-				C822821975F8418AFB15657E /* Pods */,
 				3A45B26C180D3807D3FFF80C /* Frameworks */,
+				C822821975F8418AFB15657E /* Pods */,
+				D636123D1E6A659200C2322D /* Products */,
+				D636123E1E6A659200C2322D /* Vodka */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,25 +284,26 @@
 		D636123E1E6A659200C2322D /* Vodka */ = {
 			isa = PBXGroup;
 			children = (
-				D62C2D991E8D4F8200C065A3 /* Manager */,
-				D62C2D871E8CC23800C065A3 /* Resource */,
-				D6188C141E8961070020EA7F /* Helpers */,
-				D6FDD1BD1E6CF8E0000EC55B /* Model */,
+				D62C2DAD1E8E218900C065A3 /* DataSoure */,
 				D6A3E2E51E6BBEEA008CF763 /* Extensions */,
-				D63612771E6BA4D000C2322D /* UserDefaults */,
+				D6188C141E8961070020EA7F /* Helpers */,
+				D62C2D991E8D4F8200C065A3 /* Manager */,
+				D6FDD1BD1E6CF8E0000EC55B /* Model */,
 				D63612761E6BA4A500C2322D /* Persistence */,
+				D62C2D871E8CC23800C065A3 /* Resource */,
 				D636126C1E6B99BC00C2322D /* Services */,
-				D63612571E6A860800C2322D /* Views */,
+				D636123F1E6A659200C2322D /* Supporting Files */,
+				D63612771E6BA4D000C2322D /* UserDefaults */,
 				D63612561E6A85DA00C2322D /* ViewControllers */,
-				D63612421E6A659200C2322D /* AppDelegate.h */,
-				D63612431E6A659200C2322D /* AppDelegate.m */,
+				D63612571E6A860800C2322D /* Views */,
 				D6188C1C1E896D9E0020EA7F /* AppDelegate+Logging.h */,
 				D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */,
+				D63612421E6A659200C2322D /* AppDelegate.h */,
+				D63612431E6A659200C2322D /* AppDelegate.m */,
 				D636124B1E6A659200C2322D /* Images.xcassets */,
 				D63612501E6A659200C2322D /* Info.plist */,
-				D63612641E6ABBA900C2322D /* Localizable.strings */,
-				D636123F1E6A659200C2322D /* Supporting Files */,
 				D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */,
+				D63612641E6ABBA900C2322D /* Localizable.strings */,
 				D6188C201E8970920020EA7F /* Logging.h */,
 			);
 			path = Vodka;
@@ -257,76 +316,79 @@
 				D63612401E6A659200C2322D /* main.m */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D63612561E6A85DA00C2322D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D636125B1E6A89DC00C2322D /* DLUserCenterViewController.h */,
-				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
-				D6188BCD1E84B5BE0020EA7F /* DLRSSCategoriesViewController.h */,
-				D6188BCE1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m */,
-				D62C2D811E8B79C800C065A3 /* DLRSSSubscribeViewController.h */,
-				D62C2D821E8B79C800C065A3 /* DLRSSSubscribeViewController.m */,
-				D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */,
-				D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */,
-				D6188BF61E8658240020EA7F /* DLFeedListViewController.h */,
-				D6188BF71E8658240020EA7F /* DLFeedListViewController.m */,
-				D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */,
-				D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */,
-				D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */,
-				D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */,
 				D6188C211E89F9E90020EA7F /* DLBaseViewController.h */,
 				D6188C221E89F9E90020EA7F /* DLBaseViewController.m */,
-				D62C2D841E8CBEED00C065A3 /* DLFeedViewController.h */,
-				D62C2D851E8CBEED00C065A3 /* DLFeedViewController.m */,
 				D62C2D931E8CCA4A00C065A3 /* DLFeedAddGroupViewController.h */,
 				D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */,
 				D62C2D951E8CCA4A00C065A3 /* DLFeedAddRSSViewController.h */,
 				D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */,
+				D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */,
+				D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */,
+				D6188BF61E8658240020EA7F /* DLFeedListViewController.h */,
+				D6188BF71E8658240020EA7F /* DLFeedListViewController.m */,
+				D62C2D841E8CBEED00C065A3 /* DLFeedViewController.h */,
+				D62C2D851E8CBEED00C065A3 /* DLFeedViewController.m */,
+				D6188BCD1E84B5BE0020EA7F /* DLRSSGroupViewController.h */,
+				D6188BCE1E84B5BE0020EA7F /* DLRSSGroupViewController.m */,
+				D62C2D811E8B79C800C065A3 /* DLRSSSubscribeViewController.h */,
+				D62C2D821E8B79C800C065A3 /* DLRSSSubscribeViewController.m */,
+				D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */,
+				D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */,
+				D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */,
+				D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */,
+				D636125B1E6A89DC00C2322D /* DLUserCenterViewController.h */,
+				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
 			);
 			name = ViewControllers;
-			path = ..;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		D63612571E6A860800C2322D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */,
+				D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */,
+				D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */,
+				D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */,
+				D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */,
+				D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */,
+				D6188BF01E8637F70020EA7F /* DLGoodsInfoCell.h */,
+				D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */,
+				D6188BEA1E8624080020EA7F /* DLGoodsInfoHeaderCell.h */,
+				D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */,
+				D6188BF31E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.h */,
+				D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */,
 				D6188C0E1E8818780020EA7F /* DLSettingInfoCell.h */,
 				D6188C0F1E8818780020EA7F /* DLSettingInfoCell.m */,
 				D6188C101E8818780020EA7F /* DLSettingInfoSwitchCell.h */,
 				D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */,
 				D6188BD31E84C04D0020EA7F /* DLUserInfoCell.h */,
 				D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */,
-				D6188BD91E84FA340020EA7F /* DLUserInfoSwitchCell.h */,
-				D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */,
 				D6188BD61E84EFBF0020EA7F /* DLUserInfoHeaderCell.h */,
 				D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */,
-				D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */,
-				D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */,
-				D6188BEA1E8624080020EA7F /* DLGoodsInfoHeaderCell.h */,
-				D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */,
-				D6188BF01E8637F70020EA7F /* DLGoodsInfoCell.h */,
-				D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */,
-				D6188BF31E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.h */,
-				D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */,
-				D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */,
-				D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */,
-				D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */,
-				D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */,
+				D6188BD91E84FA340020EA7F /* DLUserInfoSwitchCell.h */,
+				D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D636126C1E6B99BC00C2322D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D63612731E6BA44000C2322D /* User.h */,
-				D63612741E6BA44000C2322D /* User.m */,
 				D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */,
 				D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */,
+				D63612731E6BA44000C2322D /* User.h */,
+				D63612741E6BA44000C2322D /* User.m */,
 			);
 			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D63612761E6BA4A500C2322D /* Persistence */ = {
@@ -334,6 +396,7 @@
 			children = (
 			);
 			name = Persistence;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		D63612771E6BA4D000C2322D /* UserDefaults */ = {
@@ -341,6 +404,7 @@
 			children = (
 			);
 			name = UserDefaults;
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		D6A3E2E51E6BBEEA008CF763 /* Extensions */ = {
@@ -348,6 +412,7 @@
 			children = (
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D6FDD1BD1E6CF8E0000EC55B /* Model */ = {
@@ -355,12 +420,9 @@
 			children = (
 				D6188BF91E865D4E0020EA7F /* DLFeed.h */,
 				D6188BFA1E865D4E0020EA7F /* DLFeed.m */,
-				D62C2D7B1E8B5ED300C065A3 /* DLRSSCategory.h */,
-				D62C2D7C1E8B5ED300C065A3 /* DLRSSCategory.m */,
-				D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */,
-				D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,22 +577,26 @@
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
 				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
 				D62C2D861E8CBEED00C065A3 /* DLFeedViewController.m in Sources */,
-				D62C2D7D1E8B5ED300C065A3 /* DLRSSCategory.m in Sources */,
+				D62C2D7D1E8B5ED300C065A3 /* DLRSSGroup.m in Sources */,
 				D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
+				D62C2DD11E8E5D9100C065A3 /* DLRSSTable.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
 				D6188BF21E8637F70020EA7F /* DLGoodsInfoCell.m in Sources */,
 				D62C2D981E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
 				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
-				D6188BCF1E84B5BE0020EA7F /* DLRSSCategoriesViewController.m in Sources */,
+				D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */,
 				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,
+				D62C2DC41E8E218900C065A3 /* JYDBService.m in Sources */,
 				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,
+				D62C2DCB1E8E538F00C065A3 /* DLRSSGroupTable.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
+				D62C2DCE1E8E5BE200C065A3 /* DLRSSDB.m in Sources */,
 				D62C2D921E8CC46500C065A3 /* AppUtil.m in Sources */,
 				D62C2D831E8B79C800C065A3 /* DLRSSSubscribeViewController.m in Sources */,
 				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
@@ -551,10 +617,11 @@
 		D6188C0C1E86EBFB0020EA7F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6188C0B1E86EBFB0020EA7F /* zh-Hans */,
 				D6188C0D1E86EBFD0020EA7F /* en */,
+				D6188C0B1E86EBFB0020EA7F /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		D63612641E6ABBA900C2322D /* Localizable.strings */ = {
@@ -564,7 +631,7 @@
 				D63612651E6ABBBE00C2322D /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			path = ..;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -669,7 +736,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
-				GCC_PREFIX_HEADER = "Vodka/Vodka-Prefix.pch";
+				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
@@ -684,7 +751,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = SFZX37BH94;
-				GCC_PREFIX_HEADER = "Vodka/Vodka-Prefix.pch";
+				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;

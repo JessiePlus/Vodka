@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
 
-@interface DLRSSCategoriesViewController : DLBaseViewController
+@interface DLRSSGroupViewController : DLBaseViewController
 
 @end

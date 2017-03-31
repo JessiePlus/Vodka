@@ -5,10 +5,10 @@
 //  Created by dinglin on 2017/3/24.
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
-#import "DLRSSCategoriesViewController.h"
+#import "DLRSSGroupViewController.h"
 #import <Masonry.h>
 #import "DLCategoryInfoCell.h"
-#import "DLRSSCategory.h"
+#import "DLRSSGroup.h"
 #import <XMNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
@@ -18,22 +18,22 @@
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
-@interface DLRSSCategoriesViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DLRSSGroupViewController () <UITableViewDelegate, UITableViewDataSource>
 
 //分类列表
-@property (nonatomic) UITableView *RSSCategoryListView;
-@property (nonatomic) NSMutableArray <DLRSSCategory *>*RSSCategoryList;
+@property (nonatomic) UITableView *DLRSSGroupListView;
+@property (nonatomic) NSMutableArray <DLRSSGroup *>*DLRSSGroupList;
 
 @end
 
-@implementation DLRSSCategoriesViewController
+@implementation DLRSSGroupViewController
 
 -(instancetype)init {
     self = [super init];
     if (self) {
         
         
-        NSLog(@"DiscoverViewController init");
+        NSLog(@"DLRSSGroupViewController init");
         
     }
     
@@ -41,7 +41,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 }
 
 -(void)dealloc {
-    NSLog(@"DiscoverViewController dealloc");
+    NSLog(@"DLRSSGroupViewController dealloc");
     
     
 }
@@ -61,9 +61,9 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    [self.view addSubview:self.RSSCategoryListView];
+    [self.view addSubview:self.DLRSSGroupListView];
     
-    [self.RSSCategoryListView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.DLRSSGroupListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
@@ -71,27 +71,27 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     }];
     
     
-    self.RSSCategoryListView.backgroundColor = [UIColor whiteColor];
-    self.RSSCategoryListView.dataSource = self;
-    self.RSSCategoryListView.delegate = self;
+    self.DLRSSGroupListView.backgroundColor = [UIColor whiteColor];
+    self.DLRSSGroupListView.dataSource = self;
+    self.DLRSSGroupListView.delegate = self;
     
-    self.RSSCategoryListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.DLRSSGroupListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求RSS的种类
         [XMCenter sendRequest:^(XMRequest *request) {
-            request.api = @"classes/DLRSSCategory";
+            request.api = @"classes/DLRSSGroup?include=allRSS&";
             request.parameters = @{};
             request.headers = @{};
             request.httpMethod = kXMHTTPMethodGET;
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
             
-            [self.RSSCategoryListView.mj_header endRefreshing];
+            [self.DLRSSGroupListView.mj_header endRefreshing];
 
             NSError *error;
-            self.RSSCategoryList = [[DLRSSCategory arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error] mutableCopy];
+            self.DLRSSGroupList = [[DLRSSGroup arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error] mutableCopy];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.RSSCategoryListView reloadData];
+                [self.DLRSSGroupListView reloadData];
             });
             
         } onFailure:^(NSError *error) {
@@ -102,25 +102,25 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
         
     }];
     
-    [self.RSSCategoryListView.mj_header beginRefreshing];
+    [self.DLRSSGroupListView.mj_header beginRefreshing];
     
 }
 
--(UITableView *)RSSCategoryListView {
-    if (!_RSSCategoryListView) {
-        _RSSCategoryListView = [[UITableView alloc] initWithFrame:CGRectZero];
-        _RSSCategoryListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_RSSCategoryListView registerClass:[DLCategoryInfoCell class] forCellReuseIdentifier:kDLCategoryInfoCell];
+-(UITableView *)DLRSSGroupListView {
+    if (!_DLRSSGroupListView) {
+        _DLRSSGroupListView = [[UITableView alloc] initWithFrame:CGRectZero];
+        _DLRSSGroupListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        [_DLRSSGroupListView registerClass:[DLCategoryInfoCell class] forCellReuseIdentifier:kDLCategoryInfoCell];
         
     }
     
     
-    return _RSSCategoryListView;
+    return _DLRSSGroupListView;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.RSSCategoryList.count;
+    return self.DLRSSGroupList.count;
 }
 
 
@@ -130,15 +130,13 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    DLRSSCategory *RSSCategory = self.RSSCategoryList[row];
+    DLRSSGroup *DLRSSGroup = self.DLRSSGroupList[row];
 
     DLCategoryInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLCategoryInfoCell forIndexPath:indexPath];
     if (cell) {
-        [cell.iconImageView sd_setImageWithURL:RSSCategory.imageUrl placeholderImage:nil];
-        [cell.titleLab setText:RSSCategory.name];
+        [cell.titleLab setText:DLRSSGroup.name];
         
         return cell;
     }
@@ -152,12 +150,12 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
     
-    DLRSSSubscribeViewController *RSSSubscribeViewController = [[DLRSSSubscribeViewController alloc] init];
     
+    DLRSSSubscribeViewController *RSSSubscribeViewController = [[DLRSSSubscribeViewController alloc] init];
+    RSSSubscribeViewController.RSSGroup = self.DLRSSGroupList[row];
     RSSSubscribeViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:RSSSubscribeViewController animated:YES];
     

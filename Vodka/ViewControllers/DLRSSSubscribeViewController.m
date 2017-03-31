@@ -12,6 +12,7 @@
 #import "DLUserInfoHeaderCell.h"
 #import "DLUserInfoSwitchCell.h"
 #import "DLFeedAddRSSViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -45,7 +46,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     // Do any additional setup after loading the view.
     
     //导航栏
-//    self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
+    self.navigationItem.title = self.RSSGroup.name;
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.frame = CGRectMake(0, 0, 24, 24);
@@ -99,28 +100,25 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
 
-    return 4;
+    return self.RSSGroup.allRSS.count;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    
-    
+
     return 60;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-
+    DLRSS *RSS = self.RSSGroup.allRSS[row];
+    
     DLUserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
     if (cell) {
-        [cell.iconImageView setImage:[UIImage imageNamed:@"icon_nightMode"]];
-        [cell.titleLab setText:NSLocalizedString(@"Night mode", comment: "")];
+        [cell.iconImageView sd_setImageWithURL:RSS.iconUrl placeholderImage:nil];
+        [cell.titleLab setText:RSS.name];
     }
 
     

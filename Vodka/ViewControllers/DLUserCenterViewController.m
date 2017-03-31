@@ -120,7 +120,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
     
     if (section == 0) {
         return 100;

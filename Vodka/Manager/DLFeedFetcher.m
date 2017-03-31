@@ -41,14 +41,11 @@
     } onSuccess:^(id responseObject) {
         
         NSError *error;
-        NSArray *RSSList = [DLRSS arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error];
+        NSArray <DLRSS *>*RSSList = [DLRSS arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error];
         
         //缓存到sqlite，findOrCreate
         dispatch_async(_sqliteQueue, ^{
-            
-            
-            
-            
+        
             
             
         });

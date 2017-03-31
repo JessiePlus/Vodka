@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DLUserCenterViewController.h"
-#import "DLRSSCategoriesViewController.h"
+#import "DLRSSGroupViewController.h"
 #import "DLFeedListViewController.h"
 #import "AppDelegate+Logging.h"
 
@@ -55,7 +55,7 @@
     UINavigationController *navFeedsController = [[UINavigationController alloc] initWithRootViewController:feedsViewController];
 
 
-    DLRSSCategoriesViewController *discoverViewController = [[DLRSSCategoriesViewController alloc] init];
+    DLRSSGroupViewController *discoverViewController = [[DLRSSGroupViewController alloc] init];
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
     discoverViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
     discoverViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];

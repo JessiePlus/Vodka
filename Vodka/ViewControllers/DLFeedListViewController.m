@@ -139,7 +139,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
     MWFeedInfo *feedInfo = self.feedInfo;
@@ -160,7 +159,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
     MWFeedInfo *feedInfo = self.feedInfo;
@@ -180,7 +178,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
     MWFeedInfo *feedInfo = self.feedInfo;
