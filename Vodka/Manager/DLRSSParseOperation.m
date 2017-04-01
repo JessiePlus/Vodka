@@ -8,14 +8,15 @@
 
 #import "DLRSSParseOperation.h"
 #import <MWFeedParser.h>
-#import "DLFeed.h"
+
+
 
 @interface DLRSSParseOperation () <MWFeedParserDelegate>
 
 @property (nonatomic) MWFeedParser *parser;
-@property (nonatomic) DLFeed *feed;
 
-@property (nonatomic) NSMutableArray *feedItemList;
+@property (nonatomic) DLFeedInfo *feedInfo;
+@property (nonatomic) NSMutableArray <DLFeedItem *>*feedItems;
 
 @end
 
@@ -24,7 +25,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        _feed = [[DLFeed alloc] init];
+
     }
 
     return self;
@@ -57,41 +58,39 @@
     DDLogInfo(@"didParseFeedInfo: %@", info);
     DLFeedInfo *feedInfo = [[DLFeedInfo alloc] init];
     feedInfo.title = info.title;
-    feedInfo.link = info.link;
+    feedInfo.feedUrl = info.link;
     
-    _feed.feedInfo = feedInfo;
+    _feedInfo = feedInfo;
 }
 
 -(void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
     DDLogInfo(@"didParseFeedItem: %@", item);
     DLFeedItem *feedItem = [[DLFeedItem alloc] init];
     feedItem.title = item.title;
-    feedItem.link = item.link;
+    feedItem.link = item.identifier;
     feedItem.content = item.content;
     
-    if (!_feedItemList) {
-        _feedItemList = [[NSMutableArray alloc] init];
+    if (!_feedItems) {
+        _feedItems = [[NSMutableArray alloc] init];
     }
     
-    [_feedItemList addObject:feedItem];
+    [_feedItems addObject:feedItem];
 }
 
 -(void)feedParserDidFinish:(MWFeedParser *)parser {
     DDLogInfo(@"feedParserDidFinish");
-    _feed.allFeedItem = _feedItemList;
 
     if (self.onParseFinished) {
-        self.onParseFinished(_feed);
+        self.onParseFinished(_feedInfo, _feedItems);
     }
     
 }
 
 -(void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
     DDLogError(@"didFailWithError");
-    _feed.allFeedItem = _feedItemList;
     
     if (self.onParseFinished) {
-        self.onParseFinished(_feed);
+        self.onParseFinished(_feedInfo, _feedItems);
     }
     
 }

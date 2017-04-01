@@ -11,6 +11,7 @@
 @interface DLFeedInfo : NSObject
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *link;
+//unique
+@property (nonatomic, copy) NSString *feedUrl;
 
 @end

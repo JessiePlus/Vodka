@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "DLRSS.h"
-#import "DLFeed.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItem.h"
+
 @interface DLRSSParseOperation : NSOperation
 
 @property (nonatomic) DLRSS *RSS;
-@property (nonatomic, copy) void (^onParseFinished)(DLFeed *feed);
+@property (nonatomic, copy) void (^onParseFinished)(DLFeedInfo *feedInfo, NSArray <DLFeedItem *>*feedItems);
 @end

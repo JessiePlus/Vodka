@@ -90,7 +90,7 @@
         
         DLRSSParseOperation *operation = [[DLRSSParseOperation alloc] init];
         operation.RSS = RSS;
-        operation.onParseFinished = ^(DLFeed *feed) {
+        operation.onParseFinished = ^(DLFeedInfo *feedInfo, NSArray <DLFeedItem *>*feedItems) {
             //解析完成，存入数据库
             
             

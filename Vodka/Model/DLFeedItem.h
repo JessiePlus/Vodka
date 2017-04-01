@@ -11,6 +11,7 @@
 @interface DLFeedItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
+//unique
 @property (nonatomic, copy) NSString *link;
 @property (nonatomic) NSDate *date;
 

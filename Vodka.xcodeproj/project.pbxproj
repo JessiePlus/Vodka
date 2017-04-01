@@ -32,7 +32,6 @@
 		D6188BF21E8637F70020EA7F /* DLGoodsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */; };
 		D6188BF51E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */; };
 		D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF71E8658240020EA7F /* DLFeedListViewController.m */; };
-		D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFA1E865D4E0020EA7F /* DLFeed.m */; };
 		D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */; };
 		D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */; };
 		D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */; };
@@ -94,8 +93,6 @@
 		D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfoSectionTitleView.m; sourceTree = "<group>"; };
 		D6188BF61E8658240020EA7F /* DLFeedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedListViewController.h; sourceTree = "<group>"; };
 		D6188BF71E8658240020EA7F /* DLFeedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedListViewController.m; sourceTree = "<group>"; };
-		D6188BF91E865D4E0020EA7F /* DLFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeed.h; sourceTree = "<group>"; };
-		D6188BFA1E865D4E0020EA7F /* DLFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeed.m; sourceTree = "<group>"; };
 		D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfoCell.h; sourceTree = "<group>"; };
 		D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfoCell.m; sourceTree = "<group>"; };
 		D6188C021E86D6C80020EA7F /* DLSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingsViewController.h; sourceTree = "<group>"; };
@@ -419,8 +416,6 @@
 		D6FDD1BD1E6CF8E0000EC55B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D6188BF91E865D4E0020EA7F /* DLFeed.h */,
-				D6188BFA1E865D4E0020EA7F /* DLFeed.m */,
 				D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */,
 				D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */,
 				D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */,
@@ -596,7 +591,6 @@
 				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
 				D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */,
-				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,
 				D62C2DC41E8E218900C065A3 /* JYDBService.m in Sources */,
 				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,

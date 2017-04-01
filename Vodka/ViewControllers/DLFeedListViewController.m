@@ -10,7 +10,8 @@
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
-#import "DLFeed.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItem.h"
 #import "DLFeedInfoCell.h"
 #import <XMNetworking/XMNetworking.h>
 #import <MWFeedParser.h>
@@ -92,6 +93,9 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 #else
         [_feedFetcher loadFeeds];
         [_feedFetcher fetchItems:0 limit:10 completion:^(NSArray<DLFeedItem *> *feedItems) {
+            
+            
+            
             [self.feedsListView.mj_header endRefreshing];
             [self.feedsListView reloadData];
         }];

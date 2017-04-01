@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DLFeed.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItem.h"
 
 @interface DLFeedFetcher : NSObject
 
