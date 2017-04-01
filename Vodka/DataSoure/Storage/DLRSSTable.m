@@ -9,7 +9,7 @@
 #import "DLRSSTable.h"
 #import "DLRSS.h"
 #import "JYDBService.h"
-#import "DLRSSDB.h"
+#import "DLVodkaDB.h"
 
 @implementation DLRSSTable
 
@@ -36,16 +36,6 @@
              @"feedUrl" : @"TEXT",
              @"url" : @"TEXT"
 
-             };
-}
-
-- (NSDictionary *)fieldLenght{
-    return @{
-             @"createdAt" : @"128",
-             @"updatedAt" : @"128",
-             @"iconUrl" : @"128",
-             @"feedUrl" : @"128",
-             @"url" : @"128"
              };
 }
 

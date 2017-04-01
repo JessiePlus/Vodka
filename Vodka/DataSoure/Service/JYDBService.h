@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class DLRSSDB,DLRSSGroup,DLRSS,JYQueryConditions;
+@class DLVodkaDB,DLRSSGroup,DLRSS,DLFeedInfo,DLFeedItem,JYQueryConditions;
 
 @interface JYDBService : NSObject
 
 + (instancetype)shared;
 
-@property (nonatomic, strong, readonly) DLRSSDB *RSSDB;
+@property (nonatomic, strong, readonly) DLVodkaDB *vodkaDB;
 
 #pragma mark - 以下代码由 DEMO 中 JYGenerationCode 工具生成
 
@@ -57,6 +57,47 @@
 
 - (NSInteger)getRSSCountByConditions:(void (^)(JYQueryConditions *make))block;
 - (NSInteger)getRSSAllCount;
+
+# pragma mark DLFeedInfo operation
+- (void)insertFeedInfo:(DLFeedInfo *)aFeedInfo;
+- (void)insertFeedInfos:(NSArray<DLFeedInfo *> *)aFeedInfos;
+- (void)insertIndependentFeedInfo:(DLFeedInfo *)aFeedInfo;
+- (void)insertIndependentFeedInfos:(NSArray<DLFeedInfo *> *)aFeedInfos;
+
+- (NSArray<DLFeedInfo *> *)getFeedInfoByConditions:(void (^)(JYQueryConditions *make))block;
+- (DLFeedInfo *)getFeedInfo:(NSString*)aFeedInfoID;
+- (NSArray<DLFeedInfo *> *)getFeedInfos:(NSArray<NSString *> *)aFeedInfoIDs;
+- (NSArray<DLFeedInfo *> *)getAllFeedInfo;
+
+- (void)deleteFeedInfoByConditions:(void (^)(JYQueryConditions *make))block;
+- (void)deleteFeedInfos:(NSArray<NSString *>*)aFeedInfoIDs;
+- (void)deleteFeedInfo:(NSString *)aFeedInfoID;
+- (void)deleteAllFeedInfo;
+- (void)cleanFeedInfoBefore:(NSDate*)date;
+
+- (NSInteger)getFeedInfoCountByConditions:(void (^)(JYQueryConditions *make))block;
+- (NSInteger)getFeedInfoAllCount;
+
+# pragma mark DLFeedItem operation
+- (void)insertFeedItem:(DLFeedItem *)aFeedItem;
+- (void)insertFeedItems:(NSArray<DLFeedItem *> *)aFeedItems;
+- (void)insertIndependentFeedItem:(DLFeedItem *)aFeedItem;
+- (void)insertIndependentFeedItems:(NSArray<DLFeedItem *> *)aFeedItems;
+
+- (NSArray<DLFeedItem *> *)getFeedItemByConditions:(void (^)(JYQueryConditions *make))block;
+- (DLFeedItem *)getFeedItem:(NSString*)aFeedItemID;
+- (NSArray<DLFeedItem *> *)getFeedItems:(NSArray<NSString *> *)aFeedItemIDs;
+- (NSArray<DLFeedItem *> *)getAllFeedItem;
+
+- (void)deleteFeedItemByConditions:(void (^)(JYQueryConditions *make))block;
+- (void)deleteFeedItems:(NSArray<NSString *>*)aFeedItemIDs;
+- (void)deleteFeedItem:(NSString *)aFeedItemID;
+- (void)deleteAllFeedItem;
+- (void)cleanFeedItemBefore:(NSDate*)date;
+
+- (NSInteger)getFeedItemCountByConditions:(void (^)(JYQueryConditions *make))block;
+- (NSInteger)getFeedItemAllCount;
+
 
 
 

@@ -6,45 +6,43 @@
 //  Copyright © 2016年 weijingyun. All rights reserved.
 //
 
-#import "DLRSSGroupTable.h"
-#import "DLRSSGroup.h"
-#import "DLRSSTable.h"
+#import "DLFeedInfoTable.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItemTable.h"
 #import "JYDBService.h"
 #import "DLVodkaDB.h"
 
-@implementation DLRSSGroupTable
+@implementation DLFeedInfoTable
 
 - (void)configTableName{
     
-    self.contentClass = [DLRSSGroup class];
-    self.tableName = @"DLRSSGroupTable";
+    self.contentClass = [DLFeedInfo class];
+    self.tableName = @"DLFeedInfoTable";
 }
 
 - (NSString *)contentId{
-    return @"objectId";
+    return @"feedUrl";
 }
 
 - (NSArray<NSString *> *)getContentField{
-    return @[@"name",@"updatedAt",@"createdAt"];
+    return @[@"title"];
 }
 
 // 设置关联的表
 - (NSDictionary<NSString *, NSDictionary *> *)associativeTableField{
     
-    DLRSSTable *table = [JYDBService shared].vodkaDB.RSSTable;
+    DLFeedItemTable *table = [JYDBService shared].vodkaDB.feedItemTable;
     return @{
-             @"allRSS" : @{
+             @"allFeedItem" : @{
                      tableContentObject : table,
-                     tableViceKey       : @"RSSGroupID"
+                     tableViceKey       : @"feedInfoID"
                      }
              };
 }
 
 - (NSDictionary*)fieldStorageType{
     return @{
-             @"createdAt" : @"TEXT",
-             @"updatedAt" : @"TEXT"
-
+             @"feedUrl" : @"TEXT",
              };
 }
 

@@ -94,7 +94,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         [_feedFetcher loadFeeds];
         [_feedFetcher fetchItems:0 limit:10 completion:^(NSArray<DLFeedItem *> *feedItems) {
             
-            
+            self.feedItemList = feedItems;
             
             [self.feedsListView.mj_header endRefreshing];
             [self.feedsListView reloadData];
@@ -144,7 +144,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
 
     cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-    cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
 
     CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
     
@@ -162,7 +161,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     DLFeedInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLFeedInfoCell forIndexPath:indexPath];
     if (cell) {
         cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-        cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
         
         return cell;
     }

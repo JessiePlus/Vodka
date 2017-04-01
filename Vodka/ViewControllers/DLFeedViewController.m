@@ -55,7 +55,6 @@
                              [self readResourceContent:@"font-awesome.min.css"],
                              [self readResourceContent:@"main.css"],
                              _feedItem.title,
-                             [[AppUtil util] formatDate:_feedItem.date],
                              content];
     [_webView loadHTMLString:htmlContent baseURL:nil];
 }

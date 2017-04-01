@@ -8,14 +8,15 @@
 
 #import "JYDataBase.h"
 
-@class DLRSSGroupTable, DLRSSTable;
+@class DLRSSGroupTable, DLRSSTable, DLFeedInfoTable, DLFeedItemTable;
 
-@interface DLRSSDB : JYDataBase
+@interface DLVodkaDB : JYDataBase
 
 @property (nonatomic, strong, readonly) NSString      *documentDirectory;
 @property (nonatomic, strong, readonly) DLRSSGroupTable  *RSSGroupTable;
 @property (nonatomic, strong, readonly) DLRSSTable  *RSSTable;
-
+@property (nonatomic, strong, readonly) DLFeedInfoTable  *feedInfoTable;
+@property (nonatomic, strong, readonly) DLFeedItemTable  *feedItemTable;
 + (instancetype)storage;
 
 @end

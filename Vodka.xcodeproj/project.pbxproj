@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		624B50204BAFD1C4C2FE4011 /* libPods-Vodka.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */; };
+		D614DA3E1E8FCAF100397A4C /* DLFeedInfoTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D614DA3B1E8FCAF100397A4C /* DLFeedInfoTable.m */; };
+		D614DA3F1E8FCAF100397A4C /* DLFeedItemTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D614DA3D1E8FCAF100397A4C /* DLFeedItemTable.m */; };
 		D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BCE1E84B5BE0020EA7F /* DLRSSGroupViewController.m */; };
 		D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */; };
 		D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */; };
@@ -55,7 +57,7 @@
 		D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */; };
 		D62C2DC41E8E218900C065A3 /* JYDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DB71E8E218900C065A3 /* JYDBService.m */; };
 		D62C2DCB1E8E538F00C065A3 /* DLRSSGroupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */; };
-		D62C2DCE1E8E5BE200C065A3 /* DLRSSDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */; };
+		D62C2DCE1E8E5BE200C065A3 /* DLVodkaDB.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DCD1E8E5BE200C065A3 /* DLVodkaDB.m */; };
 		D62C2DD11E8E5D9100C065A3 /* DLRSSTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
@@ -72,6 +74,10 @@
 /* Begin PBXFileReference section */
 		81E4A5A4ACBA16623C93B6E0 /* Pods-Vodka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.release.xcconfig"; sourceTree = "<group>"; };
 		C5A3F219680AA8A72A0511EA /* libPods-Vodka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Vodka.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D614DA3A1E8FCAF100397A4C /* DLFeedInfoTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfoTable.h; sourceTree = "<group>"; };
+		D614DA3B1E8FCAF100397A4C /* DLFeedInfoTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfoTable.m; sourceTree = "<group>"; };
+		D614DA3C1E8FCAF100397A4C /* DLFeedItemTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedItemTable.h; sourceTree = "<group>"; };
+		D614DA3D1E8FCAF100397A4C /* DLFeedItemTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedItemTable.m; sourceTree = "<group>"; };
 		D6188BCD1E84B5BE0020EA7F /* DLRSSGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroupViewController.h; sourceTree = "<group>"; };
 		D6188BCE1E84B5BE0020EA7F /* DLRSSGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSGroupViewController.m; sourceTree = "<group>"; };
 		D6188BD01E84B9FF0020EA7F /* DLSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSignInViewController.h; sourceTree = "<group>"; };
@@ -137,8 +143,8 @@
 		D62C2DB71E8E218900C065A3 /* JYDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYDBService.m; sourceTree = "<group>"; };
 		D62C2DC91E8E538F00C065A3 /* DLRSSGroupTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroupTable.h; sourceTree = "<group>"; };
 		D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSGroupTable.m; sourceTree = "<group>"; };
-		D62C2DCC1E8E5BE200C065A3 /* DLRSSDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSDB.h; sourceTree = "<group>"; };
-		D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSDB.m; sourceTree = "<group>"; };
+		D62C2DCC1E8E5BE200C065A3 /* DLVodkaDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLVodkaDB.h; sourceTree = "<group>"; };
+		D62C2DCD1E8E5BE200C065A3 /* DLVodkaDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLVodkaDB.m; sourceTree = "<group>"; };
 		D62C2DCF1E8E5D9100C065A3 /* DLRSSTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSTable.h; sourceTree = "<group>"; };
 		D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSTable.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,10 +163,10 @@
 		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
 		D6ECE81D1E8F9477008036A0 /* DLRSSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSParseOperation.h; sourceTree = "<group>"; };
 		D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSParseOperation.m; sourceTree = "<group>"; };
-		D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfo.h; sourceTree = "<group>"; };
-		D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfo.m; sourceTree = "<group>"; };
-		D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedItem.h; sourceTree = "<group>"; };
-		D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedItem.m; sourceTree = "<group>"; };
+		D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLFeedInfo.h; path = ../../Model/DLFeedInfo.h; sourceTree = "<group>"; };
+		D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLFeedInfo.m; path = ../../Model/DLFeedInfo.m; sourceTree = "<group>"; };
+		D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLFeedItem.h; path = ../../Model/DLFeedItem.h; sourceTree = "<group>"; };
+		D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLFeedItem.m; path = ../../Model/DLFeedItem.m; sourceTree = "<group>"; };
 		E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +248,10 @@
 				D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */,
 				D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */,
 				D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */,
+				D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */,
+				D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */,
+				D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */,
+				D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -258,12 +268,16 @@
 		D62C2DB81E8E218900C065A3 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				D62C2DCC1E8E5BE200C065A3 /* DLRSSDB.h */,
-				D62C2DCD1E8E5BE200C065A3 /* DLRSSDB.m */,
+				D62C2DCC1E8E5BE200C065A3 /* DLVodkaDB.h */,
+				D62C2DCD1E8E5BE200C065A3 /* DLVodkaDB.m */,
 				D62C2DC91E8E538F00C065A3 /* DLRSSGroupTable.h */,
 				D62C2DCA1E8E538F00C065A3 /* DLRSSGroupTable.m */,
 				D62C2DCF1E8E5D9100C065A3 /* DLRSSTable.h */,
 				D62C2DD01E8E5D9100C065A3 /* DLRSSTable.m */,
+				D614DA3A1E8FCAF100397A4C /* DLFeedInfoTable.h */,
+				D614DA3B1E8FCAF100397A4C /* DLFeedInfoTable.m */,
+				D614DA3C1E8FCAF100397A4C /* DLFeedItemTable.h */,
+				D614DA3D1E8FCAF100397A4C /* DLFeedItemTable.m */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -293,7 +307,6 @@
 				D6A3E2E51E6BBEEA008CF763 /* Extensions */,
 				D6188C141E8961070020EA7F /* Helpers */,
 				D62C2D991E8D4F8200C065A3 /* Manager */,
-				D6FDD1BD1E6CF8E0000EC55B /* Model */,
 				D63612761E6BA4A500C2322D /* Persistence */,
 				D62C2D871E8CC23800C065A3 /* Resource */,
 				D636126C1E6B99BC00C2322D /* Services */,
@@ -411,17 +424,6 @@
 			children = (
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D6FDD1BD1E6CF8E0000EC55B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */,
-				D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */,
-				D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */,
-				D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,13 +598,15 @@
 				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,
 				D62C2DCB1E8E538F00C065A3 /* DLRSSGroupTable.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
-				D62C2DCE1E8E5BE200C065A3 /* DLRSSDB.m in Sources */,
+				D62C2DCE1E8E5BE200C065A3 /* DLVodkaDB.m in Sources */,
 				D62C2D921E8CC46500C065A3 /* AppUtil.m in Sources */,
 				D62C2D831E8B79C800C065A3 /* DLRSSSubscribeViewController.m in Sources */,
 				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
+				D614DA3E1E8FCAF100397A4C /* DLFeedInfoTable.m in Sources */,
 				D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */,
 				D6188C071E86DDBB0020EA7F /* DLFeedEditViewController.m in Sources */,
+				D614DA3F1E8FCAF100397A4C /* DLFeedItemTable.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */,
 				D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */,
 				D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */,

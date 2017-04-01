@@ -14,5 +14,5 @@
 @interface DLRSSParseOperation : NSOperation
 
 @property (nonatomic) DLRSS *RSS;
-@property (nonatomic, copy) void (^onParseFinished)(DLFeedInfo *feedInfo, NSArray <DLFeedItem *>*feedItems);
+@property (nonatomic, copy) void (^onParseFinished)(DLFeedInfo *feedInfo);
 @end

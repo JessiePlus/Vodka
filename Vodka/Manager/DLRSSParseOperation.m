@@ -16,6 +16,7 @@
 @property (nonatomic) MWFeedParser *parser;
 
 @property (nonatomic) DLFeedInfo *feedInfo;
+
 @property (nonatomic) NSMutableArray <DLFeedItem *>*feedItems;
 
 @end
@@ -58,7 +59,7 @@
     DDLogInfo(@"didParseFeedInfo: %@", info);
     DLFeedInfo *feedInfo = [[DLFeedInfo alloc] init];
     feedInfo.title = info.title;
-    feedInfo.feedUrl = info.link;
+    feedInfo.feedUrl = [info.url absoluteString];
     
     _feedInfo = feedInfo;
 }
@@ -67,7 +68,7 @@
     DDLogInfo(@"didParseFeedItem: %@", item);
     DLFeedItem *feedItem = [[DLFeedItem alloc] init];
     feedItem.title = item.title;
-    feedItem.link = item.identifier;
+    feedItem.url = item.identifier;
     feedItem.content = item.content;
     
     if (!_feedItems) {
@@ -80,8 +81,10 @@
 -(void)feedParserDidFinish:(MWFeedParser *)parser {
     DDLogInfo(@"feedParserDidFinish");
 
+    _feedInfo.allFeedItem = _feedItems;
+    
     if (self.onParseFinished) {
-        self.onParseFinished(_feedInfo, _feedItems);
+        self.onParseFinished(_feedInfo);
     }
     
 }
@@ -89,8 +92,10 @@
 -(void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
     DDLogError(@"didFailWithError");
     
+    _feedInfo.allFeedItem = _feedItems;
+
     if (self.onParseFinished) {
-        self.onParseFinished(_feedInfo, _feedItems);
+        self.onParseFinished(_feedInfo);
     }
     
 }

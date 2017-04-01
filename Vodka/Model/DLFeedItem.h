@@ -10,11 +10,17 @@
 
 @interface DLFeedItem : NSObject
 
+#if 0
+//对象编号，主键，自增
+@property (nonatomic, assign) NSUInteger mID;
+#endif
+
+//feedItem所属的feedInfo
+@property (nonatomic, copy) NSString *feedInfoID;
+
 @property (nonatomic, copy) NSString *title;
 //unique
-@property (nonatomic, copy) NSString *link;
-@property (nonatomic) NSDate *date;
-
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic) NSString *url;
+@property (nonatomic) NSString *content;
 
 @end
