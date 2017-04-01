@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel.h>
 
-@protocol DLRSS;
-
-@interface DLRSS : JSONModel
+@interface DLRSS : NSObject
 
 //对象编号
 @property (nonatomic, copy) NSString *objectId;
@@ -20,7 +17,7 @@
 @property (nonatomic) NSDate *updatedAt;
 
 //RSS所属的分组表
-@property (nonatomic, copy) NSString <Ignore>*RSSGroupID;
+@property (nonatomic, copy) NSString *RSSGroupID;
 
 //RSS的名称
 @property (nonatomic, copy) NSString *name;

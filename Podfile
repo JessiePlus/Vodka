@@ -6,7 +6,7 @@ def pods
     pod 'SDWebImage'
     pod 'XMNetworking'
     pod 'CocoaLumberjack'
-    pod 'JSONModel'
+    pod 'MJExtension'
     pod 'libextobjc'
     pod 'MWFeedParser'
     pod 'FMDB'

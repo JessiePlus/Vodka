@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel.h>
 #import "DLRSS.h"
 
 
-@interface DLRSSGroup : JSONModel
+@interface DLRSSGroup : NSObject
 
 //对象编号
 @property (nonatomic, copy) NSString *objectId;
@@ -23,6 +22,6 @@
 @property (nonatomic, copy) NSString *name;
 
 //分组下的所有RSS
-@property (nonatomic, strong) NSArray<DLRSS> *allRSS;
+@property (nonatomic, strong) NSArray<DLRSS *> *allRSS;
 
 @end

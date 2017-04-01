@@ -24,7 +24,7 @@
 }
 
 - (NSArray<NSString *> *)getContentField{
-    return @[@"name",@"updatedAt",@"createdAt",@"iconUrl",@"feedUrl",@"url"];
+    return @[@"name",@"updatedAt",@"createdAt",@"iconUrl",@"feedUrl",@"url",@"RSSGroupID"];
 }
 
 
