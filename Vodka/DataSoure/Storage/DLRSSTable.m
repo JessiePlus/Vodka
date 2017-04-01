@@ -24,25 +24,34 @@
 }
 
 - (NSArray<NSString *> *)getContentField{
-    return @[@"name",@"longlongText"];
+    return @[@"name",@"updatedAt",@"createdAt",@"iconUrl",@"feedUrl",@"url"];
 }
 
 
 - (NSDictionary*)fieldStorageType{
     return @{
-             @"longlongText" : @"TEXT"
+             @"createdAt" : @"TEXT",
+             @"updatedAt" : @"TEXT",
+             @"iconUrl" : @"TEXT",
+             @"feedUrl" : @"TEXT",
+             @"url" : @"TEXT"
+
              };
 }
 
 - (NSDictionary *)fieldLenght{
     return @{
-             @"longlongText" : @"128"
+             @"createdAt" : @"128",
+             @"updatedAt" : @"128",
+             @"iconUrl" : @"128",
+             @"feedUrl" : @"128",
+             @"url" : @"128"
              };
 }
 
-// 为 objectId 加上索引
+// 为 RSSGroupID 加上索引
 - (void)addOtherOperationForTable:(FMDatabase *)aDB{
-    [self addDB:aDB uniques:@[@"objectId"]];
+    [self addDB:aDB uniques:@[@"RSSGroupID"]];
 }
 
 @end

@@ -38,6 +38,27 @@
 - (NSInteger)getRSSGroupCountByConditions:(void (^)(JYQueryConditions *make))block;
 - (NSInteger)getRSSGroupAllCount;
 
+# pragma mark DLRSS operation
+- (void)insertRSS:(DLRSS *)aRSS;
+- (void)insertRSSs:(NSArray<DLRSS *> *)aRSSs;
+- (void)insertIndependentRSS:(DLRSS *)aRSS;
+- (void)insertIndependentRSSs:(NSArray<DLRSS *> *)aRSSs;
+
+- (NSArray<DLRSS *> *)getRSSByConditions:(void (^)(JYQueryConditions *make))block;
+- (DLRSS *)getRSS:(NSString*)aRSSID;
+- (NSArray<DLRSS *> *)getRSSs:(NSArray<NSString *> *)aRSSIDs;
+- (NSArray<DLRSS *> *)getAllRSS;
+
+- (void)deleteRSSByConditions:(void (^)(JYQueryConditions *make))block;
+- (void)deleteRSSs:(NSArray<NSString *>*)aRSSIDs;
+- (void)deleteRSS:(NSString *)aRSSID;
+- (void)deleteAllRSS;
+- (void)cleanRSSBefore:(NSDate*)date;
+
+- (NSInteger)getRSSCountByConditions:(void (^)(JYQueryConditions *make))block;
+- (NSInteger)getRSSAllCount;
+
+
 
 
 

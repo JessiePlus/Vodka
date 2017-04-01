@@ -25,7 +25,7 @@
 }
 
 - (NSArray<NSString *> *)getContentField{
-    return @[@"name",@"longlongText"];
+    return @[@"name",@"updatedAt",@"createdAt"];
 }
 
 // 设置关联的表
@@ -42,19 +42,17 @@
 
 - (NSDictionary*)fieldStorageType{
     return @{
-             @"longlongText" : @"TEXT"
+             @"createdAt" : @"TEXT",
+             @"updatedAt" : @"TEXT"
+
              };
 }
 
 - (NSDictionary *)fieldLenght{
     return @{
-             @"longlongText" : @"128"
+             @"createdAt" : @"128",
+             @"updatedAt" : @"128"
              };
-}
-
-// 为 objectId 加上索引
-- (void)addOtherOperationForTable:(FMDatabase *)aDB{
-    [self addDB:aDB uniques:@[@"objectId"]];
 }
 
 @end

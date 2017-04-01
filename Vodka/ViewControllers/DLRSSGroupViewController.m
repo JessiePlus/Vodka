@@ -16,6 +16,8 @@
 #import "DLRSSSubscribeViewController.h"
 #import "DLFeedAddGroupViewController.h"
 
+#import "JYDBService.h"
+
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 @interface DLRSSGroupViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -84,12 +86,19 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             request.httpMethod = kXMHTTPMethodGET;
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
-            
-            [self.DLRSSGroupListView.mj_header endRefreshing];
 
             NSError *error;
-            self.DLRSSGroupList = [[DLRSSGroup arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error] mutableCopy];
+            NSMutableArray <DLRSSGroup *>*DLRSSGroupList = [[DLRSSGroup arrayOfModelsFromDictionaries:responseObject[@"results"] error:&error] mutableCopy];
+
+            //缓存到数据库
+            [[JYDBService shared] insertRSSGroups:DLRSSGroupList];
             
+            
+            
+            //更新界面
+            [self.DLRSSGroupListView.mj_header endRefreshing];
+
+            self.DLRSSGroupList = DLRSSGroupList;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.DLRSSGroupListView reloadData];
             });

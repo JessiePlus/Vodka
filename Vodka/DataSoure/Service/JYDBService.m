@@ -92,6 +92,66 @@
     return [self.RSSDB.RSSGroupTable getAllCount];
 }
 
+# pragma mark DLRSS operation
+- (void)insertRSS:(DLRSS *)aRSS{
+    [self.RSSDB.RSSTable insertContent:aRSS];
+}
+
+- (void)insertRSSs:(NSArray<DLRSS *> *)aRSSs{
+    [self.RSSDB.RSSTable insertContents:aRSSs];
+}
+
+- (void)insertIndependentRSS:(DLRSS *)aRSS{
+    [self.RSSDB.RSSTable insertIndependentContent:aRSS];
+}
+
+- (void)insertIndependentRSSs:(NSArray<DLRSS *> *)aRSSs{
+    [self.RSSDB.RSSTable insertIndependentContents:aRSSs];
+}
+
+- (NSArray<DLRSS *> *)getRSSByConditions:(void (^)(JYQueryConditions *make))block{
+    return [self.RSSDB.RSSTable getContentByConditions:block];
+}
+
+- (DLRSS *)getRSS:(NSString*)aRSSID{
+    return [self.RSSDB.RSSTable getContentByID:aRSSID];
+}
+
+- (NSArray<DLRSS *> *)getRSSs:(NSArray<NSString *> *)aRSSIDs{
+    return [self.RSSDB.RSSTable getContentByIDs:aRSSIDs];
+}
+
+- (NSArray<DLRSS *> *)getAllRSS{
+    return [self.RSSDB.RSSTable getAllContent];
+}
+
+- (void)deleteRSSByConditions:(void (^)(JYQueryConditions *make))block{
+    return [self.RSSDB.RSSTable deleteContentByConditions:block];
+}
+
+- (void)deleteRSSs:(NSArray<NSString *>*)aRSSIDs{
+    [self.RSSDB.RSSTable deleteContentByIDs:aRSSIDs];
+}
+
+- (void)deleteRSS:(NSString *)aRSSID{
+    [self.RSSDB.RSSTable deleteContentByID:aRSSID];
+}
+
+- (void)deleteAllRSS{
+    [self.RSSDB.RSSTable deleteAllContent];
+}
+
+- (void)cleanRSSBefore:(NSDate*)date{
+    [self.RSSDB.RSSTable cleanContentBefore:date];
+}
+
+- (NSInteger)getRSSCountByConditions:(void (^)(JYQueryConditions *make))block{
+    return [self.RSSDB.RSSTable getCountByConditions:block];
+}
+
+- (NSInteger)getRSSAllCount{
+    return [self.RSSDB.RSSTable getAllCount];
+}
 
 
 @end

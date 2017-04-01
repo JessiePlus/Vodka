@@ -19,6 +19,9 @@
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSDate *updatedAt;
 
+//RSS所属的分组表
+@property (nonatomic, copy) NSString <Ignore>*RSSGroupID;
+
 //RSS的名称
 @property (nonatomic, copy) NSString *name;
 //RSS的图标
