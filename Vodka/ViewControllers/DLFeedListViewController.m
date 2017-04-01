@@ -20,6 +20,7 @@
 #import "AppUtil.h"
 #import "DLFeedFetcher.h"
 
+static const NSUInteger kPageCount = 5;
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -82,29 +83,33 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求feeds
-        
-#if 0
-        NSURL *feedURL = [NSURL URLWithString:@"http://blog.devtang.com/atom.xml"];
-        feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
-        feedParser.delegate = self;
-        feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
-        feedParser.connectionType = ConnectionTypeAsynchronously;
-        [feedParser parse];
-#else
         [_feedFetcher loadFeeds];
-        [_feedFetcher fetchItems:0 limit:10 completion:^(NSArray<DLFeedItem *> *feedItems) {
+        [_feedFetcher fetchItems:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
             
-            self.feedItemList = feedItems;
+            if (feedItems) {
+                _feedItemList = [[NSMutableArray alloc] initWithArray:feedItems];
+                [self.feedsListView reloadData];
+            }
             
             [self.feedsListView.mj_header endRefreshing];
-            [self.feedsListView reloadData];
         }];
-#endif
+
     }];
     
     self.feedsListView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        [self.feedsListView.mj_footer endRefreshing];
+        [_feedFetcher fetchItems:_feedItemList.count limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+            
+            if (feedItems) {
+                [self.feedItemList addObjectsFromArray: feedItems];
+                [self.feedsListView reloadData];
+            }
+            
+            
+            [self.feedsListView.mj_footer endRefreshing];
+        }];
+        
+        
 
         
     }];

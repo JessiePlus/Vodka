@@ -56,7 +56,6 @@
 }
 
 -(void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-    DDLogInfo(@"didParseFeedInfo: %@", info);
     DLFeedInfo *feedInfo = [[DLFeedInfo alloc] init];
     feedInfo.title = info.title;
     feedInfo.feedUrl = [info.url absoluteString];
@@ -65,7 +64,6 @@
 }
 
 -(void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-    DDLogInfo(@"didParseFeedItem: %@", item);
     DLFeedItem *feedItem = [[DLFeedItem alloc] init];
     feedItem.title = item.title;
     feedItem.url = item.identifier;

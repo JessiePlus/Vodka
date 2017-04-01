@@ -11,7 +11,7 @@
 #import "DLRSS.h"
 #import "JYDBService.h"
 #import "DLRSSParseOperation.h"
-
+#import <JYQueryConditions.h>
 
 @interface DLFeedFetcher ()
 
@@ -54,8 +54,12 @@
 
 //从数据库中分页取出feeds
 -(void)fetchItems:(NSInteger)offset limit:(NSInteger)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
-    // 查询出全部的
-    NSArray<DLFeedItem*>*queryFeedItems = [[JYDBService shared] getAllFeedItem];
+    
+    
+    NSArray<DLFeedItem*>*queryFeedItems = [[JYDBService shared] getFeedItemByConditions:^(JYQueryConditions *make) {
+        make.limit([NSNumber numberWithInteger:limit]);
+        make.offset([NSNumber numberWithInteger:offset]);
+    }];
 
     if (completion) {
         completion(queryFeedItems);
@@ -91,6 +95,8 @@
         DLRSSParseOperation *operation = [[DLRSSParseOperation alloc] init];
         operation.RSS = RSS;
         operation.onParseFinished = ^(DLFeedInfo *feedInfo) {
+            
+            DDLogInfo(@"cache the feedInfo: %@", feedInfo);
             //解析完成，缓存到数据库
             [[JYDBService shared] insertFeedInfo:feedInfo];
             
