@@ -37,14 +37,14 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLFeedListViewController init");
+        DDLogInfo(@"DLFeedListViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLFeedListViewController dealloc");
+    DDLogInfo(@"DLFeedListViewController dealloc");
 }
 
 - (void)viewDidLoad {

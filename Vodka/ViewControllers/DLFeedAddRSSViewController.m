@@ -18,14 +18,14 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLFeedAddRSSViewController init");
+        DDLogInfo(@"DLFeedAddRSSViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLFeedAddRSSViewController dealloc");
+    DDLogInfo(@"DLFeedAddRSSViewController dealloc");
 }
 
 - (void)viewDidLoad {

@@ -36,7 +36,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     if (self) {
         
         
-        NSLog(@"DLRSSGroupViewController init");
+        DDLogInfo(@"DLRSSGroupViewController init");
         
     }
     
@@ -44,7 +44,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 }
 
 -(void)dealloc {
-    NSLog(@"DLRSSGroupViewController dealloc");
+    DDLogInfo(@"DLRSSGroupViewController dealloc");
     
     
 }
@@ -108,9 +108,9 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             });
             
         } onFailure:^(NSError *error) {
-            NSLog(@"onFailure: %@", error);
+            DDLogError(@"onFailure: %@", error);
         } onFinished:^(id responseObject, NSError *error) {
-            NSLog(@"onFinished");
+            DDLogInfo(@"onFinished");
         }];
         
     }];

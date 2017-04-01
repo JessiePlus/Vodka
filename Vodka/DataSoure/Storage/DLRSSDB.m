@@ -29,7 +29,7 @@
 }
 
 - (void)construct{
-    NSLog(@"%@",self.documentDirectory);
+    DDLogInfo(@"%@",self.documentDirectory);
     [self buildWithPath:self.documentDirectory mode:ArtDatabaseModeWrite registTable:^{
         //注册数据表 建议外引出来，用于其它位置调用封装
         self.RSSGroupTable = (DLRSSGroupTable *)[self registTableClass:[DLRSSGroupTable class]];

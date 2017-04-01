@@ -18,14 +18,14 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLFeedAddGroupViewController init");
+        DDLogInfo(@"DLFeedAddGroupViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLFeedAddGroupViewController dealloc");
+    DDLogInfo(@"DLFeedAddGroupViewController dealloc");
 }
 
 - (void)viewDidLoad {

@@ -31,14 +31,14 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLRSSSubscribeViewController init");
+        DDLogInfo(@"DLRSSSubscribeViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLRSSSubscribeViewController dealloc");    
+    DDLogInfo(@"DLRSSSubscribeViewController dealloc");    
 }
 
 - (void)viewDidLoad {

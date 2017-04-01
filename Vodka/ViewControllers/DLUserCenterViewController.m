@@ -33,19 +33,14 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        
-        
-        NSLog(@"UserCenterViewController init");
-        
+        DDLogInfo(@"UserCenterViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"UserCenterViewController dealloc");
-    
-    
+    DDLogInfo(@"UserCenterViewController dealloc");    
 }
 
 - (void)viewDidLoad {

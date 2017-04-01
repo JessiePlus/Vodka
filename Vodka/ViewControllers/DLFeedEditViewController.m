@@ -18,14 +18,14 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"DLFeedEditViewController init");
+        DDLogInfo(@"DLFeedEditViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"DLFeedEditViewController dealloc");
+    DDLogInfo(@"DLFeedEditViewController dealloc");
 }
 
 - (void)viewDidLoad {

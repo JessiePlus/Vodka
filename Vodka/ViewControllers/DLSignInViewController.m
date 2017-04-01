@@ -24,19 +24,14 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        
-        
-        NSLog(@"LoginViewController init");
-        
+        DDLogInfo(@"LoginViewController init");
     }
     
     return self;
 }
 
 -(void)dealloc {
-    NSLog(@"LoginViewController dealloc");
-    
-    
+    DDLogInfo(@"LoginViewController dealloc");
 }
 
 - (void)viewDidLoad {
