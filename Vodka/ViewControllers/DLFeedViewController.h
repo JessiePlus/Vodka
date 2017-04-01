@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
-#import <MWFeedItem.h>
+#import "DLFeedItem.h"
 
 @interface DLFeedViewController : DLBaseViewController
 
-@property (nonatomic) MWFeedItem *feedItem;
+@property (nonatomic) DLFeedItem *feedItem;
 
 @end

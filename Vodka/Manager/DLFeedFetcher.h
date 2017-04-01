@@ -7,13 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DLFeed.h"
 
 @interface DLFeedFetcher : NSObject
 
 //开始加载feeds
 @property (nonatomic, copy) void (^onStartLoadFeeds)(void);
 
-//加载feeds
+//停止加载feeds
+@property (nonatomic, copy) void (^onStopLoadFeeds)(void);
+
+
+//从数据库中分页取出feeds
+-(void)fetchItems:(NSInteger)offset limit:(NSInteger)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion;
+
+//解析feeds，并存入数据库
 -(void)loadFeeds;
 
 

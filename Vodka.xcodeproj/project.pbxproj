@@ -65,6 +65,9 @@
 		D63612621E6ABBA900C2322D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D63612641E6ABBA900C2322D /* Localizable.strings */; };
 		D63612751E6BA44000C2322D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612741E6BA44000C2322D /* User.m */; };
 		D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */; };
+		D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */; };
+		D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */; };
+		D6ECE8251E8F9F5F008036A0 /* DLFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,10 +116,10 @@
 		D6188C221E89F9E90020EA7F /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
 		D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCategoryInfoCell.h; sourceTree = "<group>"; };
 		D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCategoryInfoCell.m; sourceTree = "<group>"; };
-		D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRSSGroup.h; path = DLRSSGroup.h; sourceTree = "<group>"; };
-		D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRSSGroup.m; path = DLRSSGroup.m; sourceTree = "<group>"; };
-		D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRSS.h; path = DLRSS.h; sourceTree = "<group>"; };
-		D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRSS.m; path = DLRSS.m; sourceTree = "<group>"; };
+		D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroup.h; sourceTree = "<group>"; };
+		D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSGroup.m; sourceTree = "<group>"; };
+		D62C2D7E1E8B5F6400C065A3 /* DLRSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSS.h; sourceTree = "<group>"; };
+		D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSS.m; sourceTree = "<group>"; };
 		D62C2D811E8B79C800C065A3 /* DLRSSSubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSSubscribeViewController.h; sourceTree = "<group>"; };
 		D62C2D821E8B79C800C065A3 /* DLRSSSubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSSubscribeViewController.m; sourceTree = "<group>"; };
 		D62C2D841E8CBEED00C065A3 /* DLFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedViewController.h; sourceTree = "<group>"; };
@@ -155,6 +158,12 @@
 		D63612741E6BA44000C2322D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePhone.h; sourceTree = "<group>"; };
 		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
+		D6ECE81D1E8F9477008036A0 /* DLRSSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSParseOperation.h; sourceTree = "<group>"; };
+		D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSParseOperation.m; sourceTree = "<group>"; };
+		D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfo.h; sourceTree = "<group>"; };
+		D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedInfo.m; sourceTree = "<group>"; };
+		D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedItem.h; sourceTree = "<group>"; };
+		D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedItem.m; sourceTree = "<group>"; };
 		E47202F644FDDF75D48C5960 /* Pods-Vodka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vodka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vodka/Pods-Vodka.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +203,6 @@
 				D62C2D901E8CC46500C065A3 /* AppUtil.h */,
 				D62C2D911E8CC46500C065A3 /* AppUtil.m */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -206,7 +214,6 @@
 				D62C2D8A1E8CC25A00C065A3 /* main.css */,
 				D62C2D8B1E8CC25A00C065A3 /* post.html */,
 			);
-			name = Resource;
 			path = Resource;
 			sourceTree = "<group>";
 		};
@@ -215,8 +222,9 @@
 			children = (
 				D62C2D9A1E8D4FBB00C065A3 /* DLFeedFetcher.h */,
 				D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */,
+				D6ECE81D1E8F9477008036A0 /* DLRSSParseOperation.h */,
+				D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */,
 			);
-			name = Manager;
 			path = Manager;
 			sourceTree = "<group>";
 		};
@@ -315,7 +323,6 @@
 				D6188C1F1E896FF40020EA7F /* Vodka-Prefix.pch */,
 				D63612401E6A659200C2322D /* main.m */,
 			);
-			name = "Supporting Files";
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -345,7 +352,6 @@
 				D636125B1E6A89DC00C2322D /* DLUserCenterViewController.h */,
 				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -375,7 +381,6 @@
 				D6188BD91E84FA340020EA7F /* DLUserInfoSwitchCell.h */,
 				D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -387,7 +392,6 @@
 				D63612731E6BA44000C2322D /* User.h */,
 				D63612741E6BA44000C2322D /* User.m */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -395,7 +399,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Persistence;
 			path = Persistence;
 			sourceTree = "<group>";
 		};
@@ -403,7 +406,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = UserDefaults;
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
@@ -411,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -420,8 +421,11 @@
 			children = (
 				D6188BF91E865D4E0020EA7F /* DLFeed.h */,
 				D6188BFA1E865D4E0020EA7F /* DLFeed.m */,
+				D6ECE8201E8F9F4C008036A0 /* DLFeedInfo.h */,
+				D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */,
+				D6ECE8231E8F9F5F008036A0 /* DLFeedItem.h */,
+				D6ECE8241E8F9F5F008036A0 /* DLFeedItem.m */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -459,7 +463,7 @@
 				TargetAttributes = {
 					D636123B1E6A659100C2322D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SFZX37BH94;
+						DevelopmentTeam = U3ANN6J6MB;
 						ProvisioningStyle = Automatic;
 					};
 					D63612781E6BA8C600C2322D = {
@@ -579,6 +583,7 @@
 				D62C2D861E8CBEED00C065A3 /* DLFeedViewController.m in Sources */,
 				D62C2D7D1E8B5ED300C065A3 /* DLRSSGroup.m in Sources */,
 				D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */,
+				D6ECE8251E8F9F5F008036A0 /* DLFeedItem.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D62C2DD11E8E5D9100C065A3 /* DLRSSTable.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
@@ -590,6 +595,7 @@
 				D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */,
 				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
+				D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */,
 				D6188BFB1E865D4E0020EA7F /* DLFeed.m in Sources */,
 				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,
 				D62C2DC41E8E218900C065A3 /* JYDBService.m in Sources */,
@@ -606,6 +612,7 @@
 				D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */,
 				D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */,
 				D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */,
+				D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */,
 				D62C2D971E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
 			);
@@ -735,7 +742,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = SFZX37BH94;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U3ANN6J6MB;
 				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -750,7 +758,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = SFZX37BH94;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U3ANN6J6MB;
 				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

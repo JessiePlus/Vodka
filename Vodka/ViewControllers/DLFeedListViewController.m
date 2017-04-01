@@ -21,22 +21,15 @@
 
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
-@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, MWFeedParserDelegate> {
-    MWFeedParser *feedParser;
-}
-
+@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource>
 //用户信息列表
 @property (nonatomic) UITableView *feedsListView;
 
-@property (nonatomic) MWFeedInfo *feedInfo;//feed的简介
-@property (nonatomic) NSMutableArray <MWFeedItem *>*feedItemList;//feed的item
+@property (strong,nonatomic) DLFeedFetcher *feedFetcher;
 
-
+@property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
 //计算高度
 @property (nonatomic, strong) UITableViewCell *templateCell;
-
-
-@property (strong,nonatomic) DLFeedFetcher *feedFetcher;
 
 @end
 
@@ -61,8 +54,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     
     _feedFetcher = [[DLFeedFetcher alloc] init];
-    
-    
+
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -86,22 +78,24 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
     
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
-
-    
-    if (!_feedItemList) {
-        _feedItemList = [[NSMutableArray alloc] init];
-    }
-    
     
     self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求feeds
+        
+#if 0
         NSURL *feedURL = [NSURL URLWithString:@"http://blog.devtang.com/atom.xml"];
         feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
         feedParser.delegate = self;
         feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
         feedParser.connectionType = ConnectionTypeAsynchronously;
         [feedParser parse];
-        
+#else
+        [_feedFetcher loadFeeds];
+        [_feedFetcher fetchItems:0 limit:10 completion:^(NSArray<DLFeedItem *> *feedItems) {
+            [self.feedsListView.mj_header endRefreshing];
+            [self.feedsListView reloadData];
+        }];
+#endif
     }];
     
     self.feedsListView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -141,12 +135,10 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     NSInteger row = indexPath.row;
     
-    MWFeedInfo *feedInfo = self.feedInfo;
-    MWFeedItem *feedItem = self.feedItemList[row];
+    DLFeedItem *feedItem = self.feedItemList[row];
 
     DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
 
-    cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
     cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
     cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
 
@@ -161,12 +153,10 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     NSInteger row = indexPath.row;
     
-    MWFeedInfo *feedInfo = self.feedInfo;
-    MWFeedItem *feedItem = self.feedItemList[row];
+    DLFeedItem *feedItem = self.feedItemList[row];
     
     DLFeedInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLFeedInfoCell forIndexPath:indexPath];
     if (cell) {
-        cell.infoTitleLab.text = feedInfo.title ? [feedInfo.title stringByConvertingHTMLToPlainText] : @"[No Title]";
         cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
         cell.itemDateLab.text = feedItem.date ? [[AppUtil util] formatDate:feedItem.date] : @"[No Date]";
         
@@ -180,8 +170,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row;
     
-    MWFeedInfo *feedInfo = self.feedInfo;
-    MWFeedItem *feedItem = self.feedItemList[row];
+    DLFeedItem *feedItem = self.feedItemList[row];
     
     DLFeedViewController *feedViewController = [[DLFeedViewController alloc] init];
     feedViewController.feedItem = feedItem;
@@ -191,63 +180,5 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 
 }
-
-#pragma mark MWFeedParserDelegate
-
-- (void)feedParserDidStart:(MWFeedParser *)parser {
-    NSLog(@"Started Parsing: %@", parser.url);
-}
-
-- (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
-    NSLog(@"Parsed Feed Info: “%@”", info.title);
-    if (info) {
-        _feedInfo = info;
-    }
-}
-
-- (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
-    NSLog(@"Parsed Feed Item: “%@”", item.title);
-    if (item)
-        [_feedItemList addObject:item];
-}
-
-- (void)feedParserDidFinish:(MWFeedParser *)parser {
-    NSLog(@"Finished Parsing%@", (parser.stopped ? @" (Stopped)" : @""));
-
-    [self.feedsListView.mj_header endRefreshing];
-    
-    [self.feedsListView reloadData];
-}
-
-#if 0
-- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-    NSLog(@"Finished Parsing With Error: %@", error);
-    if (_feedItemList.count == 0) {
-        
-        self.title = @"Failed"; // Show failed message in title
-        
-    } else {
-        // Failed but some items parsed, so show and inform of error
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing Incomplete"
-                                                        message:@"There was an error during the parsing of this feed. Not all of the feed items could parsed."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Dismiss"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-
-    [self.feedsListView reloadData];
-
-}
-#else
-
-- (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
-    NSLog(@"Finished Parsing With Error: %@", error);
-
-    [self.feedsListView.mj_header endRefreshing];
-    
-    [self.feedsListView reloadData];
-}
-#endif
 
 @end
