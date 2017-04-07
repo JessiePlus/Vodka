@@ -16,7 +16,6 @@
 #import "DLRSSSubscribeViewController.h"
 #import "DLFeedAddGroupViewController.h"
 
-#import "JYDBService.h"
 #import <MJExtension.h>
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
@@ -97,7 +96,16 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             NSMutableArray <DLRSSGroup *>*RSSGroupList = [DLRSSGroup mj_objectArrayWithKeyValuesArray:responseObject[@"results"]];
 
             //缓存到数据库
-            [[JYDBService shared] insertRSSGroups:RSSGroupList];
+#if 0
+            // 获取默认的 Realm 实例
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            // 每个线程只需要使用一次即可
+            
+            // 通过事务将数据添加到 Realm 中
+            [realm beginWriteTransaction];
+            [realm addObjects:RSSGroupList];
+            [realm commitWriteTransaction];
+#endif
 
             //更新界面
             [self.RSSGroupListView.mj_header endRefreshing];

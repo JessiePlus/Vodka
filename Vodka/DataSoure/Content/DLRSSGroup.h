@@ -6,22 +6,24 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 #import "DLRSS.h"
 
+RLM_ARRAY_TYPE(DLRSS) // 定义RLMArray<DLRSS>
 
-@interface DLRSSGroup : NSObject
+@interface DLRSSGroup : RLMObject
 
 //对象编号
-@property (nonatomic, copy) NSString *objectId;
+@property NSString *objectId;
 
-@property (nonatomic) NSDate *createdAt;
-@property (nonatomic) NSDate *updatedAt;
+@property NSDate *createdAt;
+@property NSDate *updatedAt;
 
 //分组的名称
-@property (nonatomic, copy) NSString *name;
+@property NSString *name;
 
 //分组下的所有RSS
-@property (nonatomic, strong) NSArray<DLRSS *> *allRSS;
+@property RLMArray<DLRSS> *allRSS;
 
 @end
+

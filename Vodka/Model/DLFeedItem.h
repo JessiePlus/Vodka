@@ -6,21 +6,18 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface DLFeedItem : NSObject
+@class DLFeedInfo;
 
-#if 0
-//对象编号，主键，自增
-@property (nonatomic, assign) NSUInteger mID;
-#endif
+@interface DLFeedItem : RLMObject
 
 //feedItem所属的feedInfo
-@property (nonatomic, copy) NSString *feedInfoID;
+@property DLFeedInfo *feedInfo;
 
-@property (nonatomic, copy) NSString *title;
+@property NSString *title;
 //unique
-@property (nonatomic) NSString *url;
-@property (nonatomic) NSString *content;
+@property NSString *url;
+@property NSString *content;
 
 @end

@@ -9,9 +9,7 @@
 #import "DLFeedFetcher.h"
 #import <XMNetworking.h>
 #import "DLRSS.h"
-#import "JYDBService.h"
 #import "DLRSSParseOperation.h"
-#import <JYQueryConditions.h>
 
 @interface DLFeedFetcher ()
 
@@ -44,7 +42,7 @@
 -(void)loadRSSList {
 
     // 查询出全部的RSS
-    NSArray <DLRSS *>*RSSList = [[JYDBService shared] getAllRSS];
+    RLMResults<DLRSS *> *RSSList = [DLRSS allObjects];
     
     self.RSSList = RSSList;
     
@@ -53,17 +51,15 @@
 }
 
 //从数据库中分页取出feeds
--(void)fetchItems:(NSInteger)offset limit:(NSInteger)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
-    
-    
-    NSArray<DLFeedItem*>*queryFeedItems = [[JYDBService shared] getFeedItemByConditions:^(JYQueryConditions *make) {
-        make.limit([NSNumber numberWithInteger:limit]);
-        make.offset([NSNumber numberWithInteger:offset]);
-    }];
+-(void)fetchItems:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
+#if 0
+    NSArray<DLFeedItem*>*queryFeedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@" WHERE pk > %d limit %d",offset ,limit]];
 
     if (completion) {
         completion(queryFeedItems);
     }
+#endif
+
 }
 
 
@@ -98,9 +94,17 @@
             
             DDLogInfo(@"cache the feedInfo: %@", feedInfo);
             //解析完成，缓存到数据库
-            [[JYDBService shared] insertFeedInfo:feedInfo];
             
+#if 0
+            // 获取默认的 Realm 实例
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            // 每个线程只需要使用一次即可
             
+            // 通过事务将数据添加到 Realm 中
+            [realm beginWriteTransaction];
+            [realm addObject:feedInfo];
+            [realm commitWriteTransaction];
+#endif
             
         };
         [endOperation addDependency:operation];

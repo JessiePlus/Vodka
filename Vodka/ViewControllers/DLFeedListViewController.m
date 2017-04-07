@@ -98,7 +98,10 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     self.feedsListView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        [_feedFetcher fetchItems:_feedItemList.count limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+#if 0
+        int pk = ((DLFeedItem *)[_feedItemList lastObject]).pk;
+        
+        [_feedFetcher fetchItems:pk limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
             
             if (feedItems) {
                 [self.feedItemList addObjectsFromArray: feedItems];
@@ -108,7 +111,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
             
             [self.feedsListView.mj_footer endRefreshing];
         }];
-        
+#endif
         
 
         

@@ -9,8 +9,7 @@ def pods
     pod 'MJExtension'
     pod 'libextobjc'
     pod 'MWFeedParser'
-    pod 'FMDB'
-    pod 'JYDataBase'
+    pod 'Realm'
 end
 
 target ‘Vodka’ do

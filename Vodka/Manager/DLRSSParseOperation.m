@@ -33,7 +33,7 @@
 }
 
 -(void)start {
-    _parser = [[MWFeedParser alloc] initWithFeedURL:self.RSS.feedUrl];
+    _parser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:self.RSS.feedUrl]];
     _parser.delegate = self;
     
     if (![_parser parse]) {

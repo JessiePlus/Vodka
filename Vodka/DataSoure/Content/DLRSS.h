@@ -6,27 +6,29 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface DLRSS : NSObject
+@class DLRSSGroup;
+
+@interface DLRSS : RLMObject
 
 //对象编号
-@property (nonatomic, copy) NSString *objectId;
+@property NSString *objectId;
 
-@property (nonatomic) NSDate *createdAt;
-@property (nonatomic) NSDate *updatedAt;
+@property NSDate *createdAt;
+@property NSDate *updatedAt;
 
-//RSS所属的分组表
-@property (nonatomic, copy) NSString *RSSGroupID;
+//RSS所属的分组
+@property DLRSSGroup *RSSGroup;
 
 //RSS的名称
-@property (nonatomic, copy) NSString *name;
+@property NSString *name;
 //RSS的图标
-@property (nonatomic) NSURL *iconUrl;
+@property NSString *iconUrl;
 //RSS的订阅链接
-@property (nonatomic) NSURL *feedUrl;
+@property NSString *feedUrl;
 //RSS的访问链接
-@property (nonatomic) NSURL *url;
-
+@property NSString *url;
 
 @end
+
