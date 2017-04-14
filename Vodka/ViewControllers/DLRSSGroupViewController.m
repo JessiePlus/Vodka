@@ -80,32 +80,24 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     self.RSSGroupListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求RSS的种类
         [XMCenter sendRequest:^(XMRequest *request) {
-            request.api = @"classes/DLRSSGroup?include=allRSS&";
+            request.api = @"classes/DLRSSGroup";
             request.parameters = @{};
             request.headers = @{};
             request.httpMethod = kXMHTTPMethodGET;
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
 
-            [DLRSSGroup mj_setupObjectClassInArray:^NSDictionary *{
+            [DLRSSGroup mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"allRSS":@"DLRSS"
+                         @"rg_id" : @"objectId",
+                         @"name" : @"name",
                          };
             }];
             
             NSMutableArray <DLRSSGroup *>*RSSGroupList = [DLRSSGroup mj_objectArrayWithKeyValuesArray:responseObject[@"results"]];
 
             //缓存到数据库
-#if 0
-            // 获取默认的 Realm 实例
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            // 每个线程只需要使用一次即可
-            
-            // 通过事务将数据添加到 Realm 中
-            [realm beginWriteTransaction];
-            [realm addObjects:RSSGroupList];
-            [realm commitWriteTransaction];
-#endif
+            [DLRSSGroup saveObjects:RSSGroupList];
 
             //更新界面
             [self.RSSGroupListView.mj_header endRefreshing];

@@ -13,6 +13,10 @@
 #import "DLUserInfoSwitchCell.h"
 #import "DLFeedAddRSSViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "DLRSS.h"
+#import <MJRefresh.h>
+#import <MJExtension.h>
+#import <XMNetworking.h>
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -22,6 +26,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 //RSS订阅列表
 @property (nonatomic) UITableView *RSSSubscribeListView;
 
+@property (nonatomic) NSMutableArray <DLRSS *>*RSSList;
 
 
 @end
@@ -79,6 +84,51 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     self.RSSSubscribeListView.backgroundColor = [UIColor whiteColor];
     self.RSSSubscribeListView.dataSource = self;
     self.RSSSubscribeListView.delegate = self;
+    
+    self.RSSSubscribeListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [XMCenter sendRequest:^(XMRequest *request) {
+            request.api = @"classes/DLRSS";
+            request.parameters = @{@"where":[NSString stringWithFormat:@"{\"groupId\":{\"__type\":\"Pointer\",\"className\":\"DLRSSGroup\",\"objectId\":\"%@\"}}", self.RSSGroup.rg_id]};
+            request.headers = @{};
+            request.httpMethod = kXMHTTPMethodGET;
+            request.requestSerializerType = kXMRequestSerializerJSON;
+        } onSuccess:^(id responseObject) {
+            
+            [DLRSS mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"r_id" : @"objectId",
+                         @"name" : @"name",
+                         @"iconUrl" : @"iconUrl",
+                         @"feedUrl" : @"feedUrl",
+                         @"linkUrl" : @"url",
+                         @"rg_id_fk" : @"groupId.objectId",
+
+                         };
+            }];
+            
+            NSMutableArray <DLRSS *>*RSSList = [DLRSS mj_objectArrayWithKeyValuesArray:responseObject[@"results"]];
+            
+            //缓存到数据库
+            [DLRSS saveObjects:RSSList];
+            
+            //更新界面
+            [self.RSSSubscribeListView.mj_header endRefreshing];
+            
+            self.RSSList = RSSList;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.RSSSubscribeListView reloadData];
+            });
+            
+        } onFailure:^(NSError *error) {
+            DDLogError(@"onFailure: %@", error);
+        } onFinished:^(id responseObject, NSError *error) {
+            DDLogInfo(@"onFinished");
+        }];
+        
+    }];
+    
+    [self.RSSSubscribeListView.mj_header beginRefreshing];
 
 }
 
@@ -98,9 +148,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
 
-    return self.RSSGroup.allRSS.count;
+    return self.RSSList.count;
 }
 
 
@@ -113,11 +162,11 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
     NSInteger row = indexPath.row;
     
-    DLRSS *RSS = self.RSSGroup.allRSS[row];
+    DLRSS *RSS = self.RSSList[row];
     
     DLUserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
     if (cell) {
-        [cell.iconImageView sd_setImageWithURL:RSS.iconUrl placeholderImage:nil];
+        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:RSS.iconUrl] placeholderImage:nil];
         [cell.titleLab setText:RSS.name];
     }
 

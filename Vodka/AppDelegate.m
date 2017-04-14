@@ -11,9 +11,8 @@
 #import "DLRSSGroupViewController.h"
 #import "DLFeedListViewController.h"
 #import "AppDelegate+Logging.h"
-
+#import "AppUtil.h"
 #import <XMNetworking/XMNetworking.h>
-
 
 
 
@@ -33,8 +32,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    
+    //XMNetworkConfig
     [XMCenter setupConfig:^(XMConfig *config) {
         config.generalServer = @"https://api.leancloud.cn/1.1/";
         config.generalHeaders = @{@"X-LC-Id": @"x6XqOXajuBXl7KAPgkDGVm2v-gzGzoHsz", @"X-LC-Key": @"HlGlENGF6ki2CL32REOskquL"};
