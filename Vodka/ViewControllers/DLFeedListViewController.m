@@ -84,7 +84,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //请求feeds
         [_feedFetcher loadFeeds];
-        [_feedFetcher fetchItems:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+        [_feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
             
             if (feedItems) {
                 _feedItemList = [[NSMutableArray alloc] initWithArray:feedItems];
@@ -100,7 +100,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         
         int pk_id = ((DLFeedItem *)[_feedItemList lastObject]).pk_id;
         
-        [_feedFetcher fetchItems:pk_id limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+        [_feedFetcher fetchOffset:pk_id limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
             
             if (feedItems) {
                 [self.feedItemList addObjectsFromArray: feedItems];
@@ -112,10 +112,8 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         }];
     }];
   
-    // 查询出全部的RSS
-    
-    
-    [self.feedFetcher fetchItems:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+    // 查询出全部的RSS    
+    [self.feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
         if (feedItems) {
             _feedItemList = [feedItems mutableCopy];
             [self.feedsListView reloadData];

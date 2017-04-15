@@ -49,7 +49,7 @@
 }
 
 //从数据库中分页取出feeds
--(void)fetchItems:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
+-(void)fetchOffset:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
 
     NSArray <DLFeedItem *> *queryFeedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",offset ,limit]];
 
