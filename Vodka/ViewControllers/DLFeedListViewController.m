@@ -20,7 +20,7 @@
 #import "AppUtil.h"
 #import "DLFeedFetcher.h"
 
-static const NSUInteger kPageCount = 5;
+static const NSUInteger kPageCount = 10;
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource>
