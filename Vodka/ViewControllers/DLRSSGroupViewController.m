@@ -54,11 +54,8 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Discover", comment: "");
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 24, 24);
-    [rightBtn setImage:[UIImage imageNamed:@"icon_add"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBtnClicked)];
     self.navigationItem.rightBarButtonItems = @[rightBarBtn];
 
     self.automaticallyAdjustsScrollViewInsets = NO;

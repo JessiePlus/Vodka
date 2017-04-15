@@ -49,14 +49,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 24, 24);
-    [rightBtn setImage:[UIImage imageNamed:@"icon_settings"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(rightBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    
-    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
     
     [self.view addSubview:self.userInfoListView];
 
@@ -189,9 +181,9 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                DLUserInfoSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_nightMode"]];
-                [cell.titleLab setText:NSLocalizedString(@"Night mode", comment: "")];
+                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
+                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_settings"]];
+                [cell.titleLab setText:NSLocalizedString(@"Settings", comment: "")];
                 
                 return cell;
             }
@@ -216,6 +208,63 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    if (section == 0) {
+        switch (row) {
+            case 0:
+            {
+                DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
+                UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+                
+                [self presentViewController:navLoginController animated:YES completion:nil];
+
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    if (section == 1) {
+        
+        switch (row) {
+            case 0:
+            {
+
+            }
+                break;
+            case 1:
+            {
+
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    if (section == 2) {
+        
+        switch (row) {
+            case 0:
+            {
+                DLSettingsViewController *settingsViewController = [[DLSettingsViewController alloc] init];
+                
+                [self.navigationController pushViewController:settingsViewController animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+
+
+}
 
 -(void)rightBtnClicked {
     

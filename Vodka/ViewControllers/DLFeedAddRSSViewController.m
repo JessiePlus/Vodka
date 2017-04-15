@@ -34,15 +34,9 @@
     
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Add RSS", comment: "");
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(rightBtnClicked)];
     
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 24, 24);
-    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItems = @[leftBarBtn];
-    
+    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
 }
 
 -(void)leftBtnClicked {

@@ -26,13 +26,6 @@
     //导航栏
     self.navigationItem.title = _feedItem.title;
     
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 24, 24);
-    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItems = @[leftBarBtn];
-    
     _webView = [[WKWebView alloc] init];
     [self.view addSubview:_webView];
     [_webView mas_makeConstraints:^(MASConstraintMaker *make){

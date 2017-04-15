@@ -35,18 +35,9 @@
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Add group", comment: "");
     
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0, 0, 24, 24);
-    [leftBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftBtn addTarget:self action:@selector(leftBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(rightBtnClicked)];
     
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    self.navigationItem.leftBarButtonItems = @[leftBarBtn];
-    
-}
-
--(void)leftBtnClicked {
-    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
 }
 
 -(void)rightBtnClicked {
