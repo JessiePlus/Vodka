@@ -46,17 +46,17 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
     
     [self.view addSubview:self.userInfoListView];
 
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.view);
-        make.centerX.equalTo(self.view);
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
     
@@ -127,20 +127,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 DLUserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"default_avatar"]];
                 [cell.titleLab setText:NSLocalizedString(@"Click portrait to sign in", comment: "")];
-                
-                cell.iconImageViewTapAction = ^() {
-                
-                    DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
-                    UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-                    
-                    [self presentViewController:navLoginController animated:YES completion:nil];
-                
-                
-                };
-                
-                
-                
-                
+
                 return cell;
             }
                 break;
@@ -253,7 +240,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             case 0:
             {
                 DLSettingsViewController *settingsViewController = [[DLSettingsViewController alloc] init];
-                
+                settingsViewController.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:settingsViewController animated:YES];
             }
                 break;
@@ -264,13 +251,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     }
 
 
-}
-
--(void)rightBtnClicked {
-    
-    DLSettingsViewController *settingsViewController = [[DLSettingsViewController alloc] init];
-    
-    [self.navigationController pushViewController:settingsViewController animated:YES];
 }
 
 

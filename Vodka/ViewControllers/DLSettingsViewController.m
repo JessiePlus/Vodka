@@ -41,22 +41,20 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Settings", comment: "");
 
     [self.view addSubview:self.userInfoListView];
  
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
-        make.height.equalTo(self.view.mas_height).offset(-64);
-        make.top.equalTo(self.view);
-        make.centerX.equalTo(self.view);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
     }];
     
     
     self.userInfoListView.backgroundColor = [UIColor whiteColor];
-    
     self.userInfoListView.dataSource = self;
     self.userInfoListView.delegate = self;
     

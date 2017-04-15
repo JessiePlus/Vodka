@@ -165,15 +165,46 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSInteger row = indexPath.row;
-    
-    
-    
+
     DLRSSSubscribeViewController *RSSSubscribeViewController = [[DLRSSSubscribeViewController alloc] init];
     RSSSubscribeViewController.RSSGroup = self.RSSGroupList[row];
     RSSSubscribeViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:RSSSubscribeViewController animated:YES];
     
 
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger row = indexPath.row;
+
+    if (editingStyle ==UITableViewCellEditingStyleDelete) {
+        
+        DLRSSGroup *RSSGroup = self.RSSGroupList[row];
+        
+        [XMCenter sendRequest:^(XMRequest *request) {
+            request.api = [NSString stringWithFormat:@"classes/DLRSSGroup/%@", RSSGroup.rg_id];
+            request.parameters = @{};
+            request.headers = @{};
+            request.httpMethod = kXMHTTPMethodDELETE;
+            request.requestSerializerType = kXMRequestSerializerJSON;
+        } onSuccess:^(id responseObject) {
+            
+            [self.RSSGroupList removeObject:RSSGroup];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+            
+            //删除缓存
+            
+            
+        } onFailure:^(NSError *error) {
+            DDLogError(@"onFailure: %@", error);
+        } onFinished:^(id responseObject, NSError *error) {
+            DDLogInfo(@"onFinished");
+        }];
+        
+        
+
+    }
 }
 
 -(void)rightBtnClicked {

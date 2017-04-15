@@ -13,6 +13,4 @@
 @property (nonatomic) UIImageView *iconImageView;
 @property (nonatomic) UILabel *titleLab;
 
-@property (nonatomic, copy) void (^iconImageViewTapAction)(void);
-
 @end

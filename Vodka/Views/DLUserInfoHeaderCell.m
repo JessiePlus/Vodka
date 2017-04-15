@@ -41,11 +41,7 @@
         make.top.equalTo(self.iconImageView.mas_bottom).offset(10);
         make.centerX.equalTo(self.iconImageView);
     }];
-    
-    self.iconImageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapiconImageView)];
-    [self.iconImageView addGestureRecognizer:tap];
-    
+        
 }
 
 -(UIImageView *)iconImageView {
@@ -66,10 +62,5 @@
     return _titleLab;
 }
 
--(void)tapiconImageView {
-    if (self.iconImageViewTapAction) {
-        self.iconImageViewTapAction();
-    }
-}
 
 @end

@@ -32,5 +32,10 @@
 "Add RSS" = "Add RSS";
 "Done" = "Done";
 "Settings" = "Settings";
-
+"Input group name" = "Input group name";
+"Get verify code" = "Get verify code";
+"Input phone number" = "Input phone number";
+"Input verified code" = "Input verified code";
+"Phone number" = "Phone number";
+"Verified code" = "Verified code";
 

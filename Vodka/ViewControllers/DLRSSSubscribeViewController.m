@@ -50,25 +50,20 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     //导航栏
     self.navigationItem.title = self.RSSGroup.name;
     
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBtnClicked)];
-
     self.navigationItem.rightBarButtonItems = @[rightBarBtn];
-    
-    
-    [self.view addSubview:self.RSSSubscribeListView];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
 
-    
+    [self.view addSubview:self.RSSSubscribeListView];
+
     [self.RSSSubscribeListView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(self.view);
+        make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
-        make.centerX.equalTo(self.view);
     }];
     
     self.RSSSubscribeListView.backgroundColor = [UIColor whiteColor];
@@ -131,7 +126,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(UITableView *)RSSSubscribeListView {
     if (!_RSSSubscribeListView) {
-        _RSSSubscribeListView = [[UITableView alloc] initWithFrame:CGRectZero];
+        _RSSSubscribeListView = [[UITableView alloc] init];
         _RSSSubscribeListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         [_RSSSubscribeListView registerClass:[DLUserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
         [_RSSSubscribeListView registerClass:[DLUserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
