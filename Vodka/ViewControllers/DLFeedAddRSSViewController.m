@@ -10,6 +10,8 @@
 #import <Masonry.h>
 
 @interface DLFeedAddRSSViewController ()
+@property (nonatomic) UITextField *RSSTF;
+@property (nonatomic) UILabel *httpLab;//手机号
 
 @end
 
@@ -38,13 +40,56 @@
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(rightBtnClicked)];
     
     self.navigationItem.rightBarButtonItems = @[rightBarBtn];
+    
+    [self.view addSubview:self.httpLab];
+
+    [self.view addSubview:self.RSSTF];
+    
+    [self.httpLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
+        make.left.equalTo(self.view);
+        make.height.equalTo(@40);
+        make.width.equalTo(@60);
+    }];
+    
+    [self.RSSTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
+        make.left.equalTo(self.httpLab.mas_right);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@40);
+    }];
+    
+    [self.RSSTF becomeFirstResponder];
 }
 
--(void)leftBtnClicked {
-    [self.navigationController popViewControllerAnimated:YES];
+-(UILabel *)httpLab {
+    if (!_httpLab) {
+        _httpLab = [[UILabel alloc] init];
+        _httpLab.backgroundColor = [UIColor whiteColor];
+        _httpLab.textAlignment = NSTextAlignmentCenter;
+        _httpLab.text = NSLocalizedString(@"http://", comment: "");
+    }
+    return _httpLab;
 }
+
+-(UITextField *)RSSTF {
+    if (!_RSSTF) {
+        _RSSTF = [[UITextField alloc] init];
+        _RSSTF.textAlignment = NSTextAlignmentLeft;
+        _RSSTF.placeholder = NSLocalizedString(@"Input RSS address", comment: "");
+        _RSSTF.backgroundColor = [UIColor whiteColor];
+    }
+    
+    return _RSSTF;
+}
+
+
 
 -(void)rightBtnClicked {
+    NSString *RSS = self.RSSTF.text;
+    if (!RSS || RSS.length == 0) {
+        return;
+    }
     
 }
 

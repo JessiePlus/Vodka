@@ -35,7 +35,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Add group", comment: "");
     
