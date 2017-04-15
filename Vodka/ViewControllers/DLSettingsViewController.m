@@ -105,8 +105,6 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
     
     return 60;
 }

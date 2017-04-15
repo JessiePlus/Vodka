@@ -110,14 +110,18 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
             
             [self.feedsListView.mj_footer endRefreshing];
         }];
-        
-
-        
+    }];
+  
+    // 查询出全部的RSS
+    
+    
+    [self.feedFetcher fetchItems:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+        if (feedItems) {
+            _feedItemList = [feedItems mutableCopy];
+            [self.feedsListView reloadData];
+        }
     }];
     
-    [self.feedsListView.mj_header beginRefreshing];
-
-  
 }
 
 - (void)didReceiveMemoryWarning {

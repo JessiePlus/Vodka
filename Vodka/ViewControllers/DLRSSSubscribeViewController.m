@@ -17,6 +17,7 @@
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import <XMNetworking.h>
+#import "LKDBSQLState.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -130,8 +131,12 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         
     }];
     
-    [self.RSSSubscribeListView.mj_header beginRefreshing];
+    // 查询出全部的RSS
+    LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:self.RSSGroup.rg_id];
+    NSArray *RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
 
+    self.RSSList = [RSSList mutableCopy];
+    
 }
 
 

@@ -117,7 +117,9 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
         
     }];
     
-    [self.RSSGroupListView.mj_header beginRefreshing];
+    // 查询出全部的RSS
+    NSArray *RSSGroupList = [DLRSSGroup findAll];
+    self.RSSGroupList = [RSSGroupList mutableCopy];
     
 }
 
