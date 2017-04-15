@@ -51,7 +51,7 @@
 //从数据库中分页取出feeds
 -(void)fetchItems:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
 
-    NSArray <DLFeedItem *> *queryFeedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@" WHERE pk > %d limit %d",offset ,limit]];
+    NSArray <DLFeedItem *> *queryFeedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",offset ,limit]];
 
     if (completion) {
         completion(queryFeedItems);
@@ -91,8 +91,12 @@
             
             DDLogInfo(@"cache the feed: %@", feed);
             //解析完成，缓存到数据库
-            [feed.feedInfo save];
-            [DLFeedItem saveObjects:feed.allFeedItems];
+            DLFeedInfo *feedInfo = feed.feedInfo;
+            [feedInfo saveOrUpdateByColumnName:@"feedUrl" AndColumnValue:feedInfo.feedUrl];
+            NSArray <DLFeedItem *> *allFeedItems = feed.allFeedItems;
+            for (DLFeedItem *feedItem in allFeedItems) {
+                [feedItem saveOrUpdateByColumnName:@"url" AndColumnValue:feedItem.url];
+            }
             
         };
         [endOperation addDependency:operation];

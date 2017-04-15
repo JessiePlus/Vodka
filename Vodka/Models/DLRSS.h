@@ -6,10 +6,12 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "JKDBModel.h"
+#import "LKDBModel.h"
 
 
-@interface DLRSS : JKDBModel
+@interface DLRSS : LKDBModel
+
+@property (nonatomic, assign) int pk_id;
 
 @property (nonatomic, copy) NSString *r_id;
 

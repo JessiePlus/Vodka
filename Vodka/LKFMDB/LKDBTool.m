@@ -1,34 +1,41 @@
 //
-//  JKDataBase.m
-//  JKBaseModel
+//  LKDBTool.m
+//  LKFMDB_Demo
 //
-//  Created by zx_04 on 15/6/24.
-//
-// github:https://github.com/Joker-King/JKDBModel
+//  Created by lk on 16/3/21.
+//  Copyright © 2016年 LK. All rights reserved.
+//  github https://github.com/544523660/LKFMDB
 
-#import <objc/runtime.h>
+#import "LKDBTool.h"
+#import "LKDBModel.h"
 
-#import "JKDBHelper.h"
-#import "JKDBModel.h"
-
-@interface JKDBHelper ()
-
+@interface LKDBTool()
 @property (nonatomic, retain) FMDatabaseQueue *dbQueue;
-
 @end
 
-@implementation JKDBHelper
+static LKDBTool *_instance = nil;
+@implementation LKDBTool
 
-static JKDBHelper *_instance = nil;
-
-+ (instancetype)shareInstance
-{
-    static dispatch_once_t onceToken ;
++ (instancetype)shareInstance{
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[super allocWithZone:NULL] init] ;
-    }) ;
-    
+        _instance = [[super allocWithZone:NULL] init];
+    });
     return _instance;
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone{
+    return [LKDBTool shareInstance];
+}
+
+- (instancetype)copyWithZone:(struct _NSZone *)zone
+{
+    return [LKDBTool shareInstance];
+}
+
++ (NSString *)dbPath
+{
+    return [self dbPathWithDirectoryName:nil];
 }
 
 + (NSString *)dbPathWithDirectoryName:(NSString *)directoryName
@@ -36,7 +43,7 @@ static JKDBHelper *_instance = nil;
     NSString *docsdir = [NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSFileManager *filemanage = [NSFileManager defaultManager];
     if (directoryName == nil || directoryName.length == 0) {
-        docsdir = [docsdir stringByAppendingPathComponent:@"JKBD"];
+        docsdir = [docsdir stringByAppendingPathComponent:@"LKDB"];
     } else {
         docsdir = [docsdir stringByAppendingPathComponent:directoryName];
     }
@@ -46,14 +53,11 @@ static JKDBHelper *_instance = nil;
         [filemanage createDirectoryAtPath:docsdir withIntermediateDirectories:YES attributes:nil error:nil];
     }
     NSString *dbpath = [docsdir stringByAppendingPathComponent:@"Vodka.sqlite"];
-    NSLog(@"%@", dbpath);
+    
+    NSLog(@"dbpath %@",dbpath);
     return dbpath;
 }
 
-+ (NSString *)dbPath
-{
-    return [self dbPathWithDirectoryName:nil];
-}
 
 - (FMDatabaseQueue *)dbQueue
 {
@@ -68,18 +72,18 @@ static JKDBHelper *_instance = nil;
     if (_instance.dbQueue) {
         _instance.dbQueue = nil;
     }
-    _instance.dbQueue = [[FMDatabaseQueue alloc] initWithPath:[JKDBHelper dbPathWithDirectoryName:directoryName]];
+    _instance.dbQueue = [[FMDatabaseQueue alloc] initWithPath:[LKDBTool dbPathWithDirectoryName:directoryName]];
     
     int numClasses;
     Class *classes = NULL;
     numClasses = objc_getClassList(NULL,0);
     
-    if (numClasses >0 )
+    if (numClasses > 0 )
     {
         classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
         numClasses = objc_getClassList(classes, numClasses);
         for (int i = 0; i < numClasses; i++) {
-            if (class_getSuperclass(classes[i]) == [JKDBModel class]){
+            if (class_getSuperclass(classes[i]) == [LKDBTool class]){
                 id class = classes[i];
                 [class performSelector:@selector(createTable) withObject:nil];
             }
@@ -90,31 +94,8 @@ static JKDBHelper *_instance = nil;
     return YES;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)zone
-{
-    return [JKDBHelper shareInstance];
-}
 
-- (id)copyWithZone:(struct _NSZone *)zone
-{
-    return [JKDBHelper shareInstance];
-}
 
-#if ! __has_feature(objc_arc)
-- (oneway void)release
-{
-    
-}
 
-- (id)autorelease
-{
-    return _instance;
-}
-
-- (NSUInteger)retainCount
-{
-    return 1;
-}
-#endif
 
 @end

@@ -97,8 +97,10 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             NSMutableArray <DLRSSGroup *>*RSSGroupList = [DLRSSGroup mj_objectArrayWithKeyValuesArray:responseObject[@"results"]];
 
             //缓存到数据库
-            [DLRSSGroup saveObjects:RSSGroupList];
-
+            for (DLRSSGroup *RSSGroup in RSSGroupList) {
+                [RSSGroup saveOrUpdateByColumnName:@"rg_id" AndColumnValue:RSSGroup.rg_id];
+            }
+            
             //更新界面
             [self.RSSGroupListView.mj_header endRefreshing];
 

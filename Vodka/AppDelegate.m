@@ -70,7 +70,7 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navFeedsController, navDiscoverController, navUserCenterController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navDiscoverController, navFeedsController, navUserCenterController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;

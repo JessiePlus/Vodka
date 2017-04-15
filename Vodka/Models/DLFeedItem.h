@@ -6,9 +6,11 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "JKDBModel.h"
+#import "LKDBModel.h"
 
-@interface DLFeedItem : JKDBModel
+@interface DLFeedItem : LKDBModel
+
+@property (nonatomic, assign) int pk_id;
 
 @property (nonatomic, copy) NSString *url;
 

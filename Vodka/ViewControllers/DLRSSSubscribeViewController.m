@@ -109,8 +109,10 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             
             NSMutableArray <DLRSS *>*RSSList = [DLRSS mj_objectArrayWithKeyValuesArray:responseObject[@"results"]];
             
-            //缓存到数据库
-            [DLRSS saveObjects:RSSList];
+            //缓存到数据库            
+            for (DLRSS *RSS in RSSList) {
+                [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
+            }
             
             //更新界面
             [self.RSSSubscribeListView.mj_header endRefreshing];
