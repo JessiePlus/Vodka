@@ -186,12 +186,16 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
     if (editingStyle ==UITableViewCellEditingStyleDelete) {
         
+        
+        VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+        NSString *accessToken = [userDefaults accessToken];
+        
         DLRSSGroup *RSSGroup = self.RSSGroupList[row];
         
         [XMCenter sendRequest:^(XMRequest *request) {
             request.api = [NSString stringWithFormat:@"classes/DLRSSGroup/%@", RSSGroup.rg_id];
             request.parameters = @{};
-            request.headers = @{};
+            request.headers = @{@"X-LC-Session":accessToken};
             request.httpMethod = kXMHTTPMethodDELETE;
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
