@@ -10,23 +10,22 @@
 
 @implementation User
 
--(User *)initWithName:(NSString *)name andCity:(NSString *)city {
+-(User *)initWithName:(NSString *)name {
     if(self=[super init]) {
         self.name = name;
-        self.city = city;
     }
     
     return self;
 }
 
-+(User *)userWithName:(NSString *)name andCity:(NSString *)city {
-    User *user = [[User alloc] initWithName:name andCity:city];
++(User *)userWithName:(NSString *)name {
+    User *user = [[User alloc] initWithName:name];
     
     return user;
 }
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"User(name: %@, city: %@, accessToken: %@, userID: %@)",self.name,self.city, self.accessToken, self.userID];
+    return [NSString stringWithFormat:@"User(name: %@, accessToken: %@, userID: %@)",self.name, self.accessToken, self.userID];
 }
 
 @end

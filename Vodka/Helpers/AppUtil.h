@@ -13,4 +13,10 @@
 + (AppUtil*)util;
 - (NSString *)formatDate:(NSDate *)date;
 
++(NSString *)notificationNameSignIn;
++(NSString *)appGroupID;
+
+
+
+
 @end

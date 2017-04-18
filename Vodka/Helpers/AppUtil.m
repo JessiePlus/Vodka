@@ -49,6 +49,12 @@
     return [self.dateFormatter stringFromDate:date];
 }
 
++(NSString *)notificationNameSignIn {
+    return @"Vodka.Notification.signIn";
+}
 
++(NSString *)appGroupID {
+    return @"com.Vodka.Newsmore";
+}
 
 @end

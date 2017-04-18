@@ -13,6 +13,8 @@
 #import "DLUserInfoSwitchCell.h"
 #import "DLSignInViewController.h"
 #import "DLSettingsViewController.h"
+#import "VodkaUserDefaults.h"
+#import "AppUtil.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoHeaderCell = @"kUserInfoHeaderCell";
@@ -23,6 +25,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 //用户信息列表
 @property (nonatomic) UITableView *userInfoListView;
+
+@property (nonatomic, assign) BOOL bSignIn;
 
 
 
@@ -40,17 +44,21 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 -(void)dealloc {
-    DDLogInfo(@"UserCenterViewController dealloc");    
+    DDLogInfo(@"UserCenterViewController dealloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
-
-    //导航栏
-    self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateSignIn:) name:[AppUtil notificationNameSignIn] object:nil];
+
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self tryUpdateSignIn:nil];
+
     [self.view addSubview:self.userInfoListView];
 
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,10 +71,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     self.userInfoListView.backgroundColor = [UIColor whiteColor];
     self.userInfoListView.dataSource = self;
     self.userInfoListView.delegate = self;
-    
-    
-    
-    
+  
 }
 
 
@@ -126,7 +131,16 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             {
                 DLUserInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoHeaderCell forIndexPath:indexPath];
                 [cell.iconImageView setImage:[UIImage imageNamed:@"default_avatar"]];
-                [cell.titleLab setText:NSLocalizedString(@"Click portrait to sign in", comment: "")];
+                
+                if (_bSignIn) {
+                    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+                    NSString *name = [userDefaults name];
+                    
+                    [cell.titleLab setText:name];
+                } else {
+                    [cell.titleLab setText:NSLocalizedString(@"Click portrait to sign in", comment: "")];
+                }
+                
 
                 return cell;
             }
@@ -203,10 +217,12 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
-                UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
-                
-                [self presentViewController:navLoginController animated:YES completion:nil];
+                if (!_bSignIn) {
+                    DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
+                    UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+                    
+                    [self presentViewController:navLoginController animated:YES completion:nil];
+                }
 
             }
                 break;
@@ -253,6 +269,24 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 }
 
+-(void)tryUpdateSignIn:(NSNotification *)notification{
+    
+    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+    NSString *accessToken = [userDefaults accessToken];
+    
+    _bSignIn = accessToken?YES:NO;
+    
+    if (_bSignIn) {
+        //导航栏
+        self.navigationItem.title = NSLocalizedString(@"Me", comment: "");
+    } else {
+        //导航栏
+        self.navigationItem.title = NSLocalizedString(@"Not signed in", comment: "");
+    }
+    
+    [self.userInfoListView reloadData];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

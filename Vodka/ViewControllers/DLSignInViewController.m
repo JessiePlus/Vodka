@@ -9,7 +9,10 @@
 #import "DLSignInViewController.h"
 #import <Masonry.h>
 #import <XMNetworking.h>
-
+#import "VodkaUserDefaults.h"
+#import "User.h"
+#import <MJExtension.h>
+#import "AppUtil.h"
 @interface DLSignInViewController ()
 
 
@@ -208,6 +211,7 @@
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
         
+        [self.getVerifCodeBtn setTitle:NSLocalizedString(@"Verified code has been sent", comment: "") forState:UIControlStateNormal];
         
     } onFailure:^(NSError *error) {
         DDLogError(@"onFailure: %@", error);
@@ -237,7 +241,25 @@
         request.httpMethod = kXMHTTPMethodPOST;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
+        [User mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"userID" : @"objectId",
+                     @"name" : @"username",
+                     @"accessToken" : @"sessionToken"
+                     };
+        }];
         
+        User *loginUser = [User mj_objectWithKeyValues:responseObject];
+
+        VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+        [userDefaults setUserID:loginUser.userID];
+        [userDefaults setName:loginUser.name];
+        [userDefaults setAccessToken:loginUser.accessToken];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameSignIn] object:nil userInfo:nil];
+
+  
+        [self leftBtnClicked];
         
     } onFailure:^(NSError *error) {
         DDLogError(@"onFailure: %@", error);

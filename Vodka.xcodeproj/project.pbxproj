@@ -64,6 +64,7 @@
 		D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A01EA1AEB00005AEC5 /* LKDBModel.m */; };
 		D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A21EA1AEB00005AEC5 /* LKDBSQLState.m */; };
 		D67108A81EA1AEB00005AEC5 /* LKDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A41EA1AEB00005AEC5 /* LKDBTool.m */; };
+		D67108AF1EA4B8D60005AEC5 /* VodkaUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */; };
 		D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */; };
 		D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */; };
 		D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */; };
@@ -157,6 +158,8 @@
 		D67108A21EA1AEB00005AEC5 /* LKDBSQLState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBSQLState.m; sourceTree = "<group>"; };
 		D67108A31EA1AEB00005AEC5 /* LKDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBTool.h; sourceTree = "<group>"; };
 		D67108A41EA1AEB00005AEC5 /* LKDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBTool.m; sourceTree = "<group>"; };
+		D67108AD1EA4B8D60005AEC5 /* VodkaUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VodkaUserDefaults.h; sourceTree = "<group>"; };
+		D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodkaUserDefaults.m; sourceTree = "<group>"; };
 		D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePhone.h; sourceTree = "<group>"; };
 		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
 		D6ECE81D1E8F9477008036A0 /* DLRSSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSParseOperation.h; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 		D63612761E6BA4A500C2322D /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				D67108AD1EA4B8D60005AEC5 /* VodkaUserDefaults.h */,
+				D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -577,6 +582,7 @@
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
 				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
+				D67108AF1EA4B8D60005AEC5 /* VodkaUserDefaults.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */,
 				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
