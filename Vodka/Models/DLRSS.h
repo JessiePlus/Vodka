@@ -30,6 +30,8 @@
 //外键，DLRSSGroup的id
 @property (nonatomic, copy) NSString *rg_id_fk;
 
+//外键，RSS的作者id
+@property (nonatomic, copy) NSString *u_id_fk;
 
 @end
 

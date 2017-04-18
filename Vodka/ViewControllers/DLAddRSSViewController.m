@@ -6,16 +6,18 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "DLFeedAddRSSViewController.h"
+#import "DLAddRSSViewController.h"
 #import <Masonry.h>
+#import "VodkaUserDefaults.h"
+#import <XMNetworking.h>
 
-@interface DLFeedAddRSSViewController ()
+@interface DLAddRSSViewController ()
 @property (nonatomic) UITextField *RSSTF;
 @property (nonatomic) UILabel *httpLab;//手机号
 
 @end
 
-@implementation DLFeedAddRSSViewController
+@implementation DLAddRSSViewController
 
 -(instancetype)init {
     self = [super init];
@@ -78,6 +80,7 @@
         _RSSTF.textAlignment = NSTextAlignmentLeft;
         _RSSTF.placeholder = NSLocalizedString(@"Input RSS address", comment: "");
         _RSSTF.backgroundColor = [UIColor whiteColor];
+        _RSSTF.returnKeyType = UIReturnKeyDone;
     }
     
     return _RSSTF;
@@ -90,6 +93,42 @@
     if (!RSS || RSS.length == 0) {
         return;
     }
+    
+    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+    NSString *userID = [userDefaults userID];
+    
+    NSString *ACLParam = [NSString stringWithFormat:@"{\"%@\":{\"read\":%@, \"write\":%@}, \"*\":{\"read\":%@}}", userID, @"true", @"true", @"true"];
+    NSData *ACLData = [ACLParam dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *ACLDic = [NSJSONSerialization JSONObjectWithData:ACLData options:NSJSONReadingMutableContainers error:nil];
+    
+    NSDictionary *authorDic = @{
+                                @"__type": @"Pointer",
+                                @"className": @"_User",
+                                @"objectId": userID
+                                };
+    NSDictionary *groupDic = @{
+                                @"__type": @"Pointer",
+                                @"className": @"DLRSSGroup",
+                                @"objectId": self.RSSGroup.rg_id
+                                };
+    NSString *feedUrl = [NSString stringWithFormat:@"http://%@", RSS];
+    
+    [XMCenter sendRequest:^(XMRequest *request) {
+        request.api = @"classes/DLRSS";
+        request.parameters = @{@"name":feedUrl, @"feedUrl":feedUrl, @"ACL":ACLDic, @"author":authorDic, @"group":groupDic};
+        request.headers = @{};
+        request.httpMethod = kXMHTTPMethodPOST;
+        request.requestSerializerType = kXMRequestSerializerJSON;
+    } onSuccess:^(id responseObject) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } onFailure:^(NSError *error) {
+        DDLogError(@"onFailure: %@", error);
+    } onFinished:^(id responseObject, NSError *error) {
+        DDLogInfo(@"onFinished");
+    }];
+    
     
 }
 

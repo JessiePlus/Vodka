@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DLBaseViewController.h"
 
-@interface DLFeedAddRSSViewController : DLBaseViewController
+@interface DLAddRSSGroupViewController : DLBaseViewController
 
 @end

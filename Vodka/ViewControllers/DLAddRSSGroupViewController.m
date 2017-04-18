@@ -6,18 +6,18 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "DLFeedAddGroupViewController.h"
+#import "DLAddRSSGroupViewController.h"
 #import <Masonry.h>
 #import <XMNetworking.h>
 #import "VodkaUserDefaults.h"
 
-@interface DLFeedAddGroupViewController ()
+@interface DLAddRSSGroupViewController ()
 
 @property (nonatomic) UITextField *groupNameTF;
 
 @end
 
-@implementation DLFeedAddGroupViewController
+@implementation DLAddRSSGroupViewController
 
 -(instancetype)init {
     self = [super init];
@@ -63,6 +63,8 @@
         _groupNameTF.textAlignment = NSTextAlignmentCenter;
         _groupNameTF.placeholder = NSLocalizedString(@"Input group name", comment: "");
         _groupNameTF.backgroundColor = [UIColor whiteColor];
+        _groupNameTF.returnKeyType = UIReturnKeyDone;
+
     }
     
     return _groupNameTF;

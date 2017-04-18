@@ -14,7 +14,7 @@
 #import <MJRefresh.h>
 
 #import "DLRSSSubscribeViewController.h"
-#import "DLFeedAddGroupViewController.h"
+#import "DLAddRSSGroupViewController.h"
 
 #import <MJExtension.h>
 #import "VodkaUserDefaults.h"
@@ -202,10 +202,9 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             
             [self.RSSGroupList removeObject:RSSGroup];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-            
             //删除缓存
-            
-            
+            [RSSGroup deleteObject];
+
         } onFailure:^(NSError *error) {
             DDLogError(@"onFailure: %@", error);
         } onFinished:^(id responseObject, NSError *error) {
@@ -219,7 +218,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 -(void)rightBtnClicked {
     
-    DLFeedAddGroupViewController *feedEditViewController = [[DLFeedAddGroupViewController alloc] init];
+    DLAddRSSGroupViewController *feedEditViewController = [[DLAddRSSGroupViewController alloc] init];
     
     [self.navigationController pushViewController:feedEditViewController animated:YES];
     

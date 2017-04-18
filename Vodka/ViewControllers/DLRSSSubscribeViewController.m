@@ -11,13 +11,16 @@
 #import "DLUserInfoCell.h"
 #import "DLUserInfoHeaderCell.h"
 #import "DLUserInfoSwitchCell.h"
-#import "DLFeedAddRSSViewController.h"
+#import "DLAddRSSViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "DLRSS.h"
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import <XMNetworking.h>
 #import "LKDBSQLState.h"
+#import "VodkaUserDefaults.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItem.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -74,7 +77,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         
         [XMCenter sendRequest:^(XMRequest *request) {
             request.api = @"classes/DLRSS";
-            request.parameters = @{@"where":[NSString stringWithFormat:@"{\"groupId\":{\"__type\":\"Pointer\",\"className\":\"DLRSSGroup\",\"objectId\":\"%@\"}}", self.RSSGroup.rg_id]};
+            request.parameters = @{@"where":[NSString stringWithFormat:@"{\"group\":{\"__type\":\"Pointer\",\"className\":\"DLRSSGroup\",\"objectId\":\"%@\"}}", self.RSSGroup.rg_id]};
             request.headers = @{};
             request.httpMethod = kXMHTTPMethodGET;
             request.requestSerializerType = kXMRequestSerializerJSON;
@@ -87,7 +90,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                          @"iconUrl" : @"iconUrl",
                          @"feedUrl" : @"feedUrl",
                          @"linkUrl" : @"url",
-                         @"rg_id_fk" : @"groupId.objectId",
+                         @"rg_id_fk" : @"group.objectId",
+                         @"u_id_fk" : @"author.objectId"
 
                          };
             }];
@@ -169,6 +173,48 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger row = indexPath.row;
+    
+    if (editingStyle ==UITableViewCellEditingStyleDelete) {
+        
+        
+        VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+        NSString *accessToken = [userDefaults accessToken];
+        
+        DLRSS *RSS = self.RSSList[row];
+        
+        [XMCenter sendRequest:^(XMRequest *request) {
+            request.api = [NSString stringWithFormat:@"classes/DLRSS/%@", RSS.r_id];
+            request.parameters = @{};
+            request.headers = @{@"X-LC-Session":accessToken};
+            request.httpMethod = kXMHTTPMethodDELETE;
+            request.requestSerializerType = kXMRequestSerializerJSON;
+        } onSuccess:^(id responseObject) {
+            
+            [self.RSSList removeObject:RSS];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+            //删除缓存
+            [RSS deleteObject];
+            
+            //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
+            LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+            [DLFeedInfo deleteObjectsByCriteria:[query1 sqlOptionStr]];
+            
+            LKDBSQLState *query2 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+            [DLFeedItem deleteObjectsByCriteria:[query2 sqlOptionStr]];
+            
+        } onFailure:^(NSError *error) {
+            DDLogError(@"onFailure: %@", error);
+        } onFinished:^(id responseObject, NSError *error) {
+            DDLogInfo(@"onFinished");
+        }];
+        
+        
+        
+    }
+}
 
 -(void)leftBtnClicked {
     [self.navigationController popViewControllerAnimated:YES];
@@ -176,8 +222,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(void)rightBtnClicked {
     
-    DLFeedAddRSSViewController *feedEditViewController = [[DLFeedAddRSSViewController alloc] init];
-    
+    DLAddRSSViewController *feedEditViewController = [[DLAddRSSViewController alloc] init];
+    feedEditViewController.RSSGroup = self.RSSGroup;
     [self.navigationController pushViewController:feedEditViewController animated:YES];
     
     

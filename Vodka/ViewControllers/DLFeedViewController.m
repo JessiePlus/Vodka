@@ -18,6 +18,18 @@
 @end
 
 @implementation DLFeedViewController
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        DDLogInfo(@"DLFeedViewController init");
+    }
+    
+    return self;
+}
+
+-(void)dealloc {
+    DDLogInfo(@"DLFeedViewController dealloc");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -24,6 +24,9 @@
     LKDBColumnDes *name = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     name.columnName = @"name";
     
-    return @{@"pk_id":pk_id,@"rg_id":rg_id,@"name":name};
+    LKDBColumnDes *u_id_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    u_id_fk.columnName = @"u_id_fk";
+    
+    return @{@"pk_id":pk_id,@"rg_id":rg_id,@"name":name,@"u_id_fk":u_id_fk};
 }
 @end

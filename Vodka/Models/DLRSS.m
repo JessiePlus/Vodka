@@ -36,6 +36,9 @@
     LKDBColumnDes *rg_id_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     rg_id_fk.columnName = @"rg_id_fk";
     
-    return @{@"pk_id":pk_id,@"r_id":r_id,@"name":name,@"iconUrl":iconUrl,@"feedUrl":feedUrl,@"linkUrl":linkUrl,@"rg_id_fk":rg_id_fk};
+    LKDBColumnDes *u_id_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    u_id_fk.columnName = @"u_id_fk";
+    
+    return @{@"pk_id":pk_id,@"r_id":r_id,@"name":name,@"iconUrl":iconUrl,@"feedUrl":feedUrl,@"linkUrl":linkUrl,@"rg_id_fk":rg_id_fk,@"u_id_fk":u_id_fk};
 }
 @end

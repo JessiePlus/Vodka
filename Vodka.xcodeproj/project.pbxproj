@@ -50,8 +50,8 @@
 		D62C2D8E1E8CC25A00C065A3 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = D62C2D8A1E8CC25A00C065A3 /* main.css */; };
 		D62C2D8F1E8CC25A00C065A3 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = D62C2D8B1E8CC25A00C065A3 /* post.html */; };
 		D62C2D921E8CC46500C065A3 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D911E8CC46500C065A3 /* AppUtil.m */; };
-		D62C2D971E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */; };
-		D62C2D981E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */; };
+		D62C2D971E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D941E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m */; };
+		D62C2D981E8CCA4A00C065A3 /* DLAddRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D961E8CCA4A00C065A3 /* DLAddRSSViewController.m */; };
 		D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */; };
 		D63612411E6A659200C2322D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612401E6A659200C2322D /* main.m */; };
 		D63612441E6A659200C2322D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612431E6A659200C2322D /* AppDelegate.m */; };
@@ -129,10 +129,10 @@
 		D62C2D8B1E8CC25A00C065A3 /* post.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = post.html; sourceTree = "<group>"; };
 		D62C2D901E8CC46500C065A3 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtil.h; sourceTree = "<group>"; };
 		D62C2D911E8CC46500C065A3 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtil.m; sourceTree = "<group>"; };
-		D62C2D931E8CCA4A00C065A3 /* DLFeedAddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedAddGroupViewController.h; sourceTree = "<group>"; };
-		D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedAddGroupViewController.m; sourceTree = "<group>"; };
-		D62C2D951E8CCA4A00C065A3 /* DLFeedAddRSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedAddRSSViewController.h; sourceTree = "<group>"; };
-		D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedAddRSSViewController.m; sourceTree = "<group>"; };
+		D62C2D931E8CCA4A00C065A3 /* DLAddRSSGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddRSSGroupViewController.h; sourceTree = "<group>"; };
+		D62C2D941E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddRSSGroupViewController.m; sourceTree = "<group>"; };
+		D62C2D951E8CCA4A00C065A3 /* DLAddRSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddRSSViewController.h; sourceTree = "<group>"; };
+		D62C2D961E8CCA4A00C065A3 /* DLAddRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddRSSViewController.m; sourceTree = "<group>"; };
 		D62C2D9A1E8D4FBB00C065A3 /* DLFeedFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedFetcher.h; sourceTree = "<group>"; };
 		D62C2D9B1E8D4FBB00C065A3 /* DLFeedFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedFetcher.m; sourceTree = "<group>"; };
 		D636123C1E6A659200C2322D /* Vodka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vodka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,10 +310,10 @@
 			children = (
 				D6188C211E89F9E90020EA7F /* DLBaseViewController.h */,
 				D6188C221E89F9E90020EA7F /* DLBaseViewController.m */,
-				D62C2D931E8CCA4A00C065A3 /* DLFeedAddGroupViewController.h */,
-				D62C2D941E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m */,
-				D62C2D951E8CCA4A00C065A3 /* DLFeedAddRSSViewController.h */,
-				D62C2D961E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m */,
+				D62C2D931E8CCA4A00C065A3 /* DLAddRSSGroupViewController.h */,
+				D62C2D941E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m */,
+				D62C2D951E8CCA4A00C065A3 /* DLAddRSSViewController.h */,
+				D62C2D961E8CCA4A00C065A3 /* DLAddRSSViewController.m */,
 				D6188C051E86DDBB0020EA7F /* DLFeedEditViewController.h */,
 				D6188C061E86DDBB0020EA7F /* DLFeedEditViewController.m */,
 				D6188BF61E8658240020EA7F /* DLFeedListViewController.h */,
@@ -578,7 +578,7 @@
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
 				D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */,
 				D6188BF21E8637F70020EA7F /* DLGoodsInfoCell.m in Sources */,
-				D62C2D981E8CCA4A00C065A3 /* DLFeedAddRSSViewController.m in Sources */,
+				D62C2D981E8CCA4A00C065A3 /* DLAddRSSViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
 				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
@@ -602,7 +602,7 @@
 				D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */,
 				D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */,
 				D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */,
-				D62C2D971E8CCA4A00C065A3 /* DLFeedAddGroupViewController.m in Sources */,
+				D62C2D971E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
