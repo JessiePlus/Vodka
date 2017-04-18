@@ -9,6 +9,7 @@
 #import "DLFeedAddGroupViewController.h"
 #import <Masonry.h>
 #import <XMNetworking.h>
+#import "VodkaUserDefaults.h"
 
 @interface DLFeedAddGroupViewController ()
 
@@ -75,9 +76,23 @@
         return;
     }
     
+    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+    NSString *userID = [userDefaults userID];
+    
+    NSString *ACLParam = [NSString stringWithFormat:@"{\"%@\":{\"read\":%@, \"write\":%@}, \"*\":{\"read\":%@}}", userID, @"true", @"true", @"true"];
+    NSData *ACLData = [ACLParam dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *ACLDic = [NSJSONSerialization JSONObjectWithData:ACLData options:NSJSONReadingMutableContainers error:nil];
+
+    NSDictionary *authorDic = @{
+        @"__type": @"Pointer",
+        @"className": @"_User",
+        @"objectId": userID
+    };
+    
+    
     [XMCenter sendRequest:^(XMRequest *request) {
         request.api = @"classes/DLRSSGroup";
-        request.parameters = @{@"name":groupName};
+        request.parameters = @{@"name":groupName, @"ACL":ACLDic, @"author":authorDic};
         request.headers = @{};
         request.httpMethod = kXMHTTPMethodPOST;
         request.requestSerializerType = kXMRequestSerializerJSON;

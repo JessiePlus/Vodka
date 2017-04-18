@@ -30,5 +30,6 @@
 //外键，DLRSSGroup的id
 @property (nonatomic, copy) NSString *rg_id_fk;
 
+
 @end
 

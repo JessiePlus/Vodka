@@ -17,6 +17,7 @@
 #import "DLFeedAddGroupViewController.h"
 
 #import <MJExtension.h>
+#import "VodkaUserDefaults.h"
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
@@ -75,10 +76,13 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     self.RSSGroupListView.delegate = self;
     
     self.RSSGroupListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //请求RSS的种类
+
+        VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+        NSString *userID = [userDefaults userID];
+        
         [XMCenter sendRequest:^(XMRequest *request) {
             request.api = @"classes/DLRSSGroup";
-            request.parameters = @{};
+            request.parameters = @{@"where":[NSString stringWithFormat:@"{\"author\":{\"__type\":\"Pointer\",\"className\":\"_User\",\"objectId\":\"%@\"}}", userID]};
             request.headers = @{};
             request.httpMethod = kXMHTTPMethodGET;
             request.requestSerializerType = kXMRequestSerializerJSON;
@@ -88,6 +92,8 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
                 return @{
                          @"rg_id" : @"objectId",
                          @"name" : @"name",
+                         @"u_id_fk" : @"author.objectId",
+
                          };
             }];
             

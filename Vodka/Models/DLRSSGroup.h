@@ -17,5 +17,8 @@
 //分组的名称
 @property (nonatomic, copy) NSString *name;
 
+//外键，分组的作者id
+@property (nonatomic, copy) NSString *u_id_fk;
+
 @end
 
