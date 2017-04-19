@@ -8,7 +8,7 @@
 
 #import "DLUserCenterViewController.h"
 #import <Masonry.h>
-#import "DLUserInfoCell.h"
+#import "DLSettingInfoCell.h"
 #import "DLUserInfoHeaderCell.h"
 #import "DLUserInfoSwitchCell.h"
 #import "DLSignInViewController.h"
@@ -16,7 +16,7 @@
 #import "VodkaUserDefaults.h"
 #import "AppUtil.h"
 
-static NSString *const kUserInfoCell = @"kUserInfoCell";
+static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kUserInfoHeaderCell = @"kUserInfoHeaderCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
@@ -79,7 +79,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     if (!_userInfoListView) {
         _userInfoListView = [[UITableView alloc] initWithFrame:CGRectZero];
         _userInfoListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_userInfoListView registerClass:[DLUserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
+        [_userInfoListView registerClass:[DLSettingInfoCell class] forCellReuseIdentifier:kSettingInfoCell];
         [_userInfoListView registerClass:[DLUserInfoHeaderCell class] forCellReuseIdentifier:kUserInfoHeaderCell];
         [_userInfoListView registerClass:[DLUserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
         
@@ -156,8 +156,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_feedback"]];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Feedback", comment: "")];
                 
                 return cell;
@@ -165,8 +164,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 1:
             {
-                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_shareAPP"]];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
                 
                 return cell;
@@ -182,8 +180,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         switch (row) {
             case 0:
             {
-                DLUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserInfoCell forIndexPath:indexPath];
-                [cell.iconImageView setImage:[UIImage imageNamed:@"icon_settings"]];
+                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Settings", comment: "")];
                 
                 return cell;

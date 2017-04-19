@@ -18,6 +18,11 @@
 
 #import <MJExtension.h>
 #import "VodkaUserDefaults.h"
+#import "AppUtil.h"
+#import "LKDBSQLState.h"
+#import "DLRSS.h"
+#import "DLFeedInfo.h"
+#import "DLFeedItem.h"
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
@@ -34,10 +39,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 -(instancetype)init {
     self = [super init];
     if (self) {
-        
-        
         DDLogInfo(@"DLRSSGroupViewController init");
-        
     }
     
     return self;
@@ -45,13 +47,15 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
 -(void)dealloc {
     DDLogInfo(@"DLRSSGroupViewController dealloc");
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateAddRSSGroup:) name:[AppUtil notificationNameAddRSSGroup] object:nil];
 
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Discover", comment: "");
@@ -120,9 +124,9 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
         
     }];
     
-    // 查询出全部的RSS
-    NSArray *RSSGroupList = [DLRSSGroup findAll];
-    self.RSSGroupList = [RSSGroupList mutableCopy];
+    [self tryUpdateAddRSSGroup:nil];
+    
+
     
 }
 
@@ -200,10 +204,29 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
             
+            LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:RSSGroup.rg_id];
+            NSArray <DLRSS *>*RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
+            
+            for (DLRSS *RSS in RSSList) {
+                
+                //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
+                LKDBSQLState *query3 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+                [DLFeedInfo deleteObjectsByCriteria:[query3 sqlOptionStr]];
+                
+                LKDBSQLState *query4 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+                [DLFeedItem deleteObjectsByCriteria:[query4 sqlOptionStr]];
+                
+                
+                [RSS deleteObject];
+            }
+            
+            LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLRSSGroup class] type:WHERE key:@"rg_id" opt:@"=" value:RSSGroup.rg_id];
+            [DLRSSGroup deleteObjectsByCriteria:[query1 sqlOptionStr]];
+            
             [self.RSSGroupList removeObject:RSSGroup];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-            //删除缓存
-            [RSSGroup deleteObject];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
 
         } onFailure:^(NSError *error) {
             DDLogError(@"onFailure: %@", error);
@@ -224,6 +247,15 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     
     
 }
+
+-(void)tryUpdateAddRSSGroup:(NSNotification *)notification{
+
+    NSArray *RSSGroupList = [DLRSSGroup findAll];
+    self.RSSGroupList = [RSSGroupList mutableCopy];
+    
+    [self.RSSGroupListView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

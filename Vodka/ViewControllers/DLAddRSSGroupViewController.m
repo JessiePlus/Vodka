@@ -10,6 +10,8 @@
 #import <Masonry.h>
 #import <XMNetworking.h>
 #import "VodkaUserDefaults.h"
+#import "AppUtil.h"
+#import "DLRSSGroup.h"
 
 @interface DLAddRSSGroupViewController ()
 
@@ -99,6 +101,14 @@
         request.httpMethod = kXMHTTPMethodPOST;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
+
+        DLRSSGroup *RSSGroup = [[DLRSSGroup alloc] init];
+        RSSGroup.rg_id = responseObject[@"objectId"];
+        RSSGroup.name = groupName;
+        RSSGroup.u_id_fk = userID;
+        [RSSGroup saveOrUpdateByColumnName:@"rg_id" AndColumnValue:RSSGroup.rg_id];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSSGroup] object:nil userInfo:nil];
         
         [self.navigationController popViewControllerAnimated:YES];
         

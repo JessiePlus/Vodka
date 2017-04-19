@@ -16,6 +16,11 @@
 +(NSString *)notificationNameSignIn;
 +(NSString *)appGroupID;
 
++(NSString *)notificationNameAddRSSGroup;
++(NSString *)notificationNameAddRSS;
++(NSString *)notificationNameDeleteFeed;
+
+
 
 
 

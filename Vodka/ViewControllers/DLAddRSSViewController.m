@@ -10,6 +10,8 @@
 #import <Masonry.h>
 #import "VodkaUserDefaults.h"
 #import <XMNetworking.h>
+#import "AppUtil.h"
+#import "DLRSS.h"
 
 @interface DLAddRSSViewController ()
 @property (nonatomic) UITextField *RSSTF;
@@ -121,6 +123,15 @@
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
         
+        DLRSS *RSS = [[DLRSS alloc] init];
+        RSS.r_id = responseObject[@"objectId"];
+        RSS.name = feedUrl;
+        RSS.feedUrl = feedUrl;
+        RSS.rg_id_fk = self.RSSGroup.rg_id;
+        RSS.u_id_fk = userID;
+        [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSS] object:nil userInfo:nil];
         [self.navigationController popViewControllerAnimated:YES];
         
     } onFailure:^(NSError *error) {

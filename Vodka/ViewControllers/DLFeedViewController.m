@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <Masonry.h>
 #import "AppUtil.h"
-
+#import <KINWebBrowserViewController.h>
 
 @interface DLFeedViewController ()
 @property (strong,nonatomic) WKWebView *webView;
@@ -38,6 +38,10 @@
     
     //导航栏
     self.navigationItem.title = _feedItem.title;
+
+    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"View original", comment: "") style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClicked)];
+
+    self.navigationItem.rightBarButtonItems = @[rightBarBtn];
     
     _webView = [[WKWebView alloc] init];
     [self.view addSubview:_webView];
@@ -75,6 +79,15 @@
 
 -(void)leftBtnClicked {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)rightBtnClicked {
+    KINWebBrowserViewController *webViewController = [[KINWebBrowserViewController alloc]init];
+    [self.navigationController pushViewController:webViewController animated:YES];
+
+    
+    webViewController.title = _feedItem.title;
+    [webViewController loadURLString:_feedItem.url];
 }
 
 - (void)didReceiveMemoryWarning {

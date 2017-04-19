@@ -21,6 +21,7 @@
 #import "VodkaUserDefaults.h"
 #import "DLFeedInfo.h"
 #import "DLFeedItem.h"
+#import "AppUtil.h"
 
 static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
@@ -47,12 +48,16 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 -(void)dealloc {
-    DDLogInfo(@"DLRSSSubscribeViewController dealloc");    
+    DDLogInfo(@"DLRSSSubscribeViewController dealloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateAddRSS:) name:[AppUtil notificationNameAddRSS] object:nil];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     //导航栏
@@ -127,12 +132,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         
     }];
     
-    // 查询出全部的RSS
-    LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:self.RSSGroup.rg_id];
-    NSArray *RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
-
-    self.RSSList = [RSSList mutableCopy];
     
+    [self tryUpdateAddRSS:nil];
 }
 
 
@@ -201,11 +202,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             request.requestSerializerType = kXMRequestSerializerJSON;
         } onSuccess:^(id responseObject) {
             
-            [self.RSSList removeObject:RSS];
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-            //删除缓存
-            [RSS deleteObject];
-            
             //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
             LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
             [DLFeedInfo deleteObjectsByCriteria:[query1 sqlOptionStr]];
@@ -213,6 +209,15 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             LKDBSQLState *query2 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
             [DLFeedItem deleteObjectsByCriteria:[query2 sqlOptionStr]];
             
+            //删除缓存
+            LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"r_id" opt:@"=" value:RSS.r_id];
+            [DLRSS deleteObjectsByCriteria:[query sqlOptionStr]];
+            
+            [self.RSSList removeObject:RSS];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
+
         } onFailure:^(NSError *error) {
             DDLogError(@"onFailure: %@", error);
         } onFinished:^(id responseObject, NSError *error) {
@@ -229,12 +234,20 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 -(void)rightBtnClicked {
-    
     DLAddRSSViewController *feedEditViewController = [[DLAddRSSViewController alloc] init];
     feedEditViewController.RSSGroup = self.RSSGroup;
     [self.navigationController pushViewController:feedEditViewController animated:YES];
+}
+
+-(void)tryUpdateAddRSS:(NSNotification *)notification{
+    // 查询出全部的RSS
+    LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:self.RSSGroup.rg_id];
+    NSArray *RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
     
+    self.RSSList = [RSSList mutableCopy];
     
+    [self.RSSSubscribeListView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {

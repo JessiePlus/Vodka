@@ -67,10 +67,25 @@
 -(void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
     DLFeedItem *feedItem = [[DLFeedItem alloc] init];
     feedItem.title = item.title;
-    feedItem.url = item.identifier;
-    feedItem.content = item.content;
+    
+    
+    if (item.identifier) {
+        feedItem.url = item.identifier;
+    } else {
+        feedItem.url = item.link;
+    }
+    
+    if (item.content) {
+        feedItem.content = item.content;
+    } else {
+        feedItem.content = item.summary;
+    }
+
     feedItem.date = [[AppUtil util] formatDate:item.date];
     feedItem.fi_feedUrl_fk = _feed.feedInfo.feedUrl;//补上外键
+    
+    
+    
     
     if (!_feedItems) {
         _feedItems = [[NSMutableArray alloc] init];

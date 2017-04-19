@@ -47,11 +47,14 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 -(void)dealloc {
     DDLogInfo(@"DLFeedListViewController dealloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateDeleteFeed:) name:[AppUtil notificationNameDeleteFeed] object:nil];
 
     
     
@@ -112,14 +115,8 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         }];
     }];
   
-    // 查询出全部的RSS    
-    [self.feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
-        if (feedItems) {
-            _feedItemList = [feedItems mutableCopy];
-            [self.feedsListView reloadData];
-        }
-    }];
-    
+    [self tryUpdateDeleteFeed:nil];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,6 +186,15 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [self.navigationController pushViewController:feedViewController animated:YES];
 
 
+}
+
+-(void)tryUpdateDeleteFeed:(NSNotification *)notification{
+    [self.feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
+        if (feedItems) {
+            _feedItemList = [feedItems mutableCopy];
+            [self.feedsListView reloadData];
+        }
+    }];
 }
 
 @end

@@ -10,6 +10,7 @@ def pods
     pod 'libextobjc'
     pod 'MWFeedParser'
     pod 'FMDB'
+    pod 'KINWebBrowser'
 end
 
 target ‘Vodka’ do

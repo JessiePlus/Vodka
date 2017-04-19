@@ -50,8 +50,22 @@
 }
 
 +(NSString *)notificationNameSignIn {
-    return @"Vodka.Notification.signIn";
+    return @"Vodka.Notification.SignIn";
 }
+
++(NSString *)notificationNameAddRSSGroup {
+    return @"Vodka.Notification.AddRSSGroup";
+}
+
++(NSString *)notificationNameAddRSS {
+    return @"Vodka.Notification.AddRSS";
+}
+
++(NSString *)notificationNameDeleteFeed {
+    return @"Vodka.Notification.DeleteFeed";
+}
+
+
 
 +(NSString *)appGroupID {
     return @"com.Vodka.Newsmore";
