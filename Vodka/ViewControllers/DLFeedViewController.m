@@ -34,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     //导航栏
     self.navigationItem.title = _feedItem.title;
@@ -41,10 +42,9 @@
     _webView = [[WKWebView alloc] init];
     [self.view addSubview:_webView];
     [_webView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.top.equalTo(self.view);
+        make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
     }];
     
     [self loadContent];

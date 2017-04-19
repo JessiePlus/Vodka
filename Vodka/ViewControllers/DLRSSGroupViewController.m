@@ -219,7 +219,7 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 -(void)rightBtnClicked {
     
     DLAddRSSGroupViewController *feedEditViewController = [[DLAddRSSGroupViewController alloc] init];
-    
+    feedEditViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:feedEditViewController animated:YES];
     
     

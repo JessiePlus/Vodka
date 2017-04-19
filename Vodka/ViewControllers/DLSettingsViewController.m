@@ -49,7 +49,7 @@ static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
  
     [self.userInfoListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+        make.bottom.equalTo(self.view);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
     }];
     

@@ -63,11 +63,19 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
     [self.view addSubview:self.RSSSubscribeListView];
 
+    
     [self.RSSSubscribeListView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
         make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.leading.equalTo(self.view.mas_leading);
+        make.trailing.equalTo(self.view.mas_trailing);
+#if 0
+        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+#else
+        make.bottom.equalTo(self.view);
+#endif
     }];
+
+    
     
     self.RSSSubscribeListView.backgroundColor = [UIColor whiteColor];
     self.RSSSubscribeListView.dataSource = self;
