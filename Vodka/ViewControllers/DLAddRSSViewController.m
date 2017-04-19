@@ -117,7 +117,7 @@
     
     [XMCenter sendRequest:^(XMRequest *request) {
         request.api = @"classes/DLRSS";
-        request.parameters = @{@"name":feedUrl, @"feedUrl":feedUrl, @"ACL":ACLDic, @"author":authorDic, @"group":groupDic};
+        request.parameters = @{@"name":feedUrl, @"feedUrl":feedUrl, @"open":@YES, @"ACL":ACLDic, @"author":authorDic, @"group":groupDic};
         request.headers = @{};
         request.httpMethod = kXMHTTPMethodPOST;
         request.requestSerializerType = kXMRequestSerializerJSON;
@@ -129,6 +129,7 @@
         RSS.feedUrl = feedUrl;
         RSS.rg_id_fk = self.RSSGroup.rg_id;
         RSS.u_id_fk = userID;
+        RSS.open = YES;
         [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSS] object:nil userInfo:nil];

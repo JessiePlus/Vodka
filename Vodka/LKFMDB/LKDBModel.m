@@ -108,6 +108,7 @@
         if (!primaryValue || primaryValue <= 0) {
             return [self save];
         }else{
+            [self setValue:primaryValue forKey:[self.class getPKName][@"pkProperty"]];
             return [self update];
         }
     }else{

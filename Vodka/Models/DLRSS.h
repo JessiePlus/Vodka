@@ -33,5 +33,8 @@
 //外键，RSS的作者id
 @property (nonatomic, copy) NSString *u_id_fk;
 
+//RSS的开关
+@property (nonatomic, assign) int open;
+
 @end
 

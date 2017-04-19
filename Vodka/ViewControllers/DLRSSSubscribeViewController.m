@@ -103,6 +103,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                          @"iconUrl" : @"iconUrl",
                          @"feedUrl" : @"feedUrl",
                          @"linkUrl" : @"url",
+                         @"open" : @"open",
                          @"rg_id_fk" : @"group.objectId",
                          @"u_id_fk" : @"author.objectId"
 
@@ -172,6 +173,9 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     if (cell) {
         [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:RSS.iconUrl] placeholderImage:nil];
         [cell.titleLab setText:RSS.name];
+        cell.titleSwitch.on = RSS.open;
+        cell.titleSwitch.tag = row;
+        [cell.titleSwitch addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
     }
 
     
@@ -249,6 +253,61 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     [self.RSSSubscribeListView reloadData];
 
 }
+
+-(void)switchValueChanged:(UISwitch *)sender {
+
+    NSInteger row = sender.tag;
+
+    DLRSS *RSS = self.RSSList[row];
+    
+    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+    NSString *accessToken = [userDefaults accessToken];
+    
+    [XMCenter sendRequest:^(XMRequest *request) {
+        request.api = [NSString stringWithFormat:@"classes/DLRSS/%@", RSS.r_id];
+        request.parameters = @{@"open":@(sender.on)};
+        request.headers = @{@"X-LC-Session":accessToken};
+        request.httpMethod = kXMHTTPMethodPUT;
+        request.requestSerializerType = kXMRequestSerializerJSON;
+    } onSuccess:^(id responseObject) {
+        
+        RSS.open = sender.on;
+        
+#if 0
+        if (sender.on) {
+            RSS.name = @"on";
+        } else {
+            RSS.name = @"off";
+        }
+#endif
+        
+        
+        
+        
+        
+        [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
+        
+        if (!sender.on) {
+            //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
+            LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+            [DLFeedInfo deleteObjectsByCriteria:[query1 sqlOptionStr]];
+            
+            LKDBSQLState *query2 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+            [DLFeedItem deleteObjectsByCriteria:[query2 sqlOptionStr]];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
+        }
+        
+    } onFailure:^(NSError *error) {
+        DDLogError(@"onFailure: %@", error);
+    } onFinished:^(id responseObject, NSError *error) {
+        DDLogInfo(@"onFinished");
+    }];
+
+
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
