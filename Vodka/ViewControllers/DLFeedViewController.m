@@ -55,11 +55,13 @@
 - (void)loadContent{
     NSString *postString = [self readResourceContent:@"post.html"];
     NSString *content = _feedItem.content;
+    
     NSString *htmlContent = [NSString stringWithFormat:postString,
                              [self readResourceContent:@"bootstrap.min.css"],
                              [self readResourceContent:@"font-awesome.min.css"],
                              [self readResourceContent:@"main.css"],
                              _feedItem.title,
+                             _feedItem.date,
                              content];
     [_webView loadHTMLString:htmlContent baseURL:nil];
 }

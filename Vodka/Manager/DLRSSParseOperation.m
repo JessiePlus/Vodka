@@ -8,6 +8,7 @@
 
 #import "DLRSSParseOperation.h"
 #import <MWFeedParser.h>
+#import "AppUtil.h"
 
 
 
@@ -68,7 +69,7 @@
     feedItem.title = item.title;
     feedItem.url = item.identifier;
     feedItem.content = item.content;
-    
+    feedItem.date = [[AppUtil util] formatDate:item.date];
     feedItem.fi_feedUrl_fk = _feed.feedInfo.feedUrl;//补上外键
     
     if (!_feedItems) {

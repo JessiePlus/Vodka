@@ -16,6 +16,8 @@
 
 @property (nonatomic, copy) NSString *title;
 
+@property (nonatomic, copy) NSString *date;
+
 @property (nonatomic, copy) NSString *content;
 
 //外键，feedInfo的id
