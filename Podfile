@@ -11,6 +11,7 @@ def pods
     pod 'MWFeedParser'
     pod 'FMDB'
     pod 'KINWebBrowser'
+    pod 'MBProgressHUD', '~> 1.0.0'
 end
 
 target ‘Vodka’ do

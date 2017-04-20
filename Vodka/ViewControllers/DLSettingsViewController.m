@@ -15,6 +15,7 @@
 #import "DLFeedInfo.h"
 #import "AppUtil.h"
 #import <KINWebBrowserViewController.h>
+#import <MBProgressHUD.h>
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -193,11 +194,20 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             case 1:
             {
                 //清除缓存
-                [DLFeedInfo clearTable];
-                [DLFeedItem clearTable];
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeAnnularDeterminate;
+                hud.label.text = NSLocalizedString(@"Clear cache", comment: "");
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
-
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    [DLFeedInfo clearTable];
+                    [DLFeedItem clearTable];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [hud hideAnimated:YES];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
+                    });
+                    
+                });
 
             }
                 break;
