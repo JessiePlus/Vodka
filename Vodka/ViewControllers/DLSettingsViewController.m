@@ -14,7 +14,7 @@
 #import "DLFeedItem.h"
 #import "DLFeedInfo.h"
 #import "AppUtil.h"
-
+#import <KINWebBrowserViewController.h>
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -219,11 +219,21 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             case 0:
             {
                 //用户协议
+                KINWebBrowserViewController *webViewController = [[KINWebBrowserViewController alloc]init];
+                [self.navigationController pushViewController:webViewController animated:YES];
+                
+                webViewController.title = NSLocalizedString(@"User Agreement", comment: "");
+                webViewController.showsPageTitleInNavigationBar = NO;
             }
                 break;
             case 1:
             {
                 //隐私权声明
+                KINWebBrowserViewController *webViewController = [[KINWebBrowserViewController alloc]init];
+                [self.navigationController pushViewController:webViewController animated:YES];
+                
+                webViewController.title = NSLocalizedString(@"Privacy Policy", comment: "");
+                webViewController.showsPageTitleInNavigationBar = NO;
             }
                 break;
             default:
