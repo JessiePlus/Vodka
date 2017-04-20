@@ -27,10 +27,6 @@
 		D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD41E84C04D0020EA7F /* DLUserInfoCell.m */; };
 		D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */; };
 		D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */; };
-		D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */; };
-		D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */; };
-		D6188BF21E8637F70020EA7F /* DLGoodsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */; };
-		D6188BF51E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */; };
 		D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BF71E8658240020EA7F /* DLFeedListViewController.m */; };
 		D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */; };
 		D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C031E86D6C80020EA7F /* DLSettingsViewController.m */; };
@@ -84,15 +80,7 @@
 		D6188BD71E84EFBF0020EA7F /* DLUserInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserInfoHeaderCell.m; sourceTree = "<group>"; };
 		D6188BD91E84FA340020EA7F /* DLUserInfoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserInfoSwitchCell.h; sourceTree = "<group>"; };
 		D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserInfoSwitchCell.m; sourceTree = "<group>"; };
-		D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsCategoriesCell.h; sourceTree = "<group>"; };
-		D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsCategoriesCell.m; sourceTree = "<group>"; };
 		D6188BE51E85900B0020EA7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		D6188BEA1E8624080020EA7F /* DLGoodsInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsInfoHeaderCell.h; sourceTree = "<group>"; };
-		D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfoHeaderCell.m; sourceTree = "<group>"; };
-		D6188BF01E8637F70020EA7F /* DLGoodsInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsInfoCell.h; sourceTree = "<group>"; };
-		D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfoCell.m; sourceTree = "<group>"; };
-		D6188BF31E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGoodsInfoSectionTitleView.h; sourceTree = "<group>"; };
-		D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGoodsInfoSectionTitleView.m; sourceTree = "<group>"; };
 		D6188BF61E8658240020EA7F /* DLFeedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedListViewController.h; sourceTree = "<group>"; };
 		D6188BF71E8658240020EA7F /* DLFeedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedListViewController.m; sourceTree = "<group>"; };
 		D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedInfoCell.h; sourceTree = "<group>"; };
@@ -339,14 +327,6 @@
 				D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */,
 				D6188BFC1E865E800020EA7F /* DLFeedInfoCell.h */,
 				D6188BFD1E865E800020EA7F /* DLFeedInfoCell.m */,
-				D6188BDF1E8561CB0020EA7F /* DLGoodsCategoriesCell.h */,
-				D6188BE01E8561CB0020EA7F /* DLGoodsCategoriesCell.m */,
-				D6188BF01E8637F70020EA7F /* DLGoodsInfoCell.h */,
-				D6188BF11E8637F70020EA7F /* DLGoodsInfoCell.m */,
-				D6188BEA1E8624080020EA7F /* DLGoodsInfoHeaderCell.h */,
-				D6188BEB1E8624080020EA7F /* DLGoodsInfoHeaderCell.m */,
-				D6188BF31E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.h */,
-				D6188BF41E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m */,
 				D6188C0E1E8818780020EA7F /* DLSettingInfoCell.h */,
 				D6188C0F1E8818780020EA7F /* DLSettingInfoCell.m */,
 				D6188C101E8818780020EA7F /* DLSettingInfoSwitchCell.h */,
@@ -565,7 +545,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63612751E6BA44000C2322D /* User.m in Sources */,
-				D6188BF51E864DBF0020EA7F /* DLGoodsInfoSectionTitleView.m in Sources */,
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
 				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
 				D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */,
@@ -577,7 +556,6 @@
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
 				D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */,
-				D6188BF21E8637F70020EA7F /* DLGoodsInfoCell.m in Sources */,
 				D62C2D981E8CCA4A00C065A3 /* DLAddRSSViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
@@ -599,8 +577,6 @@
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
 				D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */,
-				D6188BEC1E8624080020EA7F /* DLGoodsInfoHeaderCell.m in Sources */,
-				D6188BE11E8561CB0020EA7F /* DLGoodsCategoriesCell.m in Sources */,
 				D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */,
 				D62C2D971E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
