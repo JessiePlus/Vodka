@@ -240,12 +240,12 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
         switch (row) {
             case 0:
             {
-
+                //反馈建议
             }
                 break;
             case 1:
             {
-
+                //推荐给好友
             }
                 break;
             default:

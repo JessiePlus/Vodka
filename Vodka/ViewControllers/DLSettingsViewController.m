@@ -201,7 +201,30 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
 
             }
                 break;
+            case 2:
+            {
+                //给我评分
                 
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    if (section == 1) {
+        
+        switch (row) {
+            case 0:
+            {
+                //用户协议
+            }
+                break;
+            case 1:
+            {
+                //隐私权声明
+            }
+                break;
             default:
                 break;
         }
