@@ -123,18 +123,24 @@
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
         
-        DLRSS *RSS = [[DLRSS alloc] init];
-        RSS.r_id = responseObject[@"objectId"];
-        RSS.name = feedUrl;
-        RSS.feedUrl = feedUrl;
-        RSS.rg_id_fk = self.RSSGroup.rg_id;
-        RSS.u_id_fk = userID;
-        RSS.open = YES;
-        [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSS] object:nil userInfo:nil];
-        [self.navigationController popViewControllerAnimated:YES];
-        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            DLRSS *RSS = [[DLRSS alloc] init];
+            RSS.r_id = responseObject[@"objectId"];
+            RSS.name = feedUrl;
+            RSS.feedUrl = feedUrl;
+            RSS.rg_id_fk = self.RSSGroup.rg_id;
+            RSS.u_id_fk = userID;
+            RSS.open = YES;
+            [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSS] object:nil userInfo:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            });
+            
+        });
+
     } onFailure:^(NSError *error) {
         DDLogError(@"onFailure: %@", error);
     } onFinished:^(id responseObject, NSError *error) {

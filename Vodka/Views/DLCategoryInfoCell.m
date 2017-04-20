@@ -36,13 +36,13 @@
     }];
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@180);
         make.height.equalTo(@24);
         make.left.equalTo(self.iconImageView.mas_right).offset(15);
         make.centerY.equalTo(self.contentView);
     }];
     
-    
+    [self.titleLab sizeToFit];
+  
 }
 
 -(UIImageView *)iconImageView {

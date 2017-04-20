@@ -101,16 +101,21 @@
         request.httpMethod = kXMHTTPMethodPOST;
         request.requestSerializerType = kXMRequestSerializerJSON;
     } onSuccess:^(id responseObject) {
-
-        DLRSSGroup *RSSGroup = [[DLRSSGroup alloc] init];
-        RSSGroup.rg_id = responseObject[@"objectId"];
-        RSSGroup.name = groupName;
-        RSSGroup.u_id_fk = userID;
-        [RSSGroup saveOrUpdateByColumnName:@"rg_id" AndColumnValue:RSSGroup.rg_id];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSSGroup] object:nil userInfo:nil];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            DLRSSGroup *RSSGroup = [[DLRSSGroup alloc] init];
+            RSSGroup.rg_id = responseObject[@"objectId"];
+            RSSGroup.name = groupName;
+            RSSGroup.u_id_fk = userID;
+            [RSSGroup saveOrUpdateByColumnName:@"rg_id" AndColumnValue:RSSGroup.rg_id];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSSGroup] object:nil userInfo:nil];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+        });
         
     } onFailure:^(NSError *error) {
         DDLogError(@"onFailure: %@", error);
