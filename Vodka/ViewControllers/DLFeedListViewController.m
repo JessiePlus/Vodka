@@ -20,7 +20,7 @@
 #import "AppUtil.h"
 #import "DLFeedFetcher.h"
 
-static const NSUInteger kPageCount = 10;
+static const int kPageCount = 10;
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -84,35 +84,38 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
     
+    __weak __typeof__(self) weakSelf = self;
     self.feedsListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        _feedFetcher.onStopLoadFeeds = ^{
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSArray <DLFeedItem *> *feedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",0 ,kPageCount]];
+                weakSelf.feedItemList = [feedItems mutableCopy];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.feedsListView.mj_header endRefreshing];
+                    [weakSelf.feedsListView reloadData];
+                });
+            });
+        };
+        
         //请求feeds
         [_feedFetcher loadFeeds];
-        [_feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
-            
-            if (feedItems) {
-                _feedItemList = [[NSMutableArray alloc] initWithArray:feedItems];
-                [self.feedsListView reloadData];
-            }
-            
-            [self.feedsListView.mj_header endRefreshing];
-        }];
 
     }];
     
     self.feedsListView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            int pk_id = ((DLFeedItem *)[weakSelf.feedItemList lastObject]).pk_id;
+            NSArray <DLFeedItem *> *feedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d", pk_id, kPageCount]];
+            [weakSelf.feedItemList addObjectsFromArray: feedItems];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.feedsListView.mj_footer endRefreshing];
+                [weakSelf.feedsListView reloadData];
+            });
+        });
         
-        int pk_id = ((DLFeedItem *)[_feedItemList lastObject]).pk_id;
-        
-        [_feedFetcher fetchOffset:pk_id limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
-            
-            if (feedItems) {
-                [self.feedItemList addObjectsFromArray: feedItems];
-                [self.feedsListView reloadData];
-            }
-            
-            
-            [self.feedsListView.mj_footer endRefreshing];
-        }];
     }];
   
     [self tryUpdateDeleteFeed:nil];
@@ -193,12 +196,15 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 }
 
 -(void)tryUpdateDeleteFeed:(NSNotification *)notification{
-    [self.feedFetcher fetchOffset:0 limit:kPageCount completion:^(NSArray<DLFeedItem *> *feedItems) {
-        if (feedItems) {
-            _feedItemList = [feedItems mutableCopy];
-            [self.feedsListView reloadData];
-        }
-    }];
+    __weak __typeof__(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSArray <DLFeedItem *> *feedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",0 ,kPageCount]];
+        weakSelf.feedItemList = [feedItems mutableCopy];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.feedsListView reloadData];
+        });
+    });
 }
 
 @end

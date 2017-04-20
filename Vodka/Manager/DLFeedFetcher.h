@@ -18,10 +18,6 @@
 //停止加载feeds
 @property (nonatomic, copy) void (^onStopLoadFeeds)(void);
 
-
-//从数据库中分页取出feeds
--(void)fetchOffset:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion;
-
 //解析feeds，并存入数据库
 -(void)loadFeeds;
 

@@ -41,7 +41,6 @@
 
 //从缓存中加载RSS列表
 -(void)loadRSSList {
-
     
     LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"open" opt:@"=" value:@1];
     NSArray <DLRSS *>*RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
@@ -49,18 +48,6 @@
     self.RSSList = RSSList;
 
 }
-
-//从数据库中分页取出feeds
--(void)fetchOffset:(int)offset limit:(int)limit completion:(void (^)(NSArray <DLFeedItem *>*feedItems))completion {
-
-    NSArray <DLFeedItem *> *queryFeedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",offset ,limit]];
-
-    if (completion) {
-        completion(queryFeedItems);
-    }
-    
-}
-
 
 //解析feeds，并存入数据库
 -(void)loadFeeds {
@@ -94,10 +81,16 @@
             DDLogInfo(@"cache the feed: %@", feed);
             //解析完成，缓存到数据库
             DLFeedInfo *feedInfo = feed.feedInfo;
-            [feedInfo saveOrUpdateByColumnName:@"feedUrl" AndColumnValue:feedInfo.feedUrl];
+            
+            dispatch_async(_sqliteQueue, ^{
+                [feedInfo saveOrUpdateByColumnName:@"feedUrl" AndColumnValue:feedInfo.feedUrl];
+            });
+            
             NSArray <DLFeedItem *> *allFeedItems = feed.allFeedItems;
             for (DLFeedItem *feedItem in allFeedItems) {
-                [feedItem saveOrUpdateByColumnName:@"url" AndColumnValue:feedItem.url];
+                dispatch_async(_sqliteQueue, ^{
+                    [feedItem saveOrUpdateByColumnName:@"url" AndColumnValue:feedItem.url];
+                });
             }
             
         };
