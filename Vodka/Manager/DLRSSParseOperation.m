@@ -33,12 +33,47 @@
     return self;
 }
 
+@synthesize finished = _finished;
+@synthesize executing = _executing;
+
+-(void)setFinished:(BOOL)finished{
+    [self willChangeValueForKey:@"isFinished"];
+    _finished = finished;
+    [self didChangeValueForKey:@"isFinished"];
+}
+
+-(void)setExecuting:(BOOL)executing{
+    [self willChangeValueForKey:@"isExecuting"];
+    _executing = executing;
+    [self didChangeValueForKey:@"isExecuting"];
+}
+
+- (BOOL)isAsynchronous{
+    return YES;
+}
+
+
+
 -(void)start {
+    
+    if(!self.RSS || [self.RSS.feedUrl isEqualToString:@""]){
+        self.finished = YES;
+        return;
+    }
+    
+    if(self.isCancelled){
+        self.finished = YES;
+        return;
+    }
+    
+    self.executing = YES;
+    
     _parser = [[MWFeedParser alloc] initWithFeedURL:[NSURL URLWithString:self.RSS.feedUrl]];
     _parser.delegate = self;
     
     if (![_parser parse]) {
         DDLogError(@"run parse failed: %@", self.RSS.feedUrl);
+        self.finished = YES;
 
         return;
     }
@@ -102,7 +137,8 @@
     if (self.onParseFinished) {
         self.onParseFinished(_feed);
     }
-    
+    self.finished = YES;
+
 }
 
 -(void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error {
@@ -113,7 +149,7 @@
     if (self.onParseFinished) {
         self.onParseFinished(_feed);
     }
-    
+    self.finished = YES;
     
 }
 
