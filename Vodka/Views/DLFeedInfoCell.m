@@ -36,7 +36,6 @@
     }];
     
     [self.itemDateLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100);
         make.height.equalTo(@24);
         make.top.equalTo(self.itemTitleLab.mas_bottom).offset(10);
         make.left.equalTo(self.itemTitleLab);
@@ -44,12 +43,14 @@
     }];
     
     [self.infoTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100);
         make.top.equalTo(self.itemDateLab);
         make.bottom.equalTo(self.itemDateLab);
         make.left.equalTo(self.itemDateLab.mas_right).offset(10);
     }];
 
+    [self.itemDateLab sizeToFit];
+
+    [self.infoTitleLab sizeToFit];
     
     [self.itemTitleLab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
