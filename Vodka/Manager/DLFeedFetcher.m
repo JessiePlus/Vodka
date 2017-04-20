@@ -10,6 +10,7 @@
 #import <XMNetworking.h>
 #import "DLRSS.h"
 #import "DLRSSParseOperation.h"
+#import "LKDBSQLState.h"
 
 @interface DLFeedFetcher ()
 
@@ -41,8 +42,9 @@
 //从缓存中加载RSS列表
 -(void)loadRSSList {
 
-    // 查询出全部的RSS
-    NSArray *RSSList = [DLRSS findAll];
+    
+    LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"open" opt:@"=" value:@1];
+    NSArray <DLRSS *>*RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
     
     self.RSSList = RSSList;
 

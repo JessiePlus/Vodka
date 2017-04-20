@@ -272,19 +272,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     } onSuccess:^(id responseObject) {
         
         RSS.open = sender.on;
-        
-#if 0
-        if (sender.on) {
-            RSS.name = @"on";
-        } else {
-            RSS.name = @"off";
-        }
-#endif
-        
-        
-        
-        
-        
+
         [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
         
         if (!sender.on) {
