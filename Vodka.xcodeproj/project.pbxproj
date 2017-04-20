@@ -61,6 +61,9 @@
 		D67108A81EA1AEB00005AEC5 /* LKDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A41EA1AEB00005AEC5 /* LKDBTool.m */; };
 		D67108AF1EA4B8D60005AEC5 /* VodkaUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */; };
 		D67108B41EA858D10005AEC5 /* DLSettingClickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108B31EA858D10005AEC5 /* DLSettingClickCell.m */; };
+		D67108B71EA8D83D0005AEC5 /* DLFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108B61EA8D83D0005AEC5 /* DLFeedbackViewController.m */; };
+		D67108BA1EA8DAEF0005AEC5 /* DLFeedbackContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108B91EA8DAEF0005AEC5 /* DLFeedbackContentCell.m */; };
+		D67108BD1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108BC1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m */; };
 		D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */; };
 		D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE81E1E8F9477008036A0 /* DLRSSParseOperation.m */; };
 		D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ECE8211E8F9F4C008036A0 /* DLFeedInfo.m */; };
@@ -148,6 +151,12 @@
 		D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodkaUserDefaults.m; sourceTree = "<group>"; };
 		D67108B21EA858D10005AEC5 /* DLSettingClickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingClickCell.h; sourceTree = "<group>"; };
 		D67108B31EA858D10005AEC5 /* DLSettingClickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSettingClickCell.m; sourceTree = "<group>"; };
+		D67108B51EA8D83D0005AEC5 /* DLFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedbackViewController.h; sourceTree = "<group>"; };
+		D67108B61EA8D83D0005AEC5 /* DLFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedbackViewController.m; sourceTree = "<group>"; };
+		D67108B81EA8DAEF0005AEC5 /* DLFeedbackContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedbackContentCell.h; sourceTree = "<group>"; };
+		D67108B91EA8DAEF0005AEC5 /* DLFeedbackContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedbackContentCell.m; sourceTree = "<group>"; };
+		D67108BB1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedbackBtnCell.h; sourceTree = "<group>"; };
+		D67108BC1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedbackBtnCell.m; sourceTree = "<group>"; };
 		D6A3E2E21E6BB81D008CF763 /* MobilePhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePhone.h; sourceTree = "<group>"; };
 		D6A3E2E31E6BB81D008CF763 /* MobilePhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePhone.m; sourceTree = "<group>"; };
 		D6ECE81D1E8F9477008036A0 /* DLRSSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSParseOperation.h; sourceTree = "<group>"; };
@@ -316,6 +325,8 @@
 				D6188BD11E84B9FF0020EA7F /* DLSignInViewController.m */,
 				D636125B1E6A89DC00C2322D /* DLUserCenterViewController.h */,
 				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
+				D67108B51EA8D83D0005AEC5 /* DLFeedbackViewController.h */,
+				D67108B61EA8D83D0005AEC5 /* DLFeedbackViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,6 +350,10 @@
 				D6188BDA1E84FA340020EA7F /* DLUserInfoSwitchCell.m */,
 				D67108B21EA858D10005AEC5 /* DLSettingClickCell.h */,
 				D67108B31EA858D10005AEC5 /* DLSettingClickCell.m */,
+				D67108B81EA8DAEF0005AEC5 /* DLFeedbackContentCell.h */,
+				D67108B91EA8DAEF0005AEC5 /* DLFeedbackContentCell.m */,
+				D67108BB1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.h */,
+				D67108BC1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -545,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63612751E6BA44000C2322D /* User.m in Sources */,
+				D67108BD1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m in Sources */,
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
 				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
 				D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */,
@@ -562,11 +578,13 @@
 				D6188BD21E84B9FF0020EA7F /* DLSignInViewController.m in Sources */,
 				D67108AF1EA4B8D60005AEC5 /* VodkaUserDefaults.m in Sources */,
 				D67108B41EA858D10005AEC5 /* DLSettingClickCell.m in Sources */,
+				D67108B71EA8D83D0005AEC5 /* DLFeedbackViewController.m in Sources */,
 				D6188BCF1E84B5BE0020EA7F /* DLRSSGroupViewController.m in Sources */,
 				D62C2D9C1E8D4FBB00C065A3 /* DLFeedFetcher.m in Sources */,
 				D6188BF81E8658240020EA7F /* DLFeedListViewController.m in Sources */,
 				D671089B1EA129070005AEC5 /* DLFeed.m in Sources */,
 				D6ECE81F1E8F9477008036A0 /* DLRSSParseOperation.m in Sources */,
+				D67108BA1EA8DAEF0005AEC5 /* DLFeedbackContentCell.m in Sources */,
 				D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */,
 				D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */,
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,

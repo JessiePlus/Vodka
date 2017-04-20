@@ -16,6 +16,7 @@
 #import "VodkaUserDefaults.h"
 #import "AppUtil.h"
 #import "DLSettingClickCell.h"
+#import "DLFeedbackViewController.h"
 
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
@@ -105,7 +106,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
         return 1;
     }
     if (section == 1) {
-        return 2;
+        return 1;
     }
     
     if (section == 2) {
@@ -168,14 +169,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
                 return cell;
             }
                 break;
-            case 1:
-            {
-                DLSettingClickCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLSettingClickCell forIndexPath:indexPath];
-                [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
-                
-                return cell;
-            }
-                break;
+
             default:
                 break;
         }
@@ -241,6 +235,9 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             case 0:
             {
                 //反馈建议
+                DLFeedbackViewController *feedbackViewController = [[DLFeedbackViewController alloc] init];
+                feedbackViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:feedbackViewController animated:YES];
             }
                 break;
             case 1:
