@@ -15,10 +15,14 @@
 #import "DLSettingsViewController.h"
 #import "VodkaUserDefaults.h"
 #import "AppUtil.h"
+#import "DLSettingClickCell.h"
+
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kUserInfoHeaderCell = @"kUserInfoHeaderCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
+static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
+
 
 
 @interface DLUserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -82,6 +86,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
         [_userInfoListView registerClass:[DLSettingInfoCell class] forCellReuseIdentifier:kSettingInfoCell];
         [_userInfoListView registerClass:[DLUserInfoHeaderCell class] forCellReuseIdentifier:kUserInfoHeaderCell];
         [_userInfoListView registerClass:[DLUserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
+        [_userInfoListView registerClass:[DLSettingClickCell class] forCellReuseIdentifier:kDLSettingClickCell];
+
         
     }
     
@@ -164,7 +170,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
                 break;
             case 1:
             {
-                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
+                DLSettingClickCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLSettingClickCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Recommend to friends", comment: "")];
                 
                 return cell;
