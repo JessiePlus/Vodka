@@ -196,13 +196,13 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 }
 
 -(void)tryUpdateDeleteFeed:(NSNotification *)notification{
-    __weak __typeof__(self) weakSelf = self;
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSArray <DLFeedItem *> *feedItems = [DLFeedItem findByCriteria:[NSString stringWithFormat:@"where pk_id > %d limit %d",0 ,kPageCount]];
-        weakSelf.feedItemList = [feedItems mutableCopy];
+        self.feedItemList = [feedItems mutableCopy];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.feedsListView reloadData];
+            [self.feedsListView reloadData];
         });
     });
 }
