@@ -11,6 +11,10 @@
 #import "DLSettingInfoCell.h"
 #import "DLSettingInfoSwitchCell.h"
 #import "DLSettingClickCell.h"
+#import "DLFeedItem.h"
+#import "DLFeedInfo.h"
+#import "AppUtil.h"
+
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -177,6 +181,32 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
     }
     
     return 20;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    if (section == 0) {
+        switch (row) {
+            case 1:
+            {
+                //清除缓存
+                [DLFeedInfo clearTable];
+                [DLFeedItem clearTable];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
+
+
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+
     
 }
 
