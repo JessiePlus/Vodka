@@ -23,6 +23,7 @@
 #import "DLRSS.h"
 #import "DLFeedInfo.h"
 #import "DLFeedItem.h"
+#import "DLSignInViewController.h"
 
 static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 
@@ -240,6 +241,21 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
 }
 
 -(void)rightBtnClicked {
+    
+    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+    NSString *accessToken = [userDefaults accessToken];
+    
+    BOOL bSignIn = accessToken?YES:NO;
+    
+    if (!bSignIn) {
+        DLSignInViewController *loginViewController = [[DLSignInViewController alloc] init];
+        UINavigationController *navLoginController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        
+        [self presentViewController:navLoginController animated:YES completion:nil];
+        
+        return;
+    }
+    
     
     DLAddRSSGroupViewController *feedEditViewController = [[DLAddRSSGroupViewController alloc] init];
     feedEditViewController.hidesBottomBarWhenPushed = YES;
