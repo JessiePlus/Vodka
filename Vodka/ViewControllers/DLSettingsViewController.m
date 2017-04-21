@@ -18,6 +18,8 @@
 #import <MBProgressHUD.h>
 #import "VodkaUserDefaults.h"
 #import "LKDBTool.h"
+#import "DLRSSGroup.h"
+#import "DLRSS.h"
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -205,9 +207,15 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
                     [DLFeedInfo clearTable];
                     [DLFeedItem clearTable];
                     
+                    [DLRSSGroup clearTable];
+                    [DLRSS clearTable];
+
+                    
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [hud hideAnimated:YES];
                         [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameDeleteFeed] object:nil userInfo:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameAddRSSGroup] object:nil userInfo:nil];
+
                     });
                     
                 });

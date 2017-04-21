@@ -56,7 +56,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [self.feedsListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.top.equalTo(self.view).offset(64);
         make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     

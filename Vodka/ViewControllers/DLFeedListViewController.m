@@ -25,7 +25,7 @@
 static const int kPageCount = 10;
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
-@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
+@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 //用户信息列表
 @property (nonatomic) UITableView *feedsListView;
 @property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
@@ -158,6 +158,8 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
         
         _searchController = [[UISearchController alloc] initWithSearchResultsController:self.feedSearchListViewController];
         _searchController.searchResultsUpdater = self;
+        _searchController.delegate = self;
+
         _searchController.searchBar.delegate = self;
         [_searchController.searchBar sizeToFit];
 
