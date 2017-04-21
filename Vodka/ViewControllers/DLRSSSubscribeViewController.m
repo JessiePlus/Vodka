@@ -23,7 +23,6 @@
 #import "DLFeedItem.h"
 #import "AppUtil.h"
 
-static NSString *const kUserInfoCell = @"kUserInfoCell";
 static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 @interface DLRSSSubscribeViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -32,7 +31,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 @property (nonatomic) UITableView *RSSSubscribeListView;
 
 @property (nonatomic) NSMutableArray <DLRSS *>*RSSList;
-
+//计算高度
+@property (nonatomic, strong) UITableViewCell *templateCell;
 
 @end
 
@@ -86,6 +86,8 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     self.RSSSubscribeListView.dataSource = self;
     self.RSSSubscribeListView.delegate = self;
     
+    self.templateCell = [self.RSSSubscribeListView dequeueReusableCellWithIdentifier:kUserInfoSwitchCell];
+
     self.RSSSubscribeListView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         [XMCenter sendRequest:^(XMRequest *request) {
@@ -140,7 +142,6 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
     if (!_RSSSubscribeListView) {
         _RSSSubscribeListView = [[UITableView alloc] init];
         _RSSSubscribeListView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_RSSSubscribeListView registerClass:[DLUserInfoCell class] forCellReuseIdentifier:kUserInfoCell];
         [_RSSSubscribeListView registerClass:[DLUserInfoSwitchCell class] forCellReuseIdentifier:kUserInfoSwitchCell];
         
     }
@@ -156,10 +157,25 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    return 60;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    NSInteger row = indexPath.row;
+    
+    DLRSS *RSS = self.RSSList[row];
+    
+    DLUserInfoSwitchCell *cell = (DLUserInfoSwitchCell *)self.templateCell;
+    [cell.titleLab setText:RSS.name];
+    
+    CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;
+    if (cellHeight < 60) {
+        cellHeight = 60;
+    }
+    
+    
+    return cellHeight;
+    
 }
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

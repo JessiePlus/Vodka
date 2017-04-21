@@ -37,12 +37,15 @@
     }];
     
     [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@24);
+        make.top.equalTo(self.contentView).offset(4);
+        make.bottom.equalTo(self.contentView).offset(-4);
+
         make.left.equalTo(self.iconImageView.mas_right).offset(15);
         make.centerY.equalTo(self.contentView);
     }];
     
-    [self.titleLab sizeToFit];
+    [self.titleLab setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+
     
 }
 
@@ -66,6 +69,8 @@
     if (!_titleLab) {
         _titleLab = [[UILabel alloc] init];
         _titleLab.font = [UIFont systemFontOfSize:15 weight:UIFontWeightLight];
+        _titleLab.numberOfLines = 0;
+        _titleLab.preferredMaxLayoutWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - 120; // 多行时必须设置
     }
     
     return _titleLab;
