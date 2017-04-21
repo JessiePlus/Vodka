@@ -55,6 +55,7 @@
 		D63612621E6ABBA900C2322D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D63612641E6ABBA900C2322D /* Localizable.strings */; };
 		D63612751E6BA44000C2322D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D63612741E6BA44000C2322D /* User.m */; };
 		D659EFE11EA9F46200B7EF0D /* DLFeedSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D659EFE01EA9F46200B7EF0D /* DLFeedSearchListViewController.m */; };
+		D659EFE31EAA24AE00B7EF0D /* licence.html in Resources */ = {isa = PBXBuildFile; fileRef = D659EFE21EAA24AE00B7EF0D /* licence.html */; };
 		D671089B1EA129070005AEC5 /* DLFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D671089A1EA129070005AEC5 /* DLFeed.m */; };
 		D67108A51EA1AEB00005AEC5 /* LKDBColumnDes.m in Sources */ = {isa = PBXBuildFile; fileRef = D671089E1EA1AEB00005AEC5 /* LKDBColumnDes.m */; };
 		D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A01EA1AEB00005AEC5 /* LKDBModel.m */; };
@@ -140,6 +141,7 @@
 		D653E88A1E9D2ABD0005E698 /* Vodka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vodka.entitlements; sourceTree = "<group>"; };
 		D659EFDF1EA9F46200B7EF0D /* DLFeedSearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeedSearchListViewController.h; sourceTree = "<group>"; };
 		D659EFE01EA9F46200B7EF0D /* DLFeedSearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedSearchListViewController.m; sourceTree = "<group>"; };
+		D659EFE21EAA24AE00B7EF0D /* licence.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = licence.html; sourceTree = "<group>"; };
 		D67108991EA129070005AEC5 /* DLFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeed.h; sourceTree = "<group>"; };
 		D671089A1EA129070005AEC5 /* DLFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeed.m; sourceTree = "<group>"; };
 		D671089D1EA1AEB00005AEC5 /* LKDBColumnDes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBColumnDes.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				D62C2D891E8CC25A00C065A3 /* font-awesome.min.css */,
 				D62C2D8A1E8CC25A00C065A3 /* main.css */,
 				D62C2D8B1E8CC25A00C065A3 /* post.html */,
+				D659EFE21EAA24AE00B7EF0D /* licence.html */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 			files = (
 				D62C2D8C1E8CC25A00C065A3 /* bootstrap.min.css in Resources */,
 				D636124C1E6A659200C2322D /* Images.xcassets in Resources */,
+				D659EFE31EAA24AE00B7EF0D /* licence.html in Resources */,
 				D62C2D8E1E8CC25A00C065A3 /* main.css in Resources */,
 				D62C2D8D1E8CC25A00C065A3 /* font-awesome.min.css in Resources */,
 				D6188C0A1E86EBFB0020EA7F /* InfoPlist.strings in Resources */,

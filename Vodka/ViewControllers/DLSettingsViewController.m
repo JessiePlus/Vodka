@@ -96,7 +96,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
         return 3;
     }
     if (section == 1) {
-        return 2;
+        return 1;
     }
     
     return 0;
@@ -152,19 +152,12 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             case 0:
             {
                 DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:NSLocalizedString(@"User Agreement", comment: "")];
+                [cell.titleLab setText:NSLocalizedString(@"License", comment: "")];
                 
                 return cell;
             }
                 break;
-            case 1:
-            {
-                DLSettingInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:kSettingInfoCell forIndexPath:indexPath];
-                [cell.titleLab setText:NSLocalizedString(@"Privacy Policy", comment: "")];
-                
-                return cell;
-            }
-                break;
+
             default:
                 break;
         }
@@ -228,24 +221,17 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
         switch (row) {
             case 0:
             {
-                //用户协议
+                //开源许可
                 KINWebBrowserViewController *webViewController = [[KINWebBrowserViewController alloc]init];
                 [self.navigationController pushViewController:webViewController animated:YES];
                 
-                webViewController.title = NSLocalizedString(@"User Agreement", comment: "");
+                webViewController.title = NSLocalizedString(@"License", comment: "");
                 webViewController.showsPageTitleInNavigationBar = NO;
+                NSString *htmlString = [self readResourceContent:@"licence.html"];
+                [webViewController loadHTMLString:htmlString];
             }
                 break;
-            case 1:
-            {
-                //隐私权声明
-                KINWebBrowserViewController *webViewController = [[KINWebBrowserViewController alloc]init];
-                [self.navigationController pushViewController:webViewController animated:YES];
-                
-                webViewController.title = NSLocalizedString(@"Privacy Policy", comment: "");
-                webViewController.showsPageTitleInNavigationBar = NO;
-            }
-                break;
+
             default:
                 break;
         }
@@ -257,6 +243,13 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
 
 -(void)leftBtnClicked {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (NSString *)readResourceContent:(NSString*)name{
+    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+    NSString *string = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    if(!string)return @"";
+    return string;
 }
 
 - (void)didReceiveMemoryWarning {
