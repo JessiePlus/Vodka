@@ -11,7 +11,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import "DLFeedInfo.h"
-#import "DLFeedItem.h"
 #import "DLFeedInfoCell.h"
 #import <XMNetworking/XMNetworking.h>
 #import <MWFeedParser.h>
@@ -23,10 +22,7 @@
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
 @interface DLFeedSearchListViewController ()<UITableViewDelegate, UITableViewDataSource>
-//用户信息列表
-@property (nonatomic) UITableView *feedsListView;
 
-@property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
 //计算高度
 @property (nonatomic, strong) UITableViewCell *templateCell;
 
@@ -60,14 +56,13 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [self.feedsListView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
         make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
     
     self.feedsListView.backgroundColor = [UIColor whiteColor];
     self.feedsListView.dataSource = self;
-    self.feedsListView.delegate = self;
 
     self.templateCell = [self.feedsListView dequeueReusableCellWithIdentifier:kDLFeedInfoCell];
 }
@@ -94,25 +89,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     return self.feedItemList.count;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
-    NSInteger row = indexPath.row;
-    
-    DLFeedItem *feedItem = self.feedItemList[row];
-    
-    DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
-    
-    cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
-    cell.itemDateLab.text = feedItem.date ? [feedItem.date stringByConvertingHTMLToPlainText] : @"[No Date]";
-    cell.infoTitleLab.text = feedItem.fi_feedUrl_fk ? [feedItem.fi_feedUrl_fk stringByConvertingHTMLToPlainText] : @"[No FeedUrl]";
-    
-    CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;;
-    
-    return cellHeight;
-    
-}
-
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger row = indexPath.row;
@@ -131,42 +107,6 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     return [[UITableViewCell alloc] initWithFrame:CGRectZero];
     
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    NSInteger row = indexPath.row;
-    
-    DLFeedItem *feedItem = self.feedItemList[row];
-    
-    DLFeedViewController *feedViewController = [[DLFeedViewController alloc] init];
-    feedViewController.feedItem = feedItem;
-    
-    feedViewController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:feedViewController animated:YES];
-    
-    
-}
-
--(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSString *searchString = searchController.searchBar.text;
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        //查询数据库
-        NSArray <DLFeedItem *>*searchResults = [DLFeedItem findByCriteria:[NSString stringWithFormat:@" WHERE content LIKE '%%%@%%' or title LIKE '%%%@%%'",searchString, searchString]];
-        
-        self.feedItemList = [searchResults mutableCopy];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.feedsListView reloadData];
-        });
-    });
-    
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 

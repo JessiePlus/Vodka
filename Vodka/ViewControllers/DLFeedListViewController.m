@@ -25,18 +25,19 @@
 static const int kPageCount = 10;
 static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 
-@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate>
+@interface DLFeedListViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
 //用户信息列表
 @property (nonatomic) UITableView *feedsListView;
+@property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
 
 @property (strong,nonatomic) DLFeedFetcher *feedFetcher;
 
-@property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
 //计算高度
 @property (nonatomic, strong) UITableViewCell *templateCell;
 
 //搜索
 @property (nonatomic) UISearchController *searchController;
+@property (nonatomic, strong) DLFeedSearchListViewController *feedSearchListViewController;
 
 
 @end
@@ -64,12 +65,16 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateDeleteFeed:) name:[AppUtil notificationNameLogout] object:nil];
 
     
+    _feedSearchListViewController = [[DLFeedSearchListViewController alloc] init];
+    
+    self.feedSearchListViewController.feedsListView.delegate = self;
     
     _feedFetcher = [[DLFeedFetcher alloc] init];
 
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    self.definesPresentationContext = YES;
+
     [self.view addSubview:self.feedsListView];
 
     //导航栏
@@ -151,14 +156,9 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 -(UISearchController *)searchController {
     if (!_searchController) {
         
-        DLFeedSearchListViewController *feedSearchListViewController = [[DLFeedSearchListViewController alloc] init];
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:[[UINavigationController alloc] initWithRootViewController:feedSearchListViewController]];
-        
-        _searchController.delegate = self;
-        
-        self.definesPresentationContext = YES;
-        _searchController.searchResultsUpdater = feedSearchListViewController;
-        _searchController.searchBar.delegate = feedSearchListViewController;
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.feedSearchListViewController];
+        _searchController.searchResultsUpdater = self;
+        _searchController.searchBar.delegate = self;
         [_searchController.searchBar sizeToFit];
 
         
@@ -178,10 +178,10 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     
     NSInteger row = indexPath.row;
     
-    DLFeedItem *feedItem = self.feedItemList[row];
-
+    DLFeedItem *feedItem = (tableView == self.feedsListView) ?
+    self.feedItemList[row] : self.feedSearchListViewController.feedItemList[row];
+    
     DLFeedInfoCell *cell = (DLFeedInfoCell *)self.templateCell;
-
     cell.itemTitleLab.text = feedItem.title ? [feedItem.title stringByConvertingHTMLToPlainText] : @"[No Title]";
     cell.itemDateLab.text = feedItem.date ? [feedItem.date stringByConvertingHTMLToPlainText] : @"[No Date]";
     cell.infoTitleLab.text = feedItem.fi_feedUrl_fk ? [feedItem.fi_feedUrl_fk stringByConvertingHTMLToPlainText] : @"[No FeedUrl]";
@@ -216,8 +216,9 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSInteger row = indexPath.row;
-    
-    DLFeedItem *feedItem = self.feedItemList[row];
+
+    DLFeedItem *feedItem = (tableView == self.feedsListView) ?
+    self.feedItemList[row] : self.feedSearchListViewController.feedItemList[row];
     
     DLFeedViewController *feedViewController = [[DLFeedViewController alloc] init];
     feedViewController.feedItem = feedItem;
@@ -226,6 +227,30 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [self.navigationController pushViewController:feedViewController animated:YES];
 
 
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *searchString = searchController.searchBar.text;
+    
+    DLFeedSearchListViewController *feedSearchListViewController = (DLFeedSearchListViewController *)searchController.searchResultsController;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        //查询数据库
+        NSArray <DLFeedItem *>*searchResults = [DLFeedItem findByCriteria:[NSString stringWithFormat:@" WHERE content LIKE '%%%@%%' or title LIKE '%%%@%%'",searchString, searchString]];
+        
+        feedSearchListViewController.feedItemList = [searchResults mutableCopy];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [feedSearchListViewController.feedsListView reloadData];
+        });
+    });
+    
 }
 
 -(void)tryUpdateDeleteFeed:(NSNotification *)notification{

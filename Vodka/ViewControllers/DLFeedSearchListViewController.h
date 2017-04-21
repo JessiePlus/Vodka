@@ -7,7 +7,11 @@
 //
 
 #import "DLBaseViewController.h"
+#import "DLFeedItem.h"
 
-@interface DLFeedSearchListViewController : DLBaseViewController <UISearchBarDelegate,UISearchResultsUpdating>
+@interface DLFeedSearchListViewController : DLBaseViewController
+//用户信息列表
+@property (nonatomic) UITableView *feedsListView;
+@property (nonatomic) NSMutableArray <DLFeedItem *> *feedItemList;
 
 @end
