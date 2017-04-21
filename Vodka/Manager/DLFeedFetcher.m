@@ -58,6 +58,13 @@
     
     [self loadRSSList];
     
+    if (!self.RSSList) {
+        if (self.onStopLoadFeeds) {
+            self.onStopLoadFeeds();
+        }
+        return;
+    }
+    
     //所有RSS解析完成的时候，执行完成回调
     NSOperation *endOperation = [[NSOperation alloc] init];
     endOperation.completionBlock = ^{
@@ -82,15 +89,11 @@
             //解析完成，缓存到数据库
             DLFeedInfo *feedInfo = feed.feedInfo;
             
-            dispatch_async(_sqliteQueue, ^{
-                [feedInfo saveOrUpdateByColumnName:@"feedUrl" AndColumnValue:feedInfo.feedUrl];
-            });
+            [feedInfo saveOrUpdateByColumnName:@"feedUrl" AndColumnValue:feedInfo.feedUrl];
             
             NSArray <DLFeedItem *> *allFeedItems = feed.allFeedItems;
             for (DLFeedItem *feedItem in allFeedItems) {
-                dispatch_async(_sqliteQueue, ^{
-                    [feedItem saveOrUpdateByColumnName:@"url" AndColumnValue:feedItem.url];
-                });
+                [feedItem saveOrUpdateByColumnName:@"url" AndColumnValue:feedItem.url];
             }
             
         };

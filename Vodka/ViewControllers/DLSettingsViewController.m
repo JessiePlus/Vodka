@@ -16,6 +16,8 @@
 #import "AppUtil.h"
 #import <KINWebBrowserViewController.h>
 #import <MBProgressHUD.h>
+#import "VodkaUserDefaults.h"
+#import "LKDBTool.h"
 
 static NSString *const kSettingInfoCell = @"kSettingInfoCell";
 static NSString *const kSettingInfoSwitchCell = @"kSettingInfoSwitchCell";
@@ -93,7 +95,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        return 3;
+        return 4;
     }
     if (section == 1) {
         return 1;
@@ -134,6 +136,14 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             }
                 break;
             case 2:
+            {
+                DLSettingClickCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLSettingClickCell forIndexPath:indexPath];
+                [cell.titleLab setText:NSLocalizedString(@"Logout", comment: "")];
+                
+                return cell;
+            }
+                break;
+            case 3:
             {
                 DLSettingClickCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLSettingClickCell forIndexPath:indexPath];
                 [cell.titleLab setText:NSLocalizedString(@"Evaluate", comment: "")];
@@ -205,6 +215,31 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             }
                 break;
             case 2:
+            {
+                //退出登录
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeAnnularDeterminate;
+                hud.label.text = NSLocalizedString(@"Logout", comment: "");
+                
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    
+                    VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
+                    [userDefaults setAccessToken:nil];
+                    [userDefaults setName:nil];
+                    [userDefaults setUserID:nil];
+
+                    [[LKDBTool shareInstance] changeDBWithDirectoryName:nil];
+
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [hud hideAnimated:YES];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameLogout] object:nil userInfo:nil];
+                    });
+                    
+                });
+                
+            }
+                break;
+            case 3:
             {
                 //给我评分
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com"] options:@{} completionHandler:nil];

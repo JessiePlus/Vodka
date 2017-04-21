@@ -65,6 +65,10 @@
     return @"Vodka.Notification.DeleteFeed";
 }
 
++(NSString *)notificationNameLogout {
+    return @"Vodka.Notification.Logout";
+}
+
 
 
 +(NSString *)appGroupID {

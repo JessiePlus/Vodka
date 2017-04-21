@@ -83,7 +83,7 @@ static LKDBTool *_instance = nil;
         classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
         numClasses = objc_getClassList(classes, numClasses);
         for (int i = 0; i < numClasses; i++) {
-            if (class_getSuperclass(classes[i]) == [LKDBTool class]){
+            if (class_getSuperclass(classes[i]) == [LKDBModel class]){
                 id class = classes[i];
                 [class performSelector:@selector(createTable) withObject:nil];
             }

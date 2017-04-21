@@ -61,6 +61,7 @@ static NSString *const kDLFeedInfoCell = @"DLFeedInfoCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateDeleteFeed:) name:[AppUtil notificationNameDeleteFeed] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateDeleteFeed:) name:[AppUtil notificationNameLogout] object:nil];
 
     
     

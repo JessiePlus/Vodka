@@ -59,6 +59,8 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
     // Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateSignIn:) name:[AppUtil notificationNameSignIn] object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateSignIn:) name:[AppUtil notificationNameLogout] object:nil];
+
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     

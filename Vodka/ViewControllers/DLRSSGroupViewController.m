@@ -57,6 +57,8 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateAddRSSGroup:) name:[AppUtil notificationNameAddRSSGroup] object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tryUpdateAddRSSGroup:) name:[AppUtil notificationNameLogout] object:nil];
 
     //导航栏
     self.navigationItem.title = NSLocalizedString(@"Discover", comment: "");

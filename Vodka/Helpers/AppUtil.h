@@ -19,6 +19,7 @@
 +(NSString *)notificationNameAddRSSGroup;
 +(NSString *)notificationNameAddRSS;
 +(NSString *)notificationNameDeleteFeed;
++(NSString *)notificationNameLogout;
 
 
 
