@@ -449,7 +449,7 @@
 				TargetAttributes = {
 					D636123B1E6A659100C2322D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = U3ANN6J6MB;
+						DevelopmentTeam = SFZX37BH94;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -737,12 +737,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Vodka/Vodka.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U3ANN6J6MB;
+				DEVELOPMENT_TEAM = SFZX37BH94;
 				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vodka.Newsmore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -754,12 +756,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Vodka/Vodka.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U3ANN6J6MB;
+				DEVELOPMENT_TEAM = SFZX37BH94;
 				GCC_PREFIX_HEADER = "Vodka/Supporting Files/Vodka-Prefix.pch";
 				INFOPLIST_FILE = Vodka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Hangzhou.Vodka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vodka.Newsmore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

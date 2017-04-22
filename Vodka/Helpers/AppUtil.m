@@ -72,7 +72,7 @@
 
 
 +(NSString *)appGroupID {
-    return @"com.Vodka.Newsmore";
+    return @"group.com.Vodka.Newsmore";
 }
 
 @end

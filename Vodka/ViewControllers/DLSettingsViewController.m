@@ -250,7 +250,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
             case 3:
             {
                 //给我评分
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com"] options:@{} completionHandler:nil];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1229337758"] options:@{} completionHandler:nil];
 
             }
                 break;
