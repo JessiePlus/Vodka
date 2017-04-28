@@ -9,18 +9,18 @@
 #import "LKDBModel.h"
 
 
-@interface DLRSS : LKDBModel
-
+@interface DLRSSDicover : LKDBModel
+    
 @property (nonatomic, assign) int pk_id;
 
 @property (nonatomic, copy) NSString *r_id;
 
 //RSS的名称
 @property (nonatomic, copy) NSString *name;
-    
+
 //RSS的描述
 @property (nonatomic, copy) NSString *discrip;
-    
+
 //RSS的图标
 @property (nonatomic, copy) NSString *iconUrl;
 

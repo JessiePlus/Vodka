@@ -35,6 +35,10 @@
 		D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C111E8818780020EA7F /* DLSettingInfoSwitchCell.m */; };
 		D6188C1E1E896D9E0020EA7F /* AppDelegate+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C1D1E896D9E0020EA7F /* AppDelegate+Logging.m */; };
 		D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6188C221E89F9E90020EA7F /* DLBaseViewController.m */; };
+		D62470891EB30D7600FDD772 /* DLDiscoverContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62470881EB30D7600FDD772 /* DLDiscoverContainerViewController.m */; };
+		D624B0A11EAF3FF000D9B936 /* DLDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D624B0A01EAF3FF000D9B936 /* DLDiscoverViewController.m */; };
+		D624B0A41EAF42F900D9B936 /* DLRSSInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D624B0A31EAF42F900D9B936 /* DLRSSInfoCell.m */; };
+		D624B0A71EAF4BBC00D9B936 /* DLRSSDicover.m in Sources */ = {isa = PBXBuildFile; fileRef = D624B0A61EAF4BBC00D9B936 /* DLRSSDicover.m */; };
 		D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */; };
 		D62C2D7D1E8B5ED300C065A3 /* DLRSSGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */; };
 		D62C2D801E8B5F6400C065A3 /* DLRSS.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C2D7F1E8B5F6400C065A3 /* DLRSS.m */; };
@@ -104,6 +108,14 @@
 		D6188C201E8970920020EA7F /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		D6188C211E89F9E90020EA7F /* DLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBaseViewController.h; sourceTree = "<group>"; };
 		D6188C221E89F9E90020EA7F /* DLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBaseViewController.m; sourceTree = "<group>"; };
+		D62470871EB30D7600FDD772 /* DLDiscoverContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDiscoverContainerViewController.h; sourceTree = "<group>"; };
+		D62470881EB30D7600FDD772 /* DLDiscoverContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDiscoverContainerViewController.m; sourceTree = "<group>"; };
+		D624B09F1EAF3FF000D9B936 /* DLDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDiscoverViewController.h; sourceTree = "<group>"; };
+		D624B0A01EAF3FF000D9B936 /* DLDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDiscoverViewController.m; sourceTree = "<group>"; };
+		D624B0A21EAF42F900D9B936 /* DLRSSInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSInfoCell.h; sourceTree = "<group>"; };
+		D624B0A31EAF42F900D9B936 /* DLRSSInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSInfoCell.m; sourceTree = "<group>"; };
+		D624B0A51EAF4BBC00D9B936 /* DLRSSDicover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSDicover.h; sourceTree = "<group>"; };
+		D624B0A61EAF4BBC00D9B936 /* DLRSSDicover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRSSDicover.m; sourceTree = "<group>"; };
 		D62C2D781E8B5D4E00C065A3 /* DLCategoryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCategoryInfoCell.h; sourceTree = "<group>"; };
 		D62C2D791E8B5D4E00C065A3 /* DLCategoryInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCategoryInfoCell.m; sourceTree = "<group>"; };
 		D62C2D7B1E8B5ED300C065A3 /* DLRSSGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRSSGroup.h; sourceTree = "<group>"; };
@@ -248,6 +260,8 @@
 				D62C2D7C1E8B5ED300C065A3 /* DLRSSGroup.m */,
 				D67108991EA129070005AEC5 /* DLFeed.h */,
 				D671089A1EA129070005AEC5 /* DLFeed.m */,
+				D624B0A51EAF4BBC00D9B936 /* DLRSSDicover.h */,
+				D624B0A61EAF4BBC00D9B936 /* DLRSSDicover.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +349,10 @@
 				D636125C1E6A89DC00C2322D /* DLUserCenterViewController.m */,
 				D67108B51EA8D83D0005AEC5 /* DLFeedbackViewController.h */,
 				D67108B61EA8D83D0005AEC5 /* DLFeedbackViewController.m */,
+				D624B09F1EAF3FF000D9B936 /* DLDiscoverViewController.h */,
+				D624B0A01EAF3FF000D9B936 /* DLDiscoverViewController.m */,
+				D62470871EB30D7600FDD772 /* DLDiscoverContainerViewController.h */,
+				D62470881EB30D7600FDD772 /* DLDiscoverContainerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -362,6 +380,8 @@
 				D67108B91EA8DAEF0005AEC5 /* DLFeedbackContentCell.m */,
 				D67108BB1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.h */,
 				D67108BC1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m */,
+				D624B0A21EAF42F900D9B936 /* DLRSSInfoCell.h */,
+				D624B0A31EAF42F900D9B936 /* DLRSSInfoCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -579,9 +599,12 @@
 				D67108A81EA1AEB00005AEC5 /* LKDBTool.m in Sources */,
 				D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */,
 				D6ECE8251E8F9F5F008036A0 /* DLFeedItem.m in Sources */,
+				D62470891EB30D7600FDD772 /* DLDiscoverContainerViewController.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
 				D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */,
+				D624B0A41EAF42F900D9B936 /* DLRSSInfoCell.m in Sources */,
+				D624B0A71EAF4BBC00D9B936 /* DLRSSDicover.m in Sources */,
 				D62C2D981E8CCA4A00C065A3 /* DLAddRSSViewController.m in Sources */,
 				D6188BD51E84C04D0020EA7F /* DLUserInfoCell.m in Sources */,
 				D6188BDB1E84FA340020EA7F /* DLUserInfoSwitchCell.m in Sources */,
@@ -606,6 +629,7 @@
 				D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */,
 				D6188BD81E84EFBF0020EA7F /* DLUserInfoHeaderCell.m in Sources */,
 				D6ECE8221E8F9F4C008036A0 /* DLFeedInfo.m in Sources */,
+				D624B0A11EAF3FF000D9B936 /* DLDiscoverViewController.m in Sources */,
 				D62C2D971E8CCA4A00C065A3 /* DLAddRSSGroupViewController.m in Sources */,
 				D63612411E6A659200C2322D /* main.m in Sources */,
 			);

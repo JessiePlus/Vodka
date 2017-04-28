@@ -6,12 +6,12 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "DLRSS.h"
+#import "DLRSSDicover.h"
 #import "LKDBTool.h"
 
-@implementation DLRSS
-
-//必须重写此方法
+@implementation DLRSSDicover
+    
+    //必须重写此方法
 + (NSDictionary *)describeColumnDict{
     
     LKDBColumnDes *pk_id = [[LKDBColumnDes alloc] initWithAuto:YES isNotNull:NO check:nil defaultVa:nil];
@@ -44,7 +44,7 @@
     
     LKDBColumnDes *open = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     open.columnName = @"open";
-
+    
     return @{@"pk_id":pk_id,@"r_id":r_id,@"name":name,@"discrip":discrip,@"iconUrl":iconUrl,@"feedUrl":feedUrl,@"linkUrl":linkUrl,@"rg_id_fk":rg_id_fk,@"u_id_fk":u_id_fk,@"open":open};
 }
-@end
+    @end

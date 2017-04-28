@@ -6,7 +6,8 @@
   Copyright © 2017年 dinglin. All rights reserved.
 */
 "Feeds" = "Feeds";
-"Discover" = "Subscriptions";
+"Discover" = "Discover";
+"Subscribe" = "Subscribe";
 "Me" = "Me";
 "Search" = "Search";
 "Sign in" = "Sign in";

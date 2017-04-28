@@ -15,6 +15,7 @@
 #import <XMNetworking/XMNetworking.h>
 #import "VodkaUserDefaults.h"
 #import "LKDBTool.h"
+#import "DLDiscoverContainerViewController.h"
 
 @interface AppDelegate ()
 
@@ -57,7 +58,15 @@
     UINavigationController *navFeedsController = [[UINavigationController alloc] initWithRootViewController:feedsViewController];
 
 
-    DLRSSGroupViewController *discoverViewController = [[DLRSSGroupViewController alloc] init];
+    DLRSSGroupViewController *RSSGroupViewController = [[DLRSSGroupViewController alloc] init];
+    RSSGroupViewController.tabBarItem.title = NSLocalizedString(@"Subscribe", comment: "");
+    RSSGroupViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
+    RSSGroupViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];
+    
+    UINavigationController *navRSSGroupController = [[UINavigationController alloc] initWithRootViewController:RSSGroupViewController];
+    
+    DLDiscoverContainerViewController *discoverViewController = [[DLDiscoverContainerViewController alloc] init];
+
     discoverViewController.tabBarItem.title = NSLocalizedString(@"Discover", comment: "");
     discoverViewController.tabBarItem.image = [UIImage imageNamed:@"icon_explore"];
     discoverViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_explore_active"];
@@ -74,7 +83,7 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navDiscoverController, navFeedsController, navUserCenterController, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navRSSGroupController, navFeedsController, navDiscoverController, navUserCenterController, nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;
