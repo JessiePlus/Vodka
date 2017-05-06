@@ -17,7 +17,7 @@
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import <XMNetworking.h>
-#import "LKDBSQLState.h"
+#import <DLDBSQLState.h>
 #import "VodkaUserDefaults.h"
 #import "DLFeedInfo.h"
 #import "DLFeedItem.h"
@@ -222,14 +222,14 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
-                LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+                DLDBSQLState *query1 = [[DLDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
                 [DLFeedInfo deleteObjectsByCriteria:[query1 sqlOptionStr]];
                 
-                LKDBSQLState *query2 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+                DLDBSQLState *query2 = [[DLDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
                 [DLFeedItem deleteObjectsByCriteria:[query2 sqlOptionStr]];
                 
                 //删除缓存
-                LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"r_id" opt:@"=" value:RSS.r_id];
+                DLDBSQLState *query = [[DLDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"r_id" opt:@"=" value:RSS.r_id];
                 [DLRSS deleteObjectsByCriteria:[query sqlOptionStr]];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -264,7 +264,7 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
 
 -(void)tryUpdateAddRSS:(NSNotification *)notification{
     // 查询出全部的RSS
-    LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:self.RSSGroup.rg_id];
+    DLDBSQLState *query = [[DLDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:self.RSSGroup.rg_id];
     NSArray *RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
     
     self.RSSList = [RSSList mutableCopy];
@@ -295,10 +295,10 @@ static NSString *const kUserInfoSwitchCell = @"kUserInfoSwitchCell";
             [RSS saveOrUpdateByColumnName:@"r_id" AndColumnValue:RSS.r_id];
             if (!sender.on) {
                 //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
-                LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+                DLDBSQLState *query1 = [[DLDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
                 [DLFeedInfo deleteObjectsByCriteria:[query1 sqlOptionStr]];
                 
-                LKDBSQLState *query2 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+                DLDBSQLState *query2 = [[DLDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
                 [DLFeedItem deleteObjectsByCriteria:[query2 sqlOptionStr]];
             }
             

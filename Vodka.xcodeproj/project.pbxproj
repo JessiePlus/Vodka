@@ -61,10 +61,6 @@
 		D659EFE11EA9F46200B7EF0D /* DLFeedSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D659EFE01EA9F46200B7EF0D /* DLFeedSearchListViewController.m */; };
 		D659EFE31EAA24AE00B7EF0D /* licence.html in Resources */ = {isa = PBXBuildFile; fileRef = D659EFE21EAA24AE00B7EF0D /* licence.html */; };
 		D671089B1EA129070005AEC5 /* DLFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D671089A1EA129070005AEC5 /* DLFeed.m */; };
-		D67108A51EA1AEB00005AEC5 /* LKDBColumnDes.m in Sources */ = {isa = PBXBuildFile; fileRef = D671089E1EA1AEB00005AEC5 /* LKDBColumnDes.m */; };
-		D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A01EA1AEB00005AEC5 /* LKDBModel.m */; };
-		D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A21EA1AEB00005AEC5 /* LKDBSQLState.m */; };
-		D67108A81EA1AEB00005AEC5 /* LKDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108A41EA1AEB00005AEC5 /* LKDBTool.m */; };
 		D67108AF1EA4B8D60005AEC5 /* VodkaUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */; };
 		D67108B41EA858D10005AEC5 /* DLSettingClickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108B31EA858D10005AEC5 /* DLSettingClickCell.m */; };
 		D67108B71EA8D83D0005AEC5 /* DLFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67108B61EA8D83D0005AEC5 /* DLFeedbackViewController.m */; };
@@ -156,14 +152,6 @@
 		D659EFE21EAA24AE00B7EF0D /* licence.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = licence.html; sourceTree = "<group>"; };
 		D67108991EA129070005AEC5 /* DLFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFeed.h; sourceTree = "<group>"; };
 		D671089A1EA129070005AEC5 /* DLFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeed.m; sourceTree = "<group>"; };
-		D671089D1EA1AEB00005AEC5 /* LKDBColumnDes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBColumnDes.h; sourceTree = "<group>"; };
-		D671089E1EA1AEB00005AEC5 /* LKDBColumnDes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBColumnDes.m; sourceTree = "<group>"; };
-		D671089F1EA1AEB00005AEC5 /* LKDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBModel.h; sourceTree = "<group>"; };
-		D67108A01EA1AEB00005AEC5 /* LKDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBModel.m; sourceTree = "<group>"; };
-		D67108A11EA1AEB00005AEC5 /* LKDBSQLState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBSQLState.h; sourceTree = "<group>"; };
-		D67108A21EA1AEB00005AEC5 /* LKDBSQLState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBSQLState.m; sourceTree = "<group>"; };
-		D67108A31EA1AEB00005AEC5 /* LKDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKDBTool.h; sourceTree = "<group>"; };
-		D67108A41EA1AEB00005AEC5 /* LKDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKDBTool.m; sourceTree = "<group>"; };
 		D67108AD1EA4B8D60005AEC5 /* VodkaUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VodkaUserDefaults.h; sourceTree = "<group>"; };
 		D67108AE1EA4B8D60005AEC5 /* VodkaUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodkaUserDefaults.m; sourceTree = "<group>"; };
 		D67108B21EA858D10005AEC5 /* DLSettingClickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSettingClickCell.h; sourceTree = "<group>"; };
@@ -287,7 +275,6 @@
 		D636123E1E6A659200C2322D /* Vodka */ = {
 			isa = PBXGroup;
 			children = (
-				D671089C1EA1AEB00005AEC5 /* LKFMDB */,
 				D6A3E2E51E6BBEEA008CF763 /* Extensions */,
 				D6188C141E8961070020EA7F /* Helpers */,
 				D62C2D991E8D4F8200C065A3 /* Manager */,
@@ -411,21 +398,6 @@
 			children = (
 			);
 			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		D671089C1EA1AEB00005AEC5 /* LKFMDB */ = {
-			isa = PBXGroup;
-			children = (
-				D671089D1EA1AEB00005AEC5 /* LKDBColumnDes.h */,
-				D671089E1EA1AEB00005AEC5 /* LKDBColumnDes.m */,
-				D671089F1EA1AEB00005AEC5 /* LKDBModel.h */,
-				D67108A01EA1AEB00005AEC5 /* LKDBModel.m */,
-				D67108A11EA1AEB00005AEC5 /* LKDBSQLState.h */,
-				D67108A21EA1AEB00005AEC5 /* LKDBSQLState.m */,
-				D67108A31EA1AEB00005AEC5 /* LKDBTool.h */,
-				D67108A41EA1AEB00005AEC5 /* LKDBTool.m */,
-			);
-			path = LKFMDB;
 			sourceTree = "<group>";
 		};
 		D6A3E2E51E6BBEEA008CF763 /* Extensions */ = {
@@ -565,7 +537,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D636127C1E6BA8D900C2322D /* ShellScript */ = {
@@ -593,16 +565,13 @@
 				D67108BD1EA8DC2B0005AEC5 /* DLFeedbackBtnCell.m in Sources */,
 				D6188C121E8818780020EA7F /* DLSettingInfoCell.m in Sources */,
 				D6188C231E89F9E90020EA7F /* DLBaseViewController.m in Sources */,
-				D67108A61EA1AEB00005AEC5 /* LKDBModel.m in Sources */,
 				D62C2D861E8CBEED00C065A3 /* DLFeedViewController.m in Sources */,
 				D62C2D7D1E8B5ED300C065A3 /* DLRSSGroup.m in Sources */,
-				D67108A81EA1AEB00005AEC5 /* LKDBTool.m in Sources */,
 				D62C2D7A1E8B5D4E00C065A3 /* DLCategoryInfoCell.m in Sources */,
 				D6ECE8251E8F9F5F008036A0 /* DLFeedItem.m in Sources */,
 				D62470891EB30D7600FDD772 /* DLDiscoverContainerViewController.m in Sources */,
 				D636125D1E6A89DC00C2322D /* DLUserCenterViewController.m in Sources */,
 				D6188C131E8818780020EA7F /* DLSettingInfoSwitchCell.m in Sources */,
-				D67108A71EA1AEB00005AEC5 /* LKDBSQLState.m in Sources */,
 				D624B0A41EAF42F900D9B936 /* DLRSSInfoCell.m in Sources */,
 				D624B0A71EAF4BBC00D9B936 /* DLRSSDicover.m in Sources */,
 				D62C2D981E8CCA4A00C065A3 /* DLAddRSSViewController.m in Sources */,
@@ -623,7 +592,6 @@
 				D6A3E2E41E6BB81D008CF763 /* MobilePhone.m in Sources */,
 				D62C2D921E8CC46500C065A3 /* AppUtil.m in Sources */,
 				D62C2D831E8B79C800C065A3 /* DLRSSSubscribeViewController.m in Sources */,
-				D67108A51EA1AEB00005AEC5 /* LKDBColumnDes.m in Sources */,
 				D6188C041E86D6C80020EA7F /* DLSettingsViewController.m in Sources */,
 				D63612441E6A659200C2322D /* AppDelegate.m in Sources */,
 				D6188BFE1E865E800020EA7F /* DLFeedInfoCell.m in Sources */,

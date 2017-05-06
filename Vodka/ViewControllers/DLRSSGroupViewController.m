@@ -19,7 +19,7 @@
 #import <MJExtension.h>
 #import "VodkaUserDefaults.h"
 #import "AppUtil.h"
-#import "LKDBSQLState.h"
+#import <DLDBSQLState.h>
 #import "DLRSS.h"
 #import "DLFeedInfo.h"
 #import "DLFeedItem.h"
@@ -207,22 +207,22 @@ static NSString *const kDLCategoryInfoCell = @"DLCategoryInfoCell";
         } onSuccess:^(id responseObject) {
             
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                LKDBSQLState *query = [[LKDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:RSSGroup.rg_id];
+                DLDBSQLState *query = [[DLDBSQLState alloc] object:[DLRSS class] type:WHERE key:@"rg_id_fk" opt:@"=" value:RSSGroup.rg_id];
                 NSArray <DLRSS *>*RSSList = [DLRSS findByCriteria:[query sqlOptionStr]];
                 
                 for (DLRSS *RSS in RSSList) {
                     
                     //同时删除该RSS的所有DLFeedInfo DLFeedItem缓存
-                    LKDBSQLState *query3 = [[LKDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
+                    DLDBSQLState *query3 = [[DLDBSQLState alloc] object:[DLFeedInfo class] type:WHERE key:@"feedUrl" opt:@"=" value:RSS.feedUrl];
                     [DLFeedInfo deleteObjectsByCriteria:[query3 sqlOptionStr]];
                     
-                    LKDBSQLState *query4 = [[LKDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
+                    DLDBSQLState *query4 = [[DLDBSQLState alloc] object:[DLFeedItem class] type:WHERE key:@"fi_feedUrl_fk" opt:@"=" value:RSS.feedUrl];
                     [DLFeedItem deleteObjectsByCriteria:[query4 sqlOptionStr]];
                     
                     [RSS deleteObject];
                 }
                 
-                LKDBSQLState *query1 = [[LKDBSQLState alloc] object:[DLRSSGroup class] type:WHERE key:@"rg_id" opt:@"=" value:RSSGroup.rg_id];
+                DLDBSQLState *query1 = [[DLDBSQLState alloc] object:[DLRSSGroup class] type:WHERE key:@"rg_id" opt:@"=" value:RSSGroup.rg_id];
                 [DLRSSGroup deleteObjectsByCriteria:[query1 sqlOptionStr]];
                 
                 

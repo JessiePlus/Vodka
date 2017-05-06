@@ -14,7 +14,7 @@
 #import <XMNetworking/XMNetworking.h>
 #import <NSString+HTML.h>
 #import "AppUtil.h"
-#import "LKDBSQLState.h"
+#import <DLDBSQLState.h>
 #import "DLRSSDicover.h"
 
 static const int kPageCount = 10;

@@ -7,42 +7,42 @@
 //
 
 #import "DLRSS.h"
-#import "LKDBTool.h"
+#import <DLDBTool.h>
 
 @implementation DLRSS
 
 //必须重写此方法
 + (NSDictionary *)describeColumnDict{
     
-    LKDBColumnDes *pk_id = [[LKDBColumnDes alloc] initWithAuto:YES isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *pk_id = [[DLDBColumnDes alloc] initWithAuto:YES isNotNull:NO check:nil defaultVa:nil];
     pk_id.primaryKey = YES;
     pk_id.columnName = @"pk_id";
     
-    LKDBColumnDes *r_id = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:YES isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *r_id = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:YES isNotNull:NO check:nil defaultVa:nil];
     r_id.columnName = @"r_id";
     
-    LKDBColumnDes *name = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *name = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     name.columnName = @"name";
     
-    LKDBColumnDes *discrip = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *discrip = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     discrip.columnName = @"discrip";
     
-    LKDBColumnDes *iconUrl = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *iconUrl = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     iconUrl.columnName = @"iconUrl";
     
-    LKDBColumnDes *feedUrl = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *feedUrl = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     feedUrl.columnName = @"feedUrl";
     
-    LKDBColumnDes *linkUrl = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *linkUrl = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     linkUrl.columnName = @"linkUrl";
     
-    LKDBColumnDes *rg_id_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *rg_id_fk = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     rg_id_fk.columnName = @"rg_id_fk";
     
-    LKDBColumnDes *u_id_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *u_id_fk = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     u_id_fk.columnName = @"u_id_fk";
     
-    LKDBColumnDes *open = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *open = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     open.columnName = @"open";
 
     return @{@"pk_id":pk_id,@"r_id":r_id,@"name":name,@"discrip":discrip,@"iconUrl":iconUrl,@"feedUrl":feedUrl,@"linkUrl":linkUrl,@"rg_id_fk":rg_id_fk,@"u_id_fk":u_id_fk,@"open":open};

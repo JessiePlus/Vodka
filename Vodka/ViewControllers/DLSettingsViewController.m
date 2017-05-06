@@ -17,7 +17,7 @@
 #import <KINWebBrowserViewController.h>
 #import <MBProgressHUD.h>
 #import "VodkaUserDefaults.h"
-#import "LKDBTool.h"
+#import <DLDBTool.h>
 #import "DLRSSGroup.h"
 #import "DLRSS.h"
 
@@ -236,7 +236,7 @@ static NSString *const kDLSettingClickCell = @"kDLSettingClickCell";
                     [userDefaults setName:nil];
                     [userDefaults setUserID:nil];
 
-                    [[LKDBTool shareInstance] changeDBWithDirectoryName:nil];
+                    [[DLDBTool shareInstance] changeDBWithDirectoryName:nil];
 
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [hud hideAnimated:YES];

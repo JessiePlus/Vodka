@@ -6,10 +6,10 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "LKDBModel.h"
+#import <DLDBModel.h>
 
 
-@interface DLRSS : LKDBModel
+@interface DLRSS : DLDBModel
 
 @property (nonatomic, assign) int pk_id;
 

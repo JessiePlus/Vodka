@@ -7,30 +7,30 @@
 //
 
 #import "DLFeedItem.h"
-#import "LKDBTool.h"
+#import <DLDBTool.h>
 
 @implementation DLFeedItem
 //必须重写此方法
 + (NSDictionary *)describeColumnDict{
     
-    LKDBColumnDes *pk_id = [[LKDBColumnDes alloc] initWithAuto:YES isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *pk_id = [[DLDBColumnDes alloc] initWithAuto:YES isNotNull:NO check:nil defaultVa:nil];
     pk_id.primaryKey = YES;
     pk_id.columnName = @"pk_id";
     
-    LKDBColumnDes *url = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:YES isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *url = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:YES isNotNull:NO check:nil defaultVa:nil];
     url.columnName = @"url";
     
-    LKDBColumnDes *title = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *title = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     title.columnName = @"title";
     
-    LKDBColumnDes *date = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *date = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     date.columnName = @"date";
     
     
-    LKDBColumnDes *content = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *content = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     content.columnName = @"content";
     
-    LKDBColumnDes *fi_feedUrl_fk = [[LKDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
+    DLDBColumnDes *fi_feedUrl_fk = [[DLDBColumnDes alloc] initWithgeneralFieldWithAuto:NO unique:NO isNotNull:NO check:nil defaultVa:nil];
     fi_feedUrl_fk.columnName = @"fi_feedUrl_fk";
     
     return @{@"pk_id":pk_id,@"url":url,@"title":title,@"date":date,@"content":content,@"fi_feedUrl_fk":fi_feedUrl_fk};

@@ -13,7 +13,7 @@
 #import "User.h"
 #import <MJExtension.h>
 #import "AppUtil.h"
-#import "LKDBTool.h"
+#import <DLDBTool.h>
 
 @interface DLSignInViewController ()
 
@@ -258,7 +258,7 @@
         [userDefaults setName:loginUser.name];
         [userDefaults setAccessToken:loginUser.accessToken];
         
-        [[LKDBTool shareInstance] changeDBWithDirectoryName:loginUser.userID];
+        [[DLDBTool shareInstance] changeDBWithDirectoryName:loginUser.userID];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:[AppUtil notificationNameSignIn] object:nil userInfo:nil];
 

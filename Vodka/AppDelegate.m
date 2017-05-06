@@ -14,7 +14,7 @@
 #import "AppUtil.h"
 #import <XMNetworking/XMNetworking.h>
 #import "VodkaUserDefaults.h"
-#import "LKDBTool.h"
+#import <DLDBTool.h>
 #import "DLDiscoverContainerViewController.h"
 
 @interface AppDelegate ()
@@ -48,7 +48,7 @@
 
     //切换数据库路径到用户路径
     VodkaUserDefaults *userDefaults= [VodkaUserDefaults sharedUserDefaults];
-    [[LKDBTool shareInstance] changeDBWithDirectoryName:userDefaults.userID];
+    [[DLDBTool shareInstance] changeDBWithDirectoryName:userDefaults.userID];
     
     DLFeedListViewController *feedsViewController = [[DLFeedListViewController alloc] init];
     feedsViewController.tabBarItem.title = NSLocalizedString(@"Feeds", comment: "");

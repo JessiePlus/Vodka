@@ -6,9 +6,9 @@
 //  Copyright © 2017年 dinglin. All rights reserved.
 //
 
-#import "LKDBModel.h"
+#import <DLDBModel.h>
 
-@interface DLFeedInfo : LKDBModel
+@interface DLFeedInfo : DLDBModel
 
 @property (nonatomic, assign) int pk_id;
 

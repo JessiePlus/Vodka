@@ -12,6 +12,7 @@ def pods
     pod 'FMDB'
     pod 'KINWebBrowser'
     pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'DLFMDB'
 end
 
 target ‘Vodka’ do
